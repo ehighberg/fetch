@@ -31,6 +31,12 @@ _**PROJECT NAME** is ._
 
 ## Team
 
+- David Coughlin - User Experience Designer
+- Errol Highberg - Software Developer
+- Tara Solbrig - Software Developer
+- Trevor Smith-Holbourn - Software Developer
+- Valeria Gonzalez - User Experience Designer
+
 
 ## MVP
 
@@ -77,8 +83,7 @@ _Our MVP is ._
 |  Component   | State | Description                                                      |
 | :----------: | :---: | :--------------------------------------------------------------- |
 |    Header    |   N   | _The header will contain site navigation and logo._|
-|    Footer    |   N   | _Links to my portfolio/contact info._ |
-|  Main  |   N   | _Container for User and Experiment views._|
+
 
 
 <br>
@@ -87,7 +92,7 @@ _Our MVP is ._
 
 #### ERD Model
 
-![ERD](https://i.imgur.com/pSM9szE.png)
+
 
 #### Endpoints
 
