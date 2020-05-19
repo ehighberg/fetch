@@ -16,7 +16,7 @@
       - [ERD Model](#ERD-Model)
     - [Data Flow](#Data-Flow)
   - [Post-MVP](#Post-MVP)
-  - [Project Delivery](#Project-Delivery)
+  - [Project Change Log](#Project-Change-Log)
   - [Code Showcase](#Code-Showcase)
   - [Code Issues & Resolutions](#Code-Issues--Resolutions)
 
@@ -130,6 +130,8 @@ _Our MVP is ._
 
 ## Post-MVP
 
+- Send email from app
+- Share documents and / or media
 
 
 <br>
