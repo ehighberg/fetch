@@ -14,6 +14,7 @@
       - [Component Estimates](#Component-Estimates)
     - [MVP Server (Back End)](#MVP-Server-Back-End)
       - [ERD Model](#ERD-Model)
+    - [Data Flow](#Data-Flow)
   - [Post-MVP](#Post-MVP)
   - [Project Delivery](#Project-Delivery)
   - [Code Showcase](#Code-Showcase)
@@ -42,7 +43,7 @@ _Our MVP is ._
 
 <br>
 
-### MVP Libraries
+### MVP Libraries and external APIs
 
 
 |     Library      | Description                                |
@@ -53,6 +54,11 @@ _Our MVP is ._
 |      Formik      | _Simpler form handling in React._           |
 |    Faker         | _Generate seed data._          |
 | Ruby on Rails    | _Backend server._ |
+
+
+|  External API    | Description |
+| --- | --- |
+| [GeoJS](https://geojs.io) | _Local time and geolocation._ |
 
 
 <br>
@@ -98,6 +104,8 @@ _Our MVP is ._
 
 <br>
 
+### Data Flow
+
 ***
 
 ## Planning
@@ -108,7 +116,7 @@ _Our MVP is ._
 
 | Task                | Priority | Estimated Time | Actual Time |
 | ------------------- | :------: | :------------: | :---------: |
-| TOTAL | T |  | 4 |
+| TOTAL | T |  |  |
 
 
 <br>
