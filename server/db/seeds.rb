@@ -48,7 +48,8 @@ userA = User.create(
     avatar: Faker::Placeholdit.image(size:"50x50"),
     last_location: "#{Faker::Address.latitude} #{Faker::Address.longitude}",
     title: Faker::Company.profession,
-    team: teamC
+    team: teamC,
+    bio: Faker::Hipster.paragraph
 )
 
 teamA.manager_id = userA.id
@@ -67,7 +68,8 @@ userB = User.create(
     avatar: Faker::Placeholdit.image(size:"50x50"),
     last_location: "#{Faker::Address.latitude} #{Faker::Address.longitude}",
     title: Faker::Company.profession,
-    team: teamA
+    team: teamA,
+    bio: Faker::Hipster.paragraph
 )
 
 userC = User.create(
@@ -81,7 +83,8 @@ userC = User.create(
     avatar: Faker::Placeholdit.image(size:"50x50"),
     last_location: "#{Faker::Address.latitude} #{Faker::Address.longitude}",
     title: Faker::Company.profession,
-    team: teamB
+    team: teamB,
+    bio: Faker::Hipster.paragraph
 )
 
 userD = User.create(
@@ -95,7 +98,8 @@ userD = User.create(
     avatar: Faker::Placeholdit.image(size:"50x50"),
     last_location: "#{Faker::Address.latitude} #{Faker::Address.longitude}",
     title: Faker::Company.profession,
-    team: teamB
+    team: teamB,
+    bio: Faker::Hipster.paragraph
 )
 
 roomPublic = Room.create(

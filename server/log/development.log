@@ -2813,3 +2813,773 @@ Processing by UsersController#show as HTML
 Completed 200 OK in 3ms (Views: 1.3ms | ActiveRecord: 0.5ms | Allocations: 2380)
 
 
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4709995827031202925)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddBioToUsers (20200520184556)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.3ms)[0m  [1m[35mALTER TABLE "users" ADD "bio" text[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200520184556"]]
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(4709995827031202925)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4709995827031202925)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(4709995827031202925)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (110.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "server_development"[0m
+  [1m[35m (114.5ms)[0m  [1m[35mDROP DATABASE IF EXISTS "server_test"[0m
+  [1m[35m (378.5ms)[0m  [1m[35mCREATE DATABASE "server_development" ENCODING = 'unicode'[0m
+  [1m[35m (272.1ms)[0m  [1m[35mCREATE DATABASE "server_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "posts" CASCADE[0m
+  [1m[35m (7.2ms)[0m  [1m[35mCREATE TABLE "posts" ("id" bigserial primary key, "content" text, "room_id" bigint NOT NULL, "user_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE  INDEX  "index_posts_on_room_id" ON "posts"  ("room_id")[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE  INDEX  "index_posts_on_user_id" ON "posts"  ("user_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "rooms" CASCADE[0m
+  [1m[35m (4.3ms)[0m  [1m[35mCREATE TABLE "rooms" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "tags" CASCADE[0m
+  [1m[35m (4.2ms)[0m  [1m[35mCREATE TABLE "tags" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "tags_users" CASCADE[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "tags_users" ("user_id" bigint NOT NULL, "tag_id" bigint NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "teams" CASCADE[0m
+  [1m[35m (4.1ms)[0m  [1m[35mCREATE TABLE "teams" ("id" bigserial primary key, "name" character varying, "description" character varying, "department" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "manager_id" integer)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (4.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying, "password_digest" character varying, "presence" character varying, "status_message" character varying, "slack" character varying, "phone" character varying, "avatar" character varying, "last_location" character varying, "title" character varying, "team_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "name" character varying, "bio" text)[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_team_id" ON "users"  ("team_id")[0m
+  [1m[35m (1.4ms)[0m  [1m[35mALTER TABLE "posts" ADD CONSTRAINT "fk_rails_169f41e3e1"
+FOREIGN KEY ("room_id")
+  REFERENCES "rooms" ("id")
+[0m
+  [1m[35m (1.2ms)[0m  [1m[35mALTER TABLE "posts" ADD CONSTRAINT "fk_rails_5b5ddfd518"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE "users" ADD CONSTRAINT "fk_rails_b2bbf87303"
+FOREIGN KEY ("team_id")
+  REFERENCES "teams" ("id")
+[0m
+  [1m[35m (4.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20200520184556)[0m
+  [1m[35m (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20200520032145),
+(20200520032156),
+(20200520032205),
+(20200520032217),
+(20200520032228),
+(20200520032236),
+(20200520032249),
+(20200520182653);
+
+[0m
+  [1m[35m (4.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-05-20 18:48:22.282893"], ["updated_at", "2020-05-20 18:48:22.282893"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "6e6372f2394433b27d2735cb8158ace4c4022a0b"], ["created_at", "2020-05-20 18:48:22.288768"], ["updated_at", "2020-05-20 18:48:22.288768"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "posts" CASCADE[0m
+  [1m[35m (6.9ms)[0m  [1m[35mCREATE TABLE "posts" ("id" bigserial primary key, "content" text, "room_id" bigint NOT NULL, "user_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE  INDEX  "index_posts_on_room_id" ON "posts"  ("room_id")[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE  INDEX  "index_posts_on_user_id" ON "posts"  ("user_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "rooms" CASCADE[0m
+  [1m[35m (4.6ms)[0m  [1m[35mCREATE TABLE "rooms" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "tags" CASCADE[0m
+  [1m[35m (4.3ms)[0m  [1m[35mCREATE TABLE "tags" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "tags_users" CASCADE[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "tags_users" ("user_id" bigint NOT NULL, "tag_id" bigint NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "teams" CASCADE[0m
+  [1m[35m (9.2ms)[0m  [1m[35mCREATE TABLE "teams" ("id" bigserial primary key, "name" character varying, "description" character varying, "department" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "manager_id" integer)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (9.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying, "password_digest" character varying, "presence" character varying, "status_message" character varying, "slack" character varying, "phone" character varying, "avatar" character varying, "last_location" character varying, "title" character varying, "team_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "name" character varying, "bio" text)[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_team_id" ON "users"  ("team_id")[0m
+  [1m[35m (3.8ms)[0m  [1m[35mALTER TABLE "posts" ADD CONSTRAINT "fk_rails_169f41e3e1"
+FOREIGN KEY ("room_id")
+  REFERENCES "rooms" ("id")
+[0m
+  [1m[35m (2.3ms)[0m  [1m[35mALTER TABLE "posts" ADD CONSTRAINT "fk_rails_5b5ddfd518"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (2.2ms)[0m  [1m[35mALTER TABLE "users" ADD CONSTRAINT "fk_rails_b2bbf87303"
+FOREIGN KEY ("team_id")
+  REFERENCES "teams" ("id")
+[0m
+  [1m[35m (6.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20200520184556)[0m
+  [1m[35m (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20200520032145),
+(20200520032156),
+(20200520032205),
+(20200520032217),
+(20200520032228),
+(20200520032236),
+(20200520032249),
+(20200520182653);
+
+[0m
+  [1m[35m (5.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-05-20 18:48:22.407136"], ["updated_at", "2020-05-20 18:48:22.407136"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.3ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2020-05-20 18:48:22.413783"], ["key", "environment"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "6e6372f2394433b27d2735cb8158ace4c4022a0b"], ["created_at", "2020-05-20 18:48:22.418302"], ["updated_at", "2020-05-20 18:48:22.418302"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeam Create (0.4ms)[0m  [1m[32mINSERT INTO "teams" ("name", "description", "department", "created_at", "updated_at", "manager_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "A"], ["description", "A"], ["department", "Engineering"], ["created_at", "2020-05-20 18:48:22.459047"], ["updated_at", "2020-05-20 18:48:22.459047"], ["manager_id", 0]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeam Create (0.2ms)[0m  [1m[32mINSERT INTO "teams" ("name", "description", "department", "created_at", "updated_at", "manager_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "B"], ["description", "B"], ["department", "UX"], ["created_at", "2020-05-20 18:48:22.463223"], ["updated_at", "2020-05-20 18:48:22.463223"], ["manager_id", 0]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeam Create (0.2ms)[0m  [1m[32mINSERT INTO "teams" ("name", "description", "department", "created_at", "updated_at", "manager_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "C"], ["description", "C"], ["department", "CSUITE"], ["created_at", "2020-05-20 18:48:22.466604"], ["updated_at", "2020-05-20 18:48:22.466604"], ["manager_id", 0]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (1.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "presence", "status_message", "slack", "phone", "avatar", "last_location", "title", "team_id", "created_at", "updated_at", "name", "bio") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["email", "clark@macejkovic.net"], ["password_digest", "password"], ["presence", "offline"], ["status_message", "Out of office till May 27th - Reachable on 555-999-0000"], ["slack", "kevin_dicki"], ["phone", "(426) 548-1338 x12094"], ["avatar", "https://placehold.it/50x50.png"], ["last_location", "-43.36080037866347 -64.18268728876579"], ["title", "shop assistant"], ["team_id", 3], ["created_at", "2020-05-20 18:48:22.600236"], ["updated_at", "2020-05-20 18:48:22.600236"], ["name", "Lucienne Hoeger"], ["bio", "Locavore blue bottle you probably haven't heard of them beard. 8-bit tote bag twee leggings photo booth taxidermy cliche. Twee next level farm-to-table tattooed pickled kinfolk."]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeam Update (0.3ms)[0m  [1m[33mUPDATE "teams" SET "updated_at" = $1, "manager_id" = $2 WHERE "teams"."id" = $3[0m  [["updated_at", "2020-05-20 18:48:22.606452"], ["manager_id", 1], ["id", 1]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeam Update (0.2ms)[0m  [1m[33mUPDATE "teams" SET "updated_at" = $1, "manager_id" = $2 WHERE "teams"."id" = $3[0m  [["updated_at", "2020-05-20 18:48:22.609755"], ["manager_id", 1], ["id", 2]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "presence", "status_message", "slack", "phone", "avatar", "last_location", "title", "team_id", "created_at", "updated_at", "name", "bio") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["email", "francesca_kuhlman@adams.co"], ["password_digest", "password"], ["presence", "away"], ["status_message", "All day meetings"], ["slack", "sebastian_simonis"], ["phone", "471-761-5441"], ["avatar", "https://placehold.it/50x50.png"], ["last_location", "26.292463020576406 93.79125713727035"], ["title", "plumber"], ["team_id", 1], ["created_at", "2020-05-20 18:48:22.613730"], ["updated_at", "2020-05-20 18:48:22.613730"], ["name", "Easter Waelchi"], ["bio", "Taxidermy selvage knausgaard photo booth gluten-free. Narwhal yolo hashtag. Church-key forage try-hard truffaut roof you probably haven't heard of them. Meggings chartreuse hammock wayfarers phlogiston pug ramps gastropub. Park kale chips literally."]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "presence", "status_message", "slack", "phone", "avatar", "last_location", "title", "team_id", "created_at", "updated_at", "name", "bio") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["email", "thad_dooley@keeling.name"], ["password_digest", "password"], ["presence", "online"], ["status_message", "Here"], ["slack", "kathyrn"], ["phone", "1-796-364-3569 x927"], ["avatar", "https://placehold.it/50x50.png"], ["last_location", "69.14248208246912 35.694997771931554"], ["title", "lecturer"], ["team_id", 2], ["created_at", "2020-05-20 18:48:22.618330"], ["updated_at", "2020-05-20 18:48:22.618330"], ["name", "Young Keeling"], ["bio", "Gentrify distillery polaroid offal. Kombucha crucifix waistcoat everyday hammock. Fashion axe swag chambray small batch. Venmo forage cold-pressed ugh gluten-free williamsburg kombucha retro. Fixie ramps kinfolk."]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "presence", "status_message", "slack", "phone", "avatar", "last_location", "title", "team_id", "created_at", "updated_at", "name", "bio") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["email", "victor_buckridge@roob.com"], ["password_digest", "password"], ["presence", "online"], ["status_message", "Hi!"], ["slack", "juan"], ["phone", "(517) 748-3879 x9047"], ["avatar", "https://placehold.it/50x50.png"], ["last_location", "-50.35532035020262 -98.79193576559321"], ["title", "waiter"], ["team_id", 2], ["created_at", "2020-05-20 18:48:22.624140"], ["updated_at", "2020-05-20 18:48:22.624140"], ["name", "Tashia Heller"], ["bio", "Literally marfa migas cardigan occupy. Meditation hoodie tacos sriracha etsy. Austin vice bitters roof tousled blog five dollar toast. Shoreditch drinking cronut photo booth tattooed asymmetrical godard. Mlkshk salvia 8-bit small batch locavore ethical whatever."]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRoom Create (0.4ms)[0m  [1m[32mINSERT INTO "rooms" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "public"], ["created_at", "2020-05-20 18:48:22.633748"], ["updated_at", "2020-05-20 18:48:22.633748"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRoom Create (0.2ms)[0m  [1m[32mINSERT INTO "rooms" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "userA userB"], ["created_at", "2020-05-20 18:48:22.637543"], ["updated_at", "2020-05-20 18:48:22.637543"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRoom Create (0.2ms)[0m  [1m[32mINSERT INTO "rooms" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "userB userC"], ["created_at", "2020-05-20 18:48:22.640748"], ["updated_at", "2020-05-20 18:48:22.640748"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.7ms)[0m  [1m[32mINSERT INTO "posts" ("content", "room_id", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "Sriracha scenester quinoa fashion axe thundercats."], ["room_id", 1], ["user_id", 1], ["created_at", "2020-05-20 18:48:22.651619"], ["updated_at", "2020-05-20 18:48:22.651619"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (1.0ms)[0m  [1m[32mINSERT INTO "posts" ("content", "room_id", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "Semiotics bespoke literally truffaut post-ironic meggings twee bushwick."], ["room_id", 1], ["user_id", 2], ["created_at", "2020-05-20 18:48:22.658106"], ["updated_at", "2020-05-20 18:48:22.658106"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (1.2ms)[0m  [1m[32mINSERT INTO "posts" ("content", "room_id", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "Mlkshk etsy actually cold-pressed 90's."], ["room_id", 2], ["user_id", 1], ["created_at", "2020-05-20 18:48:22.669364"], ["updated_at", "2020-05-20 18:48:22.669364"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.7ms)[0m  [1m[32mINSERT INTO "posts" ("content", "room_id", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "Pug etsy ennui stumptown."], ["room_id", 2], ["user_id", 2], ["created_at", "2020-05-20 18:48:22.681118"], ["updated_at", "2020-05-20 18:48:22.681118"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.5ms)[0m  [1m[32mINSERT INTO "posts" ("content", "room_id", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "Humblebrag banh mi park organic."], ["room_id", 3], ["user_id", 2], ["created_at", "2020-05-20 18:48:22.688360"], ["updated_at", "2020-05-20 18:48:22.688360"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.4ms)[0m  [1m[32mINSERT INTO "posts" ("content", "room_id", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "Gastropub craft beer neutra franzen distillery leggings 8-bit."], ["room_id", 3], ["user_id", 3], ["created_at", "2020-05-20 18:48:22.693989"], ["updated_at", "2020-05-20 18:48:22.693989"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTag Create (0.4ms)[0m  [1m[32mINSERT INTO "tags" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Developer"], ["created_at", "2020-05-20 18:48:22.706015"], ["updated_at", "2020-05-20 18:48:22.706015"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTag Create (0.2ms)[0m  [1m[32mINSERT INTO "tags" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "UX"], ["created_at", "2020-05-20 18:48:22.709798"], ["updated_at", "2020-05-20 18:48:22.709798"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTag Create (0.2ms)[0m  [1m[32mINSERT INTO "tags" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Frontend"], ["created_at", "2020-05-20 18:48:22.712765"], ["updated_at", "2020-05-20 18:48:22.712765"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTag Create (0.2ms)[0m  [1m[32mINSERT INTO "tags" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Fullstack"], ["created_at", "2020-05-20 18:48:22.715804"], ["updated_at", "2020-05-20 18:48:22.715804"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTag Create (0.3ms)[0m  [1m[32mINSERT INTO "tags" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "FrenchSpeaker"], ["created_at", "2020-05-20 18:48:22.728276"], ["updated_at", "2020-05-20 18:48:22.728276"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTag::HABTM_Users Create (0.3ms)[0m  [1m[32mINSERT INTO "tags_users" ("user_id", "tag_id") VALUES ($1, $2)[0m  [["user_id", 1], ["tag_id", 1]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTag::HABTM_Users Create (0.2ms)[0m  [1m[32mINSERT INTO "tags_users" ("user_id", "tag_id") VALUES ($1, $2)[0m  [["user_id", 2], ["tag_id", 2]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTag::HABTM_Users Create (0.1ms)[0m  [1m[32mINSERT INTO "tags_users" ("user_id", "tag_id") VALUES ($1, $2)[0m  [["user_id", 3], ["tag_id", 3]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTag::HABTM_Users Create (0.2ms)[0m  [1m[32mINSERT INTO "tags_users" ("user_id", "tag_id") VALUES ($1, $2)[0m  [["user_id", 4], ["tag_id", 4]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTag::HABTM_Users Create (0.1ms)[0m  [1m[32mINSERT INTO "tags_users" ("user_id", "tag_id") VALUES ($1, $2)[0m  [["user_id", 1], ["tag_id", 5]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTag::HABTM_Users Create (0.1ms)[0m  [1m[32mINSERT INTO "tags_users" ("user_id", "tag_id") VALUES ($1, $2)[0m  [["user_id", 2], ["tag_id", 1]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTag::HABTM_Users Create (0.1ms)[0m  [1m[32mINSERT INTO "tags_users" ("user_id", "tag_id") VALUES ($1, $2)[0m  [["user_id", 3], ["tag_id", 2]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (111.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "server_development"[0m
+  [1m[35m (118.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "server_test"[0m
+  [1m[35m (280.9ms)[0m  [1m[35mCREATE DATABASE "server_development" ENCODING = 'unicode'[0m
+  [1m[35m (275.6ms)[0m  [1m[35mCREATE DATABASE "server_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "posts" CASCADE[0m
+  [1m[35m (16.6ms)[0m  [1m[35mCREATE TABLE "posts" ("id" bigserial primary key, "content" text, "room_id" bigint NOT NULL, "user_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE  INDEX  "index_posts_on_room_id" ON "posts"  ("room_id")[0m
+  [1m[35m (3.7ms)[0m  [1m[35mCREATE  INDEX  "index_posts_on_user_id" ON "posts"  ("user_id")[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "rooms" CASCADE[0m
+  [1m[35m (13.5ms)[0m  [1m[35mCREATE TABLE "rooms" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "tags" CASCADE[0m
+  [1m[35m (12.8ms)[0m  [1m[35mCREATE TABLE "tags" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "tags_users" CASCADE[0m
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE TABLE "tags_users" ("user_id" bigint NOT NULL, "tag_id" bigint NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "teams" CASCADE[0m
+  [1m[35m (9.5ms)[0m  [1m[35mCREATE TABLE "teams" ("id" bigserial primary key, "name" character varying, "description" character varying, "department" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "manager_id" integer)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (12.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying, "password_digest" character varying, "presence" character varying, "status_message" character varying, "slack" character varying, "phone" character varying, "avatar" character varying, "last_location" character varying, "title" character varying, "team_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "name" character varying, "bio" text)[0m
+  [1m[35m (7.0ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_team_id" ON "users"  ("team_id")[0m
+  [1m[35m (4.6ms)[0m  [1m[35mALTER TABLE "posts" ADD CONSTRAINT "fk_rails_169f41e3e1"
+FOREIGN KEY ("room_id")
+  REFERENCES "rooms" ("id")
+[0m
+  [1m[35m (6.1ms)[0m  [1m[35mALTER TABLE "posts" ADD CONSTRAINT "fk_rails_5b5ddfd518"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (3.4ms)[0m  [1m[35mALTER TABLE "users" ADD CONSTRAINT "fk_rails_b2bbf87303"
+FOREIGN KEY ("team_id")
+  REFERENCES "teams" ("id")
+[0m
+  [1m[35m (10.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20200520184556)[0m
+  [1m[35m (1.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20200520032145),
+(20200520032156),
+(20200520032205),
+(20200520032217),
+(20200520032228),
+(20200520032236),
+(20200520032249),
+(20200520182653);
+
+[0m
+  [1m[35m (12.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-05-20 18:48:50.379686"], ["updated_at", "2020-05-20 18:48:50.379686"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "6e6372f2394433b27d2735cb8158ace4c4022a0b"], ["created_at", "2020-05-20 18:48:50.397380"], ["updated_at", "2020-05-20 18:48:50.397380"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "posts" CASCADE[0m
+  [1m[35m (10.2ms)[0m  [1m[35mCREATE TABLE "posts" ("id" bigserial primary key, "content" text, "room_id" bigint NOT NULL, "user_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE  INDEX  "index_posts_on_room_id" ON "posts"  ("room_id")[0m
+  [1m[35m (4.6ms)[0m  [1m[35mCREATE  INDEX  "index_posts_on_user_id" ON "posts"  ("user_id")[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "rooms" CASCADE[0m
+  [1m[35m (9.5ms)[0m  [1m[35mCREATE TABLE "rooms" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "tags" CASCADE[0m
+  [1m[35m (10.2ms)[0m  [1m[35mCREATE TABLE "tags" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "tags_users" CASCADE[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "tags_users" ("user_id" bigint NOT NULL, "tag_id" bigint NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "teams" CASCADE[0m
+  [1m[35m (10.2ms)[0m  [1m[35mCREATE TABLE "teams" ("id" bigserial primary key, "name" character varying, "description" character varying, "department" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "manager_id" integer)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (11.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying, "password_digest" character varying, "presence" character varying, "status_message" character varying, "slack" character varying, "phone" character varying, "avatar" character varying, "last_location" character varying, "title" character varying, "team_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "name" character varying, "bio" text)[0m
+  [1m[35m (3.7ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_team_id" ON "users"  ("team_id")[0m
+  [1m[35m (4.9ms)[0m  [1m[35mALTER TABLE "posts" ADD CONSTRAINT "fk_rails_169f41e3e1"
+FOREIGN KEY ("room_id")
+  REFERENCES "rooms" ("id")
+[0m
+  [1m[35m (3.4ms)[0m  [1m[35mALTER TABLE "posts" ADD CONSTRAINT "fk_rails_5b5ddfd518"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (3.0ms)[0m  [1m[35mALTER TABLE "users" ADD CONSTRAINT "fk_rails_b2bbf87303"
+FOREIGN KEY ("team_id")
+  REFERENCES "teams" ("id")
+[0m
+  [1m[35m (9.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20200520184556)[0m
+  [1m[35m (1.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20200520032145),
+(20200520032156),
+(20200520032205),
+(20200520032217),
+(20200520032228),
+(20200520032236),
+(20200520032249),
+(20200520182653);
+
+[0m
+  [1m[35m (8.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-05-20 18:48:50.591861"], ["updated_at", "2020-05-20 18:48:50.591861"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.5ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2020-05-20 18:48:50.609627"], ["key", "environment"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "6e6372f2394433b27d2735cb8158ace4c4022a0b"], ["created_at", "2020-05-20 18:48:50.620053"], ["updated_at", "2020-05-20 18:48:50.620053"]]
+  [1m[35m (2.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeam Create (0.4ms)[0m  [1m[32mINSERT INTO "teams" ("name", "description", "department", "created_at", "updated_at", "manager_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "A"], ["description", "A"], ["department", "Engineering"], ["created_at", "2020-05-20 18:48:50.667393"], ["updated_at", "2020-05-20 18:48:50.667393"], ["manager_id", 0]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeam Create (0.2ms)[0m  [1m[32mINSERT INTO "teams" ("name", "description", "department", "created_at", "updated_at", "manager_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "B"], ["description", "B"], ["department", "UX"], ["created_at", "2020-05-20 18:48:50.671290"], ["updated_at", "2020-05-20 18:48:50.671290"], ["manager_id", 0]]
+  [1m[35m (3.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeam Create (0.2ms)[0m  [1m[32mINSERT INTO "teams" ("name", "description", "department", "created_at", "updated_at", "manager_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "C"], ["description", "C"], ["department", "CSUITE"], ["created_at", "2020-05-20 18:48:50.677573"], ["updated_at", "2020-05-20 18:48:50.677573"], ["manager_id", 0]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "presence", "status_message", "slack", "phone", "avatar", "last_location", "title", "team_id", "created_at", "updated_at", "name", "bio") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["email", "charlena@sauer.com"], ["password_digest", "password"], ["presence", "offline"], ["status_message", "Out of office till May 27th - Reachable on 555-999-0000"], ["slack", "carolina"], ["phone", "856-285-8917 x6412"], ["avatar", "https://placehold.it/50x50.png"], ["last_location", "-15.344195233147985 172.15661085269147"], ["title", "attorney"], ["team_id", 3], ["created_at", "2020-05-20 18:48:50.775399"], ["updated_at", "2020-05-20 18:48:50.775399"], ["name", "Lajuana Carroll"], ["bio", "Microdosing mlkshk venmo offal hoodie blue bottle. Chicharrones schlitz skateboard helvetica gastropub celiac mixtape quinoa. Typewriter chartreuse schlitz normcore. Schlitz authentic keffiyeh whatever wolf tilde freegan beard."]]
+  [1m[35m (16.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeam Update (0.3ms)[0m  [1m[33mUPDATE "teams" SET "updated_at" = $1, "manager_id" = $2 WHERE "teams"."id" = $3[0m  [["updated_at", "2020-05-20 18:48:50.795641"], ["manager_id", 1], ["id", 1]]
+  [1m[35m (3.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeam Update (0.3ms)[0m  [1m[33mUPDATE "teams" SET "updated_at" = $1, "manager_id" = $2 WHERE "teams"."id" = $3[0m  [["updated_at", "2020-05-20 18:48:50.802220"], ["manager_id", 1], ["id", 2]]
+  [1m[35m (3.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "presence", "status_message", "slack", "phone", "avatar", "last_location", "title", "team_id", "created_at", "updated_at", "name", "bio") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["email", "adan@jenkins.net"], ["password_digest", "password"], ["presence", "away"], ["status_message", "All day meetings"], ["slack", "anisa"], ["phone", "732.449.5083"], ["avatar", "https://placehold.it/50x50.png"], ["last_location", "35.54134438562836 36.955466784002056"], ["title", "newsreader"], ["team_id", 1], ["created_at", "2020-05-20 18:48:50.808785"], ["updated_at", "2020-05-20 18:48:50.808785"], ["name", "Sophia Wiegand"], ["bio", "Banh mi humblebrag hella etsy 90's kitsch fashion axe. Tofu narwhal swag cleanse butcher. Bespoke tote bag master single-origin coffee seitan twee cray photo booth. Farm-to-table irony truffaut tacos helvetica. Diy freegan irony shoreditch art party tilde."]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "presence", "status_message", "slack", "phone", "avatar", "last_location", "title", "team_id", "created_at", "updated_at", "name", "bio") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["email", "fairy_hansen@wehner.biz"], ["password_digest", "password"], ["presence", "online"], ["status_message", "Here"], ["slack", "katelynn.schamberger"], ["phone", "(576) 225-0034"], ["avatar", "https://placehold.it/50x50.png"], ["last_location", "-64.2739661126404 92.22510015767853"], ["title", "waiter"], ["team_id", 2], ["created_at", "2020-05-20 18:48:50.813085"], ["updated_at", "2020-05-20 18:48:50.813085"], ["name", "Chad Runolfsson"], ["bio", "Deep v vinyl kogi pug wes anderson. Vinyl next level asymmetrical stumptown. Listicle synth waistcoat meh cardigan bespoke leggings pug."]]
+  [1m[35m (3.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "presence", "status_message", "slack", "phone", "avatar", "last_location", "title", "team_id", "created_at", "updated_at", "name", "bio") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["email", "jerrod.mohr@lemke.biz"], ["password_digest", "password"], ["presence", "online"], ["status_message", "Hi!"], ["slack", "inez"], ["phone", "458-294-5636"], ["avatar", "https://placehold.it/50x50.png"], ["last_location", "8.835506643456995 -139.52383306044425"], ["title", "barber"], ["team_id", 2], ["created_at", "2020-05-20 18:48:50.819608"], ["updated_at", "2020-05-20 18:48:50.819608"], ["name", "Dania Kertzmann"], ["bio", "3 wolf moon tilde cray austin street. Scenester freegan lo-fi 90's kinfolk literally paleo. Art party gluten-free before they sold out deep v health keffiyeh direct trade mustache."]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRoom Create (0.3ms)[0m  [1m[32mINSERT INTO "rooms" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "public"], ["created_at", "2020-05-20 18:48:50.828464"], ["updated_at", "2020-05-20 18:48:50.828464"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRoom Create (0.2ms)[0m  [1m[32mINSERT INTO "rooms" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "userA userB"], ["created_at", "2020-05-20 18:48:50.831832"], ["updated_at", "2020-05-20 18:48:50.831832"]]
+  [1m[35m (3.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRoom Create (0.2ms)[0m  [1m[32mINSERT INTO "rooms" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "userB userC"], ["created_at", "2020-05-20 18:48:50.837674"], ["updated_at", "2020-05-20 18:48:50.837674"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.6ms)[0m  [1m[32mINSERT INTO "posts" ("content", "room_id", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "Pitchfork raw denim wayfarers celiac five dollar toast meh."], ["room_id", 1], ["user_id", 1], ["created_at", "2020-05-20 18:48:50.846810"], ["updated_at", "2020-05-20 18:48:50.846810"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("content", "room_id", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "Schlitz bespoke next level organic chartreuse pbr&b art party skateboard try-hard."], ["room_id", 1], ["user_id", 2], ["created_at", "2020-05-20 18:48:50.850793"], ["updated_at", "2020-05-20 18:48:50.850793"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("content", "room_id", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "Mustache whatever cold-pressed helvetica humblebrag skateboard."], ["room_id", 2], ["user_id", 1], ["created_at", "2020-05-20 18:48:50.854099"], ["updated_at", "2020-05-20 18:48:50.854099"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (1.2ms)[0m  [1m[32mINSERT INTO "posts" ("content", "room_id", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "Master ennui blog cred."], ["room_id", 2], ["user_id", 2], ["created_at", "2020-05-20 18:48:50.860280"], ["updated_at", "2020-05-20 18:48:50.860280"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.7ms)[0m  [1m[32mINSERT INTO "posts" ("content", "room_id", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "Chicharrones 8-bit neutra tofu."], ["room_id", 3], ["user_id", 2], ["created_at", "2020-05-20 18:48:50.871454"], ["updated_at", "2020-05-20 18:48:50.871454"]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.6ms)[0m  [1m[32mINSERT INTO "posts" ("content", "room_id", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "Phlogiston stumptown vinyl cornhole offal kickstarter."], ["room_id", 3], ["user_id", 3], ["created_at", "2020-05-20 18:48:50.878902"], ["updated_at", "2020-05-20 18:48:50.878902"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTag Create (0.5ms)[0m  [1m[32mINSERT INTO "tags" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Developer"], ["created_at", "2020-05-20 18:48:50.893217"], ["updated_at", "2020-05-20 18:48:50.893217"]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTag Create (0.2ms)[0m  [1m[32mINSERT INTO "tags" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "UX"], ["created_at", "2020-05-20 18:48:50.898165"], ["updated_at", "2020-05-20 18:48:50.898165"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTag Create (0.2ms)[0m  [1m[32mINSERT INTO "tags" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Frontend"], ["created_at", "2020-05-20 18:48:50.901373"], ["updated_at", "2020-05-20 18:48:50.901373"]]
+  [1m[35m (4.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTag Create (0.3ms)[0m  [1m[32mINSERT INTO "tags" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Fullstack"], ["created_at", "2020-05-20 18:48:50.908500"], ["updated_at", "2020-05-20 18:48:50.908500"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTag Create (0.3ms)[0m  [1m[32mINSERT INTO "tags" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "FrenchSpeaker"], ["created_at", "2020-05-20 18:48:50.921669"], ["updated_at", "2020-05-20 18:48:50.921669"]]
+  [1m[35m (3.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTag::HABTM_Users Create (0.3ms)[0m  [1m[32mINSERT INTO "tags_users" ("user_id", "tag_id") VALUES ($1, $2)[0m  [["user_id", 1], ["tag_id", 1]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTag::HABTM_Users Create (0.2ms)[0m  [1m[32mINSERT INTO "tags_users" ("user_id", "tag_id") VALUES ($1, $2)[0m  [["user_id", 2], ["tag_id", 2]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTag::HABTM_Users Create (0.2ms)[0m  [1m[32mINSERT INTO "tags_users" ("user_id", "tag_id") VALUES ($1, $2)[0m  [["user_id", 3], ["tag_id", 3]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTag::HABTM_Users Create (0.2ms)[0m  [1m[32mINSERT INTO "tags_users" ("user_id", "tag_id") VALUES ($1, $2)[0m  [["user_id", 4], ["tag_id", 4]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTag::HABTM_Users Create (0.2ms)[0m  [1m[32mINSERT INTO "tags_users" ("user_id", "tag_id") VALUES ($1, $2)[0m  [["user_id", 1], ["tag_id", 5]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTag::HABTM_Users Create (0.2ms)[0m  [1m[32mINSERT INTO "tags_users" ("user_id", "tag_id") VALUES ($1, $2)[0m  [["user_id", 2], ["tag_id", 1]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTag::HABTM_Users Create (0.2ms)[0m  [1m[32mINSERT INTO "tags_users" ("user_id", "tag_id") VALUES ($1, $2)[0m  [["user_id", 3], ["tag_id", 2]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeam Create (0.3ms)[0m  [1m[32mINSERT INTO "teams" ("name", "description", "department", "created_at", "updated_at", "manager_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "A"], ["description", "A"], ["department", "Engineering"], ["created_at", "2020-05-20 18:48:56.184336"], ["updated_at", "2020-05-20 18:48:56.184336"], ["manager_id", 0]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeam Create (0.3ms)[0m  [1m[32mINSERT INTO "teams" ("name", "description", "department", "created_at", "updated_at", "manager_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "B"], ["description", "B"], ["department", "UX"], ["created_at", "2020-05-20 18:48:56.187885"], ["updated_at", "2020-05-20 18:48:56.187885"], ["manager_id", 0]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeam Create (0.2ms)[0m  [1m[32mINSERT INTO "teams" ("name", "description", "department", "created_at", "updated_at", "manager_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "C"], ["description", "C"], ["department", "CSUITE"], ["created_at", "2020-05-20 18:48:56.191090"], ["updated_at", "2020-05-20 18:48:56.191090"], ["manager_id", 0]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "presence", "status_message", "slack", "phone", "avatar", "last_location", "title", "team_id", "created_at", "updated_at", "name", "bio") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["email", "felicita_haley@jaskolski.co"], ["password_digest", "password"], ["presence", "offline"], ["status_message", "Out of office till May 27th - Reachable on 555-999-0000"], ["slack", "chantel"], ["phone", "750-555-1536"], ["avatar", "https://placehold.it/50x50.png"], ["last_location", "-74.6416548956338 -116.73146426552913"], ["title", "businessman"], ["team_id", 6], ["created_at", "2020-05-20 18:48:56.298352"], ["updated_at", "2020-05-20 18:48:56.298352"], ["name", "Orlando Gusikowski"], ["bio", "Kombucha asymmetrical pop-up tousled offal keffiyeh post-ironic. Health franzen cliche mustache next level. Selfies stumptown cliche. Whatever muggle magic intelligentsia knausgaard truffaut."]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeam Update (0.3ms)[0m  [1m[33mUPDATE "teams" SET "updated_at" = $1, "manager_id" = $2 WHERE "teams"."id" = $3[0m  [["updated_at", "2020-05-20 18:48:56.301817"], ["manager_id", 5], ["id", 4]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeam Update (0.2ms)[0m  [1m[33mUPDATE "teams" SET "updated_at" = $1, "manager_id" = $2 WHERE "teams"."id" = $3[0m  [["updated_at", "2020-05-20 18:48:56.305033"], ["manager_id", 5], ["id", 5]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "presence", "status_message", "slack", "phone", "avatar", "last_location", "title", "team_id", "created_at", "updated_at", "name", "bio") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["email", "pablo@green.io"], ["password_digest", "password"], ["presence", "away"], ["status_message", "All day meetings"], ["slack", "rhonda_hegmann"], ["phone", "1-468-741-9466 x130"], ["avatar", "https://placehold.it/50x50.png"], ["last_location", "-26.198609308782856 109.75324440638639"], ["title", "pilot"], ["team_id", 4], ["created_at", "2020-05-20 18:48:56.308529"], ["updated_at", "2020-05-20 18:48:56.308529"], ["name", "Sam Heidenreich"], ["bio", "Echo yuccie godard disrupt photo booth tousled cleanse gluten-free. Mumblecore vegan hashtag beard stumptown. Chartreuse try-hard street green juice marfa pitchfork."]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "presence", "status_message", "slack", "phone", "avatar", "last_location", "title", "team_id", "created_at", "updated_at", "name", "bio") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["email", "toby_paucek@bayer.info"], ["password_digest", "password"], ["presence", "online"], ["status_message", "Here"], ["slack", "serita"], ["phone", "475.229.3123 x9097"], ["avatar", "https://placehold.it/50x50.png"], ["last_location", "-45.77439639644878 54.42534292026127"], ["title", "librarian"], ["team_id", 5], ["created_at", "2020-05-20 18:48:56.316253"], ["updated_at", "2020-05-20 18:48:56.316253"], ["name", "Fredric Grant"], ["bio", "Wolf fanny pack twee vice cleanse heirloom selvage keffiyeh. Lomo chambray goth you probably haven't heard of them sustainable umami pickled. Banh mi blog jean shorts next level polaroid."]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "presence", "status_message", "slack", "phone", "avatar", "last_location", "title", "team_id", "created_at", "updated_at", "name", "bio") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["email", "fonda@kozey.io"], ["password_digest", "password"], ["presence", "online"], ["status_message", "Hi!"], ["slack", "lashawna_beier"], ["phone", "521.231.7897"], ["avatar", "https://placehold.it/50x50.png"], ["last_location", "57.40840772572574 47.36055790465849"], ["title", "human resources"], ["team_id", 5], ["created_at", "2020-05-20 18:48:56.324787"], ["updated_at", "2020-05-20 18:48:56.324787"], ["name", "Nicky Littel"], ["bio", "Migas messenger bag beard narwhal. Slow-carb squid kickstarter direct trade seitan brooklyn waistcoat shabby chic. Viral swag stumptown kinfolk cold-pressed mustache hella."]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRoom Create (0.3ms)[0m  [1m[32mINSERT INTO "rooms" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "public"], ["created_at", "2020-05-20 18:48:56.337263"], ["updated_at", "2020-05-20 18:48:56.337263"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRoom Create (0.2ms)[0m  [1m[32mINSERT INTO "rooms" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "userA userB"], ["created_at", "2020-05-20 18:48:56.341005"], ["updated_at", "2020-05-20 18:48:56.341005"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRoom Create (0.2ms)[0m  [1m[32mINSERT INTO "rooms" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "userB userC"], ["created_at", "2020-05-20 18:48:56.344194"], ["updated_at", "2020-05-20 18:48:56.344194"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.5ms)[0m  [1m[32mINSERT INTO "posts" ("content", "room_id", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "Actually flexitarian tattooed tumblr bitters."], ["room_id", 4], ["user_id", 5], ["created_at", "2020-05-20 18:48:56.353720"], ["updated_at", "2020-05-20 18:48:56.353720"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("content", "room_id", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "Heirloom flannel gentrify synth."], ["room_id", 4], ["user_id", 6], ["created_at", "2020-05-20 18:48:56.357344"], ["updated_at", "2020-05-20 18:48:56.357344"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("content", "room_id", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "Gentrify truffaut health butcher."], ["room_id", 5], ["user_id", 5], ["created_at", "2020-05-20 18:48:56.360499"], ["updated_at", "2020-05-20 18:48:56.360499"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("content", "room_id", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "Mustache offal bicycle rights quinoa wes anderson williamsburg literally."], ["room_id", 5], ["user_id", 6], ["created_at", "2020-05-20 18:48:56.363623"], ["updated_at", "2020-05-20 18:48:56.363623"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.8ms)[0m  [1m[32mINSERT INTO "posts" ("content", "room_id", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "You probably haven't heard of them bespoke cronut blue bottle waistcoat hoodie heirloom."], ["room_id", 6], ["user_id", 6], ["created_at", "2020-05-20 18:48:56.369162"], ["updated_at", "2020-05-20 18:48:56.369162"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.6ms)[0m  [1m[32mINSERT INTO "posts" ("content", "room_id", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "Plaid sustainable banjo meditation irony everyday listicle."], ["room_id", 6], ["user_id", 7], ["created_at", "2020-05-20 18:48:56.377407"], ["updated_at", "2020-05-20 18:48:56.377407"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTag Create (0.4ms)[0m  [1m[32mINSERT INTO "tags" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Developer"], ["created_at", "2020-05-20 18:48:56.392716"], ["updated_at", "2020-05-20 18:48:56.392716"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTag Create (0.2ms)[0m  [1m[32mINSERT INTO "tags" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "UX"], ["created_at", "2020-05-20 18:48:56.396937"], ["updated_at", "2020-05-20 18:48:56.396937"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTag Create (0.8ms)[0m  [1m[32mINSERT INTO "tags" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Frontend"], ["created_at", "2020-05-20 18:48:56.400057"], ["updated_at", "2020-05-20 18:48:56.400057"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTag Create (0.3ms)[0m  [1m[32mINSERT INTO "tags" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Fullstack"], ["created_at", "2020-05-20 18:48:56.405713"], ["updated_at", "2020-05-20 18:48:56.405713"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTag Create (0.2ms)[0m  [1m[32mINSERT INTO "tags" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "FrenchSpeaker"], ["created_at", "2020-05-20 18:48:56.408769"], ["updated_at", "2020-05-20 18:48:56.408769"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTag::HABTM_Users Create (0.3ms)[0m  [1m[32mINSERT INTO "tags_users" ("user_id", "tag_id") VALUES ($1, $2)[0m  [["user_id", 5], ["tag_id", 6]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTag::HABTM_Users Create (0.3ms)[0m  [1m[32mINSERT INTO "tags_users" ("user_id", "tag_id") VALUES ($1, $2)[0m  [["user_id", 6], ["tag_id", 7]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTag::HABTM_Users Create (0.2ms)[0m  [1m[32mINSERT INTO "tags_users" ("user_id", "tag_id") VALUES ($1, $2)[0m  [["user_id", 7], ["tag_id", 8]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTag::HABTM_Users Create (0.2ms)[0m  [1m[32mINSERT INTO "tags_users" ("user_id", "tag_id") VALUES ($1, $2)[0m  [["user_id", 8], ["tag_id", 9]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTag::HABTM_Users Create (0.2ms)[0m  [1m[32mINSERT INTO "tags_users" ("user_id", "tag_id") VALUES ($1, $2)[0m  [["user_id", 5], ["tag_id", 10]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTag::HABTM_Users Create (0.2ms)[0m  [1m[32mINSERT INTO "tags_users" ("user_id", "tag_id") VALUES ($1, $2)[0m  [["user_id", 6], ["tag_id", 6]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTag::HABTM_Users Create (0.2ms)[0m  [1m[32mINSERT INTO "tags_users" ("user_id", "tag_id") VALUES ($1, $2)[0m  [["user_id", 7], ["tag_id", 7]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/users/" for 127.0.0.1 at 2020-05-20 14:49:04 -0400
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "tags_users" ON "tags"."id" = "tags_users"."tag_id" WHERE "tags_users"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "tags_users" ON "tags"."id" = "tags_users"."tag_id" WHERE "tags_users"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "tags_users" ON "tags"."id" = "tags_users"."tag_id" WHERE "tags_users"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "tags_users" ON "tags"."id" = "tags_users"."tag_id" WHERE "tags_users"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "tags_users" ON "tags"."id" = "tags_users"."tag_id" WHERE "tags_users"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "tags_users" ON "tags"."id" = "tags_users"."tag_id" WHERE "tags_users"."user_id" = $1[0m  [["user_id", 6]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "tags_users" ON "tags"."id" = "tags_users"."tag_id" WHERE "tags_users"."user_id" = $1[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "tags_users" ON "tags"."id" = "tags_users"."tag_id" WHERE "tags_users"."user_id" = $1[0m  [["user_id", 8]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 41ms (Views: 29.5ms | ActiveRecord: 8.0ms | Allocations: 35925)
+
+
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (118.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS "server_development"[0m
+  [1m[35m (118.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "server_test"[0m
+  [1m[35m (274.9ms)[0m  [1m[35mCREATE DATABASE "server_development" ENCODING = 'unicode'[0m
+  [1m[35m (283.1ms)[0m  [1m[35mCREATE DATABASE "server_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "posts" CASCADE[0m
+  [1m[35m (9.3ms)[0m  [1m[35mCREATE TABLE "posts" ("id" bigserial primary key, "content" text, "room_id" bigint NOT NULL, "user_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE  INDEX  "index_posts_on_room_id" ON "posts"  ("room_id")[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE  INDEX  "index_posts_on_user_id" ON "posts"  ("user_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "rooms" CASCADE[0m
+  [1m[35m (6.4ms)[0m  [1m[35mCREATE TABLE "rooms" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "tags" CASCADE[0m
+  [1m[35m (5.9ms)[0m  [1m[35mCREATE TABLE "tags" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "tags_users" CASCADE[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "tags_users" ("user_id" bigint NOT NULL, "tag_id" bigint NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "teams" CASCADE[0m
+  [1m[35m (7.3ms)[0m  [1m[35mCREATE TABLE "teams" ("id" bigserial primary key, "name" character varying, "description" character varying, "department" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "manager_id" integer)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (11.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying, "password_digest" character varying, "presence" character varying, "status_message" character varying, "slack" character varying, "phone" character varying, "avatar" character varying, "last_location" character varying, "title" character varying, "team_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "name" character varying, "bio" text)[0m
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_team_id" ON "users"  ("team_id")[0m
+  [1m[35m (4.7ms)[0m  [1m[35mALTER TABLE "posts" ADD CONSTRAINT "fk_rails_169f41e3e1"
+FOREIGN KEY ("room_id")
+  REFERENCES "rooms" ("id")
+[0m
+  [1m[35m (4.0ms)[0m  [1m[35mALTER TABLE "posts" ADD CONSTRAINT "fk_rails_5b5ddfd518"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (3.3ms)[0m  [1m[35mALTER TABLE "users" ADD CONSTRAINT "fk_rails_b2bbf87303"
+FOREIGN KEY ("team_id")
+  REFERENCES "teams" ("id")
+[0m
+  [1m[35m (8.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20200520184556)[0m
+  [1m[35m (1.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20200520032145),
+(20200520032156),
+(20200520032205),
+(20200520032217),
+(20200520032228),
+(20200520032236),
+(20200520032249),
+(20200520182653);
+
+[0m
+  [1m[35m (9.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-05-20 18:49:18.612199"], ["updated_at", "2020-05-20 18:49:18.612199"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "6e6372f2394433b27d2735cb8158ace4c4022a0b"], ["created_at", "2020-05-20 18:49:18.624078"], ["updated_at", "2020-05-20 18:49:18.624078"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "posts" CASCADE[0m
+  [1m[35m (9.8ms)[0m  [1m[35mCREATE TABLE "posts" ("id" bigserial primary key, "content" text, "room_id" bigint NOT NULL, "user_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE  INDEX  "index_posts_on_room_id" ON "posts"  ("room_id")[0m
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE  INDEX  "index_posts_on_user_id" ON "posts"  ("user_id")[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "rooms" CASCADE[0m
+  [1m[35m (9.6ms)[0m  [1m[35mCREATE TABLE "rooms" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "tags" CASCADE[0m
+  [1m[35m (9.0ms)[0m  [1m[35mCREATE TABLE "tags" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "tags_users" CASCADE[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "tags_users" ("user_id" bigint NOT NULL, "tag_id" bigint NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "teams" CASCADE[0m
+  [1m[35m (9.3ms)[0m  [1m[35mCREATE TABLE "teams" ("id" bigserial primary key, "name" character varying, "description" character varying, "department" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "manager_id" integer)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (9.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying, "password_digest" character varying, "presence" character varying, "status_message" character varying, "slack" character varying, "phone" character varying, "avatar" character varying, "last_location" character varying, "title" character varying, "team_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "name" character varying, "bio" text)[0m
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_team_id" ON "users"  ("team_id")[0m
+  [1m[35m (4.6ms)[0m  [1m[35mALTER TABLE "posts" ADD CONSTRAINT "fk_rails_169f41e3e1"
+FOREIGN KEY ("room_id")
+  REFERENCES "rooms" ("id")
+[0m
+  [1m[35m (3.4ms)[0m  [1m[35mALTER TABLE "posts" ADD CONSTRAINT "fk_rails_5b5ddfd518"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (3.3ms)[0m  [1m[35mALTER TABLE "users" ADD CONSTRAINT "fk_rails_b2bbf87303"
+FOREIGN KEY ("team_id")
+  REFERENCES "teams" ("id")
+[0m
+  [1m[35m (8.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20200520184556)[0m
+  [1m[35m (1.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20200520032145),
+(20200520032156),
+(20200520032205),
+(20200520032217),
+(20200520032228),
+(20200520032236),
+(20200520032249),
+(20200520182653);
+
+[0m
+  [1m[35m (8.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-05-20 18:49:18.821029"], ["updated_at", "2020-05-20 18:49:18.821029"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.4ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2020-05-20 18:49:18.837928"], ["key", "environment"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "6e6372f2394433b27d2735cb8158ace4c4022a0b"], ["created_at", "2020-05-20 18:49:18.846501"], ["updated_at", "2020-05-20 18:49:18.846501"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeam Create (0.9ms)[0m  [1m[32mINSERT INTO "teams" ("name", "description", "department", "created_at", "updated_at", "manager_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "A"], ["description", "A"], ["department", "Engineering"], ["created_at", "2020-05-20 18:49:18.891131"], ["updated_at", "2020-05-20 18:49:18.891131"], ["manager_id", 0]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeam Create (0.3ms)[0m  [1m[32mINSERT INTO "teams" ("name", "description", "department", "created_at", "updated_at", "manager_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "B"], ["description", "B"], ["department", "UX"], ["created_at", "2020-05-20 18:49:18.896026"], ["updated_at", "2020-05-20 18:49:18.896026"], ["manager_id", 0]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeam Create (0.3ms)[0m  [1m[32mINSERT INTO "teams" ("name", "description", "department", "created_at", "updated_at", "manager_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "C"], ["description", "C"], ["department", "CSUITE"], ["created_at", "2020-05-20 18:49:18.900583"], ["updated_at", "2020-05-20 18:49:18.900583"], ["manager_id", 0]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "presence", "status_message", "slack", "phone", "avatar", "last_location", "title", "team_id", "created_at", "updated_at", "name", "bio") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["email", "nelda_casper@wilkinson.co"], ["password_digest", "password"], ["presence", "offline"], ["status_message", "Out of office till May 27th - Reachable on 555-999-0000"], ["slack", "buster_green"], ["phone", "(976) 604-1967"], ["avatar", "https://placehold.it/50x50.png"], ["last_location", "-51.289463472171434 -50.53072644637956"], ["title", "painter"], ["team_id", 3], ["created_at", "2020-05-20 18:49:19.007683"], ["updated_at", "2020-05-20 18:49:19.007683"], ["name", "Jerlene Funk"], ["bio", "Echo 3 wolf moon thundercats post-ironic lo-fi. Hashtag chicharrones fanny pack freegan keffiyeh master messenger bag squid. Yuccie vice raw denim."]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeam Update (0.4ms)[0m  [1m[33mUPDATE "teams" SET "updated_at" = $1, "manager_id" = $2 WHERE "teams"."id" = $3[0m  [["updated_at", "2020-05-20 18:49:19.011857"], ["manager_id", 1], ["id", 1]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeam Update (0.2ms)[0m  [1m[33mUPDATE "teams" SET "updated_at" = $1, "manager_id" = $2 WHERE "teams"."id" = $3[0m  [["updated_at", "2020-05-20 18:49:19.015537"], ["manager_id", 1], ["id", 2]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "presence", "status_message", "slack", "phone", "avatar", "last_location", "title", "team_id", "created_at", "updated_at", "name", "bio") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["email", "wendie.howe@handconn.name"], ["password_digest", "password"], ["presence", "away"], ["status_message", "All day meetings"], ["slack", "micheal"], ["phone", "553-148-2245 x028"], ["avatar", "https://placehold.it/50x50.png"], ["last_location", "18.57261132785365 -7.476667110001813"], ["title", "translator"], ["team_id", 1], ["created_at", "2020-05-20 18:49:19.019083"], ["updated_at", "2020-05-20 18:49:19.019083"], ["name", "Marion Kutch"], ["bio", "Selvage 3 wolf moon kitsch offal selfies waistcoat xoxo banjo. Lo-fi flannel biodiesel hoodie disrupt muggle magic. Occupy you probably haven't heard of them chartreuse seitan street. Crucifix tousled squid umami food truck gluten-free."]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "presence", "status_message", "slack", "phone", "avatar", "last_location", "title", "team_id", "created_at", "updated_at", "name", "bio") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["email", "alyson@lakinfeest.name"], ["password_digest", "password"], ["presence", "online"], ["status_message", "Here"], ["slack", "kendall.fay"], ["phone", "562-939-9145 x21352"], ["avatar", "https://placehold.it/50x50.png"], ["last_location", "-67.91707704570389 97.09622388062564"], ["title", "tailor"], ["team_id", 2], ["created_at", "2020-05-20 18:49:19.022762"], ["updated_at", "2020-05-20 18:49:19.022762"], ["name", "Sammie Renner"], ["bio", "Authentic sriracha carry intelligentsia. Brooklyn mlkshk tattooed chartreuse 3 wolf moon yuccie. Neutra intelligentsia organic art party 8-bit single-origin coffee. Bitters flannel 3 wolf moon etsy deep v small batch. Diy intelligentsia readymade echo pbr&b blue bottle."]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "presence", "status_message", "slack", "phone", "avatar", "last_location", "title", "team_id", "created_at", "updated_at", "name", "bio") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["email", "shelby@hudson.name"], ["password_digest", "password"], ["presence", "online"], ["status_message", "Hi!"], ["slack", "jolie.goodwin"], ["phone", "412.948.1926"], ["avatar", "https://placehold.it/50x50.png"], ["last_location", "-77.66454149984632 -19.894556556132102"], ["title", "waiter"], ["team_id", 2], ["created_at", "2020-05-20 18:49:19.026875"], ["updated_at", "2020-05-20 18:49:19.026875"], ["name", "Carin Gerhold"], ["bio", "Meggings waistcoat squid quinoa chicharrones blue bottle. Mlkshk drinking helvetica you probably haven't heard of them pitchfork kombucha. Chia cronut street. Pug blue bottle twee ennui. Brunch slow-carb lumbersexual pbr&b disrupt small batch health."]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRoom Create (0.4ms)[0m  [1m[32mINSERT INTO "rooms" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "public"], ["created_at", "2020-05-20 18:49:19.035573"], ["updated_at", "2020-05-20 18:49:19.035573"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRoom Create (0.2ms)[0m  [1m[32mINSERT INTO "rooms" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "userA userB"], ["created_at", "2020-05-20 18:49:19.038958"], ["updated_at", "2020-05-20 18:49:19.038958"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRoom Create (0.2ms)[0m  [1m[32mINSERT INTO "rooms" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "userB userC"], ["created_at", "2020-05-20 18:49:19.041838"], ["updated_at", "2020-05-20 18:49:19.041838"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.6ms)[0m  [1m[32mINSERT INTO "posts" ("content", "room_id", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "Offal bushwick yuccie freegan try-hard shabby chic hammock lumbersexual blue bottle."], ["room_id", 1], ["user_id", 1], ["created_at", "2020-05-20 18:49:19.051925"], ["updated_at", "2020-05-20 18:49:19.051925"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("content", "room_id", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "Hashtag ennui post-ironic butcher intelligentsia yr freegan."], ["room_id", 1], ["user_id", 2], ["created_at", "2020-05-20 18:49:19.055635"], ["updated_at", "2020-05-20 18:49:19.055635"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("content", "room_id", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "Lomo craft beer keytar banjo."], ["room_id", 2], ["user_id", 1], ["created_at", "2020-05-20 18:49:19.058762"], ["updated_at", "2020-05-20 18:49:19.058762"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("content", "room_id", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "Muggle magic scenester tousled humblebrag master pour-over slow-carb cornhole chillwave."], ["room_id", 2], ["user_id", 2], ["created_at", "2020-05-20 18:49:19.061799"], ["updated_at", "2020-05-20 18:49:19.061799"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("content", "room_id", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "Typewriter ugh lumbersexual brooklyn viral flexitarian ennui organic thundercats."], ["room_id", 3], ["user_id", 2], ["created_at", "2020-05-20 18:49:19.064852"], ["updated_at", "2020-05-20 18:49:19.064852"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("content", "room_id", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "Ugh cliche sustainable thundercats selvage schlitz shabby chic hoodie goth."], ["room_id", 3], ["user_id", 3], ["created_at", "2020-05-20 18:49:19.068174"], ["updated_at", "2020-05-20 18:49:19.068174"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTag Create (0.5ms)[0m  [1m[32mINSERT INTO "tags" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Developer"], ["created_at", "2020-05-20 18:49:19.088421"], ["updated_at", "2020-05-20 18:49:19.088421"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTag Create (0.3ms)[0m  [1m[32mINSERT INTO "tags" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "UX"], ["created_at", "2020-05-20 18:49:19.093423"], ["updated_at", "2020-05-20 18:49:19.093423"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTag Create (0.3ms)[0m  [1m[32mINSERT INTO "tags" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Frontend"], ["created_at", "2020-05-20 18:49:19.097613"], ["updated_at", "2020-05-20 18:49:19.097613"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTag Create (0.2ms)[0m  [1m[32mINSERT INTO "tags" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Fullstack"], ["created_at", "2020-05-20 18:49:19.101359"], ["updated_at", "2020-05-20 18:49:19.101359"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTag Create (0.3ms)[0m  [1m[32mINSERT INTO "tags" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "FrenchSpeaker"], ["created_at", "2020-05-20 18:49:19.114114"], ["updated_at", "2020-05-20 18:49:19.114114"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTag::HABTM_Users Create (0.3ms)[0m  [1m[32mINSERT INTO "tags_users" ("user_id", "tag_id") VALUES ($1, $2)[0m  [["user_id", 1], ["tag_id", 1]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTag::HABTM_Users Create (0.1ms)[0m  [1m[32mINSERT INTO "tags_users" ("user_id", "tag_id") VALUES ($1, $2)[0m  [["user_id", 2], ["tag_id", 2]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTag::HABTM_Users Create (0.2ms)[0m  [1m[32mINSERT INTO "tags_users" ("user_id", "tag_id") VALUES ($1, $2)[0m  [["user_id", 3], ["tag_id", 3]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTag::HABTM_Users Create (0.2ms)[0m  [1m[32mINSERT INTO "tags_users" ("user_id", "tag_id") VALUES ($1, $2)[0m  [["user_id", 4], ["tag_id", 4]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTag::HABTM_Users Create (0.2ms)[0m  [1m[32mINSERT INTO "tags_users" ("user_id", "tag_id") VALUES ($1, $2)[0m  [["user_id", 1], ["tag_id", 5]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTag::HABTM_Users Create (0.1ms)[0m  [1m[32mINSERT INTO "tags_users" ("user_id", "tag_id") VALUES ($1, $2)[0m  [["user_id", 2], ["tag_id", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTag::HABTM_Users Create (0.1ms)[0m  [1m[32mINSERT INTO "tags_users" ("user_id", "tag_id") VALUES ($1, $2)[0m  [["user_id", 3], ["tag_id", 2]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/users/" for 127.0.0.1 at 2020-05-20 14:49:25 -0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "tags_users" ON "tags"."id" = "tags_users"."tag_id" WHERE "tags_users"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "tags_users" ON "tags"."id" = "tags_users"."tag_id" WHERE "tags_users"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "tags_users" ON "tags"."id" = "tags_users"."tag_id" WHERE "tags_users"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "tags_users" ON "tags"."id" = "tags_users"."tag_id" WHERE "tags_users"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 36ms (Views: 25.2ms | ActiveRecord: 7.4ms | Allocations: 29445)
+
+
