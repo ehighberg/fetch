@@ -76,7 +76,7 @@ _Our MVP is ._
 
 
 #### Component Hierarchy
-
+![Component Hierarchy](./docs/component_diagram.png)
 
 
 #### Component Breakdown
@@ -92,7 +92,7 @@ _Our MVP is ._
 ### MVP Server (Back End)
 
 #### ERD Model
-![ERD Model](./erd.png)
+![ERD Model](./docs/erd.png)
 
 
 #### Endpoints
