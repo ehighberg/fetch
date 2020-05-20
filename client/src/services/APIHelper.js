@@ -47,7 +47,7 @@ export const getAllRooms = async () =>
 export const getAllUsers = async () => {
   try {
     const users = await api.get('/users')
-    return users
+    return users.data
   } catch (error) {
     console.error(error)
   }
