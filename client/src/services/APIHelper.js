@@ -42,3 +42,12 @@ export const getAllRooms = async () =>
     console.error(error)
   }
 }
+
+export const getAllUsers = async () => {
+  try {
+    const users = await api.get('/users')
+    return users
+  } catch (error) {
+    console.error(error)
+  }
+}
