@@ -2620,3 +2620,196 @@ FOREIGN KEY ("team_id")
   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
   [1m[36mTag::HABTM_Users Create (0.2ms)[0m  [1m[32mINSERT INTO "tags_users" ("user_id", "tag_id") VALUES ($1, $2)[0m  [["user_id", 7], ["tag_id", 7]]
   [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/users" for 127.0.0.1 at 2020-05-20 14:31:42 -0400
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 21ms (Views: 10.6ms | ActiveRecord: 5.2ms | Allocations: 16316)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2020-05-20 14:31:43 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (6.0.3.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.3.1) lib/rails/engine.rb:527:in `call'
+puma (4.3.4) lib/puma/configuration.rb:228:in `call'
+puma (4.3.4) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.4) lib/puma/server.rb:472:in `process_client'
+puma (4.3.4) lib/puma/server.rb:328:in `block in run'
+puma (4.3.4) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/users" for 127.0.0.1 at 2020-05-20 14:35:15 -0400
+  [1m[35m (4.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (4.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mTag Load (283.8ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "tags_users" ON "tags"."id" = "tags_users"."tag_id" WHERE "tags_users"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mTag Load (71.0ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "tags_users" ON "tags"."id" = "tags_users"."tag_id" WHERE "tags_users"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mTag Load (0.9ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "tags_users" ON "tags"."id" = "tags_users"."tag_id" WHERE "tags_users"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "tags_users" ON "tags"."id" = "tags_users"."tag_id" WHERE "tags_users"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "tags_users" ON "tags"."id" = "tags_users"."tag_id" WHERE "tags_users"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "tags_users" ON "tags"."id" = "tags_users"."tag_id" WHERE "tags_users"."user_id" = $1[0m  [["user_id", 6]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "tags_users" ON "tags"."id" = "tags_users"."tag_id" WHERE "tags_users"."user_id" = $1[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "tags_users" ON "tags"."id" = "tags_users"."tag_id" WHERE "tags_users"."user_id" = $1[0m  [["user_id", 8]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 769ms (Views: 355.2ms | ActiveRecord: 391.9ms | Allocations: 35828)
+
+
+Started GET "/users" for 127.0.0.1 at 2020-05-20 14:38:35 -0400
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mTag Load (1.7ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "tags_users" ON "tags"."id" = "tags_users"."tag_id" WHERE "tags_users"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "tags_users" ON "tags"."id" = "tags_users"."tag_id" WHERE "tags_users"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "tags_users" ON "tags"."id" = "tags_users"."tag_id" WHERE "tags_users"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "tags_users" ON "tags"."id" = "tags_users"."tag_id" WHERE "tags_users"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mTag Load (1.0ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "tags_users" ON "tags"."id" = "tags_users"."tag_id" WHERE "tags_users"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "tags_users" ON "tags"."id" = "tags_users"."tag_id" WHERE "tags_users"."user_id" = $1[0m  [["user_id", 6]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "tags_users" ON "tags"."id" = "tags_users"."tag_id" WHERE "tags_users"."user_id" = $1[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "tags_users" ON "tags"."id" = "tags_users"."tag_id" WHERE "tags_users"."user_id" = $1[0m  [["user_id", 8]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 107ms (Views: 73.7ms | ActiveRecord: 19.7ms | Allocations: 35078)
+
+
+Started GET "/users" for 127.0.0.1 at 2020-05-20 14:38:50 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "tags_users" ON "tags"."id" = "tags_users"."tag_id" WHERE "tags_users"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "tags_users" ON "tags"."id" = "tags_users"."tag_id" WHERE "tags_users"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "tags_users" ON "tags"."id" = "tags_users"."tag_id" WHERE "tags_users"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "tags_users" ON "tags"."id" = "tags_users"."tag_id" WHERE "tags_users"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "tags_users" ON "tags"."id" = "tags_users"."tag_id" WHERE "tags_users"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "tags_users" ON "tags"."id" = "tags_users"."tag_id" WHERE "tags_users"."user_id" = $1[0m  [["user_id", 6]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "tags_users" ON "tags"."id" = "tags_users"."tag_id" WHERE "tags_users"."user_id" = $1[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "tags_users" ON "tags"."id" = "tags_users"."tag_id" WHERE "tags_users"."user_id" = $1[0m  [["user_id", 8]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 18ms (Views: 15.7ms | ActiveRecord: 1.9ms | Allocations: 13749)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2020-05-20 14:39:21 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `set_user'
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "tags_users" ON "tags"."id" = "tags_users"."tag_id" WHERE "tags_users"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:13:in `show'
+Completed 200 OK in 26ms (Views: 6.8ms | ActiveRecord: 5.7ms | Allocations: 19217)
+
+
+Started GET "/users" for 127.0.0.1 at 2020-05-20 14:41:18 -0400
+  
+SyntaxError (/home/bam/personal_projects/datadog_hack/project/server/app/controllers/users_controller.rb:8: syntax error, unexpected =>
+...ender json: @users, include: => {:tag => {:only => :name}}
+...                             ^~):
+  
+app/controllers/users_controller.rb:8: syntax error, unexpected =>
+app/controllers/users_controller.rb:8: syntax error, unexpected =>
+Started GET "/users" for 127.0.0.1 at 2020-05-20 14:41:40 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 3.1ms | Allocations: 15913)
+
+
+  
+NoMethodError (undefined method `tag' for #<User:0x00007efc4d050078>
+Did you mean?  tags
+               tap):
+  
+app/controllers/users_controller.rb:8:in `index'
+Started GET "/users" for 127.0.0.1 at 2020-05-20 14:41:47 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "tags_users" ON "tags"."id" = "tags_users"."tag_id" WHERE "tags_users"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "tags_users" ON "tags"."id" = "tags_users"."tag_id" WHERE "tags_users"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mTag Load (0.6ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "tags_users" ON "tags"."id" = "tags_users"."tag_id" WHERE "tags_users"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "tags_users" ON "tags"."id" = "tags_users"."tag_id" WHERE "tags_users"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "tags_users" ON "tags"."id" = "tags_users"."tag_id" WHERE "tags_users"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "tags_users" ON "tags"."id" = "tags_users"."tag_id" WHERE "tags_users"."user_id" = $1[0m  [["user_id", 6]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "tags_users" ON "tags"."id" = "tags_users"."tag_id" WHERE "tags_users"."user_id" = $1[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "tags_users" ON "tags"."id" = "tags_users"."tag_id" WHERE "tags_users"."user_id" = $1[0m  [["user_id", 8]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 39ms (Views: 27.7ms | ActiveRecord: 8.5ms | Allocations: 29984)
+
+
+Started GET "/users" for 127.0.0.1 at 2020-05-20 14:42:53 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "tags_users" ON "tags"."id" = "tags_users"."tag_id" WHERE "tags_users"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "tags_users" ON "tags"."id" = "tags_users"."tag_id" WHERE "tags_users"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "tags_users" ON "tags"."id" = "tags_users"."tag_id" WHERE "tags_users"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "tags_users" ON "tags"."id" = "tags_users"."tag_id" WHERE "tags_users"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "tags_users" ON "tags"."id" = "tags_users"."tag_id" WHERE "tags_users"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "tags_users" ON "tags"."id" = "tags_users"."tag_id" WHERE "tags_users"."user_id" = $1[0m  [["user_id", 6]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "tags_users" ON "tags"."id" = "tags_users"."tag_id" WHERE "tags_users"."user_id" = $1[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "tags_users" ON "tags"."id" = "tags_users"."tag_id" WHERE "tags_users"."user_id" = $1[0m  [["user_id", 8]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 34ms (Views: 25.6ms | ActiveRecord: 5.6ms | Allocations: 30547)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2020-05-20 14:43:13 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `set_user'
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "tags_users" ON "tags"."id" = "tags_users"."tag_id" WHERE "tags_users"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:13:in `show'
+Completed 200 OK in 3ms (Views: 1.3ms | ActiveRecord: 0.5ms | Allocations: 2380)
+
+
