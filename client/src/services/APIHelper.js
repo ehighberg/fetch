@@ -97,18 +97,18 @@ export const getUsersByFieldAndQuery = async (searchType, query) => {
 
     switch(searchType) {
       case 'tag':
-        return users.data.filter(user => {
+        return users.filter(user => {
           const userTags = user.tags.map(tag => tag.name)
           return userTags.includes(query)
         })
 
       case 'team':
-        return users.data.filter(user => {
+        return users.filter(user => {
           return user.team.name.includes(query)
         })
 
       default:
-        return users.data.filter(user => {
+        return users.filter(user => {
           return user[searchType].includes(query)
         })
     }
