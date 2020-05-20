@@ -22,11 +22,10 @@ const api = axios.create({
 export const getUserByEmail = async (email) => {
   try {
     const userList = await api.get('/users')
-    const userId = userList.filter(user => {
+    const userId = userList.data.filter(user => {
       return user.email === email
-    })
-    console.log(userId)
-    return 1
+    })[0].id
+    return userId
   } catch(error) {
     console.error(error)
   }

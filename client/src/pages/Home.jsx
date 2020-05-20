@@ -17,9 +17,11 @@ export default function Home()
                 localStorage.setItem('userId', userId)
               }}
             >
-              <Form id='login-container'>
-                <Field type='email' name='email' />
-                <Field type='password' name='password' />
+              <Form id='login-container' className="">
+                <label>Email</label>
+                <Field type='email' name='email' placeholder="email@domain.com"/>
+                <label>Password</label>
+                <Field type='password' name='password' placeholder="password"/>
                 <button type='submit'>Login</button>
               </Form>
             </Formik>
