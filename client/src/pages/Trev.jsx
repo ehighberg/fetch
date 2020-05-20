@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import { getAllRooms } from '../services/APIHelper'
+import { getAllRooms, getRoomWithDetail } from '../services/APIHelper'
 import RoomList from '../components/RoomList'
+import Room from '../components/Room'
 
 export default function Trev()
 {
     const [rooms, setRooms] = useState([])
+    const [roomDetail, setRoomDetail] = useState([])
 
     useEffect(() =>
     {
@@ -13,15 +15,26 @@ export default function Trev()
 
     const getInitialData = async () =>
     {
-        let response = await getAllRooms()
-        setRooms(response.data)
-        console.log(response)
+        let allRoomsResponse = await getAllRooms()
+        setRooms(allRoomsResponse)
+        console.log(allRoomsResponse)
+
+        let singleRoomWithDetailsResponse = await getRoomWithDetail(1)
+        setRoomDetail(singleRoomWithDetailsResponse)
+        console.log(singleRoomWithDetailsResponse)
     }
 
 
     return (
-        <div>
-            <RoomList rooms={rooms} />
-        </div>
+        <>
+            <div className="text-red-600">Below is the RoomList component</div>
+            <div className="">
+                <RoomList rooms={rooms} />
+            </div>
+            <div className="text-red-600">Below is the Room component</div>
+            <div>
+                <Room roomDetails={roomDetail} />
+            </div>
+        </>
     )
 }
