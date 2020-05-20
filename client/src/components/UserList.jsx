@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import UserCard from './UserCard'
 import { getAllUsers } from '../services/APIHelper'
+import { Link } from 'react-router-dom'
 
 
 export default function UserList(props) {
@@ -19,7 +20,7 @@ export default function UserList(props) {
     return (
         <div>
             <h1 className='text-xl text-purple-700'>User List</h1>
-            <div className='flex flex-row flex-wrap justify-around content-between'>
+            <div>
                 {users && users.map((user, index) => {
                     if (Object.keys(users).length === 0) {
                         return (
@@ -29,10 +30,12 @@ export default function UserList(props) {
                         )
                     }
                     return (
-                        <UserCard
-                            key={index}
-                            user={user}
-                        />
+                        <Link to={`/users/${user.id}`}>
+                            <UserCard
+                                key={index}
+                                user={user}
+                            />
+                        </Link>
                     )
                 })}
             </div>

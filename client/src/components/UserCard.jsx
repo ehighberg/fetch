@@ -8,14 +8,13 @@ export default function UserCard(props) {
     let user = props.user
 
     return (
-        <div className='flex flex-row flex-wrap bg-gray-200 m-0 w-64'>
-            {user.name}
-            <Link to={`/users/${user.id}`}
-            >
-            <UserProfile
-                user={user}
-            />
-            </Link>
+        <div className='flex flex-row m-2 bg-gray-200'>
+            <img className='w-20 mr-16' src={user.avatar}></img>
+            <div className='m-0 w-full'>
+                <div>{user.name}</div>
+                <div>{user.title}</div>
+                <div>pronouns</div>
+            </div>
         </div>
     )
 }

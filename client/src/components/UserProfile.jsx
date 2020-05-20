@@ -11,14 +11,14 @@ export default function UserProfile(props) {
         <div>
             User Profile
             <img src={user.avatar}></img>
-            <div>Name</div>
-            <div>{user.title}</div>
             <div>{user.presence}</div>
             <div>{user.status_message}</div>
             <div>{user.phone}</div>
             <div>{user.email}</div>
             <div>{user.slack}</div>
             <div>{user.last_location}</div>
+            <div>{user.email}</div>
+            <div>{user.email}</div>
         </div>
     )
 }
