@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom'
 
 import { getUsersByFieldAndQuery } from '../services/APIHelper'
 
-export default function SearchBar() {
+export default function SearchBar(props) {
   const history = useHistory()
 
   const gotoSearchResults = async (values) => {
@@ -15,7 +15,7 @@ export default function SearchBar() {
       const teamId = searchResults[0].team.id
       history.push(`/teams/${teamId}`)
     } else {
-      history.push('/results')
+      props.setSearchResults(searchResults)
     }
   }
 
