@@ -81,3 +81,30 @@ export const getAllUsers = async () =>
     console.error(error)
   }
 }
+
+export const getUsersByFieldAndQuery = async (searchType, query) => {
+  try {
+    const users = await getAllUsers()
+
+    switch(searchType) {
+      case 'tag':
+        return users.data.filter(user => {
+          const userTags = user.tags.map(tag => tag.name)
+          return userTags.includes(query)
+        })
+
+      case 'team':
+        return users.data.filter(user => {
+          return user.team.name.includes(query)
+        })
+
+      default:
+        return users.data.filter(user => {
+          return user[searchType].includes(query)
+        })
+    }
+
+  } catch(error) {
+    console.error(error)
+  }
+}
