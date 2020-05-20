@@ -8,6 +8,8 @@
     "@testing-library/user-event": "^7.1.2",
     "autoprefixer": "^9.8.0",
     "axios": "^0.19.2",
+    "babel-loader": "^8.1.0",
+    "formik": "^2.1.4",
     "postcss-cli": "^7.1.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
