@@ -51,3 +51,14 @@ export const getAllUsers = async () => {
     console.error(error)
   }
 }
+
+export const getUsersByFieldAndQuery = async (field, query) => {
+  try {
+    const users = await getAllUsers()
+    return users.data.filter(user => {
+      return user[field] === query
+    })
+  } catch(error) {
+    console.error(error)
+  }
+}
