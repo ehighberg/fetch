@@ -82,7 +82,6 @@ export const getAllUsers = async () =>
   }
 }
 
-<<<<<<< HEAD
 export const getUserById = async (user_id) => {
     try {
         const user = await api.get(`/users/${user_id}`)
@@ -91,8 +90,7 @@ export const getUserById = async (user_id) => {
         console.error(error)
     }
 }
-=======
->>>>>>> dev
+
 export const getUsersByFieldAndQuery = async (searchType, query) => {
   try {
     const users = await getAllUsers()
