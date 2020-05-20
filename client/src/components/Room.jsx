@@ -4,9 +4,7 @@ import PostForm from './PostForm'
 
 export default function Room(props)
 {
-    const { name, posts } = props.roomDetails
-
-    console.log(name)
+    const { name, posts, id: roomId } = props.roomDetails
 
     return (
         <div className="border-gray-500 rounded border">
@@ -15,7 +13,7 @@ export default function Room(props)
                 {posts ? <PostList posts={posts} /> : "Loading..."}
             </div>
             <div>
-                <PostForm />
+                <PostForm roomId={roomId} />
             </div>
         </div>
     )
