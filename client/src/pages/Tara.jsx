@@ -1,5 +1,4 @@
 import React from 'react'
-import { getAllUsers } from '../services/APIHelper'
 import UserList from '../components/UserList'
 
 
