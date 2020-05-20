@@ -38,8 +38,7 @@ teamC = Team.create!(
 )
 
 userA = User.create(
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
+    name: "#{Faker::Name.first_name} #{Faker::Name.last_name}",
     email: Faker::Internet.email,
     password_digest: "password",
     presence: "offline",
@@ -58,8 +57,7 @@ teamB.manager_id = userA.id
 teamB.save()
 
 userB = User.create(
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
+    name: "#{Faker::Name.first_name} #{Faker::Name.last_name}",
     email: Faker::Internet.email,
     password_digest: "password",
     presence: "away",
@@ -73,8 +71,7 @@ userB = User.create(
 )
 
 userC = User.create(
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
+    name: "#{Faker::Name.first_name} #{Faker::Name.last_name}",
     email: Faker::Internet.email,
     password_digest: "password",
     presence: "online",
@@ -88,8 +85,7 @@ userC = User.create(
 )
 
 userD = User.create(
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
+    name: "#{Faker::Name.first_name} #{Faker::Name.last_name}",
     email: Faker::Internet.email,
     password_digest: "password",
     presence: "online",
@@ -109,7 +105,7 @@ roomPublic = Room.create(
 room1 = Room.create(
     name: "userA userB"
 )
-    
+
 room2 = Room.create(
     name: "userB userC"
 )
