@@ -49,7 +49,10 @@ userA = User.create(
     last_location: "#{Faker::Address.latitude} #{Faker::Address.longitude}",
     title: Faker::Company.profession,
     team: teamC,
-    bio: Faker::Hipster.paragraph
+    bio: Faker::Hipster.paragraph,
+    pronouns: "they / them",
+    preferred_contact_method: 'cell phone',
+    average_response_time_minutes: Faker::Number.between(from: 1, to: 60)
 )
 
 teamA.manager_id = userA.id
@@ -69,7 +72,10 @@ userB = User.create(
     last_location: "#{Faker::Address.latitude} #{Faker::Address.longitude}",
     title: Faker::Company.profession,
     team: teamA,
-    bio: Faker::Hipster.paragraph
+    bio: Faker::Hipster.paragraph,
+    pronouns: "she / her",
+    preferred_contact_method: 'email',
+    average_response_time_minutes: Faker::Number.between(from: 1, to: 60)
 )
 
 userC = User.create(
@@ -84,7 +90,10 @@ userC = User.create(
     last_location: "#{Faker::Address.latitude} #{Faker::Address.longitude}",
     title: Faker::Company.profession,
     team: teamB,
-    bio: Faker::Hipster.paragraph
+    bio: Faker::Hipster.paragraph,
+    pronouns: "he / him",
+    preferred_contact_method: 'email',
+    average_response_time_minutes: Faker::Number.between(from: 1, to: 60)
 )
 
 userD = User.create(
@@ -99,7 +108,10 @@ userD = User.create(
     last_location: "#{Faker::Address.latitude} #{Faker::Address.longitude}",
     title: Faker::Company.profession,
     team: teamB,
-    bio: Faker::Hipster.paragraph
+    bio: Faker::Hipster.paragraph,
+    pronouns: "they / them",
+    preferred_contact_method: 'cell phone',
+    average_response_time_minutes: Faker::Number.between(from: 1, to: 60)
 )
 
 roomPublic = Room.create(
