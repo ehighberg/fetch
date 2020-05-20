@@ -20,7 +20,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "css": "postcss ./src/css/tailwind.css -o ./src/css/style.css"
+    "css": "postcss ./src/css/tailwind.css -o ./src/css/style.css && react-scripts start"
   },
   "eslintConfig": {
     "extends": "react-app"
