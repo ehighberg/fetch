@@ -60,6 +60,7 @@ _Our MVP is ._
 |      Formik      | _Simpler form handling in React._           |
 |    Faker         | _Generate seed data._          |
 | Ruby on Rails    | _Backend server._ |
+| CORS             | _Allow Cross Origin Resource Sharing in development._ |
 
 
 |  External API    | Description |
