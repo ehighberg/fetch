@@ -38,8 +38,7 @@ teamC = Team.create!(
 )
 
 userA = User.create(
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
+    name: "#{Faker::Name.first_name} #{Faker::Name.last_name}",
     email: Faker::Internet.email,
     password_digest: "password",
     presence: "offline",
@@ -49,7 +48,8 @@ userA = User.create(
     avatar: Faker::Placeholdit.image(size:"50x50"),
     last_location: "#{Faker::Address.latitude} #{Faker::Address.longitude}",
     title: Faker::Company.profession,
-    team: teamC
+    team: teamC,
+    bio: Faker::Hipster.paragraph
 )
 
 teamA.manager_id = userA.id
@@ -58,8 +58,7 @@ teamB.manager_id = userA.id
 teamB.save()
 
 userB = User.create(
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
+    name: "#{Faker::Name.first_name} #{Faker::Name.last_name}",
     email: Faker::Internet.email,
     password_digest: "password",
     presence: "away",
@@ -69,12 +68,12 @@ userB = User.create(
     avatar: Faker::Placeholdit.image(size:"50x50"),
     last_location: "#{Faker::Address.latitude} #{Faker::Address.longitude}",
     title: Faker::Company.profession,
-    team: teamA
+    team: teamA,
+    bio: Faker::Hipster.paragraph
 )
 
 userC = User.create(
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
+    name: "#{Faker::Name.first_name} #{Faker::Name.last_name}",
     email: Faker::Internet.email,
     password_digest: "password",
     presence: "online",
@@ -84,12 +83,12 @@ userC = User.create(
     avatar: Faker::Placeholdit.image(size:"50x50"),
     last_location: "#{Faker::Address.latitude} #{Faker::Address.longitude}",
     title: Faker::Company.profession,
-    team: teamB
+    team: teamB,
+    bio: Faker::Hipster.paragraph
 )
 
 userD = User.create(
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
+    name: "#{Faker::Name.first_name} #{Faker::Name.last_name}",
     email: Faker::Internet.email,
     password_digest: "password",
     presence: "online",
@@ -99,7 +98,8 @@ userD = User.create(
     avatar: Faker::Placeholdit.image(size:"50x50"),
     last_location: "#{Faker::Address.latitude} #{Faker::Address.longitude}",
     title: Faker::Company.profession,
-    team: teamB
+    team: teamB,
+    bio: Faker::Hipster.paragraph
 )
 
 roomPublic = Room.create(
@@ -109,7 +109,7 @@ roomPublic = Room.create(
 room1 = Room.create(
     name: "userA userB"
 )
-    
+
 room2 = Room.create(
     name: "userB userC"
 )
