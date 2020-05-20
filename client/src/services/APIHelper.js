@@ -31,3 +31,15 @@ export const getUserByEmail = async (email) => {
     console.error(error)
   }
 }
+
+export const getAllRooms = async () =>
+{
+  try
+  {
+    const rooms = await api.get('/rooms')
+    return rooms
+  } catch (error)
+  {
+    console.error(error)
+  }
+}
