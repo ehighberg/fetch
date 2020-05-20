@@ -12,13 +12,18 @@ export default function SearchBar() {
     setSearchResults(searchResults)
   }
 
+  const availableFields = {
+    name: 'name',
+    team: 'team',
+    tag: 'tag'
+  }
+
   useEffect(() => {
-    fetchSearchResults('tag', 'UX')
+    fetchSearchResults('bio', 'tumblr')
   }, [])
 
   return (
     <>
-      <p>Searching...</p>
     </>
   )
 }
