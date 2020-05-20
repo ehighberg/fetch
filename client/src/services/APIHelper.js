@@ -83,9 +83,20 @@ export const getAllUsers = async () => {
 export const getUsersByFieldAndQuery = async (field, query) => {
   try {
     const users = await getAllUsers()
-    return users.data.filter(user => {
-      return user[field] === query
-    })
+
+    if (field !== 'tag') {
+      console.log('not tag')
+      return users.data.filter(user => {
+        return user[field] === query
+      })
+    } else {
+      console.log('tag')
+      return users.data.filter(user => {
+        const userTags = user.tags.map(tag => tag.name)
+        return userTags.includes(query)
+      })
+    }
+
   } catch(error) {
     console.error(error)
   }
