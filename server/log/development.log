@@ -35298,3 +35298,121 @@ Processing by UsersController#index as HTML
 Completed 200 OK in 56ms (Views: 49.0ms | ActiveRecord: 6.1ms | Allocations: 7472)
 
 
+Started GET "/users/" for 127.0.0.1 at 2020-05-20 15:25:53 -0400
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/home/bam/personal_projects/datadog_hack/project/server/app/controllers/users_controller.rb:8: syntax error, unexpected '\n', expecting =>
+/home/bam/personal_projects/datadog_hack/project/server/app/controllers/users_controller.rb:13: syntax error, unexpected '\n', expecting =>
+/home/bam/personal_projects/datadog_hack/project/server/app/controllers/users_controller.rb:51: syntax error, unexpected end-of-input, expecting end):
+  
+app/controllers/users_controller.rb:8: syntax error, unexpected '\n', expecting =>
+app/controllers/users_controller.rb:13: syntax error, unexpected '\n', expecting =>
+app/controllers/users_controller.rb:51: syntax error, unexpected end-of-input, expecting end
+app/controllers/users_controller.rb:8: syntax error, unexpected '\n', expecting =>
+app/controllers/users_controller.rb:13: syntax error, unexpected '\n', expecting =>
+app/controllers/users_controller.rb:51: syntax error, unexpected end-of-input, expecting end
+Started GET "/users/" for 127.0.0.1 at 2020-05-20 15:26:09 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "tags_users" ON "tags"."id" = "tags_users"."tag_id" WHERE "tags_users"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 500 Internal Server Error in 50ms (ActiveRecord: 6.9ms | Allocations: 27357)
+
+
+  
+NoMethodError (undefined method `teams' for #<User:0x000055cf2ba7ff30>
+Did you mean?  team
+               team=):
+  
+app/controllers/users_controller.rb:8:in `index'
+Started GET "/users/" for 127.0.0.1 at 2020-05-20 15:26:26 -0400
+  
+SyntaxError (/home/bam/personal_projects/datadog_hack/project/server/app/controllers/users_controller.rb:8: syntax error, unexpected '\n', expecting =>
+/home/bam/personal_projects/datadog_hack/project/server/app/controllers/users_controller.rb:13: syntax error, unexpected '\n', expecting =>
+/home/bam/personal_projects/datadog_hack/project/server/app/controllers/users_controller.rb:51: syntax error, unexpected end-of-input, expecting end):
+  
+app/controllers/users_controller.rb:8: syntax error, unexpected '\n', expecting =>
+app/controllers/users_controller.rb:13: syntax error, unexpected '\n', expecting =>
+app/controllers/users_controller.rb:51: syntax error, unexpected end-of-input, expecting end
+app/controllers/users_controller.rb:8: syntax error, unexpected '\n', expecting =>
+app/controllers/users_controller.rb:13: syntax error, unexpected '\n', expecting =>
+app/controllers/users_controller.rb:51: syntax error, unexpected end-of-input, expecting end
+Started GET "/users/" for 127.0.0.1 at 2020-05-20 15:28:37 -0400
+  
+SyntaxError (/home/bam/personal_projects/datadog_hack/project/server/app/controllers/users_controller.rb:8: syntax error, unexpected '\n', expecting =>
+/home/bam/personal_projects/datadog_hack/project/server/app/controllers/users_controller.rb:13: syntax error, unexpected '\n', expecting =>
+/home/bam/personal_projects/datadog_hack/project/server/app/controllers/users_controller.rb:51: syntax error, unexpected end-of-input, expecting end):
+  
+app/controllers/users_controller.rb:8: syntax error, unexpected '\n', expecting =>
+app/controllers/users_controller.rb:13: syntax error, unexpected '\n', expecting =>
+app/controllers/users_controller.rb:51: syntax error, unexpected end-of-input, expecting end
+app/controllers/users_controller.rb:8: syntax error, unexpected '\n', expecting =>
+app/controllers/users_controller.rb:13: syntax error, unexpected '\n', expecting =>
+app/controllers/users_controller.rb:51: syntax error, unexpected end-of-input, expecting end
+Started GET "/users/" for 127.0.0.1 at 2020-05-20 15:30:40 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "tags_users" ON "tags"."id" = "tags_users"."tag_id" WHERE "tags_users"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "tags_users" ON "tags"."id" = "tags_users"."tag_id" WHERE "tags_users"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "tags_users" ON "tags"."id" = "tags_users"."tag_id" WHERE "tags_users"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "tags_users" ON "tags"."id" = "tags_users"."tag_id" WHERE "tags_users"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 32ms (Views: 21.9ms | ActiveRecord: 6.4ms | Allocations: 24851)
+
+
+Started GET "/users/" for 127.0.0.1 at 2020-05-20 15:31:49 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "tags_users" ON "tags"."id" = "tags_users"."tag_id" WHERE "tags_users"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 500 Internal Server Error in 38ms (ActiveRecord: 6.2ms | Allocations: 22621)
+
+
+  
+NoMethodError (undefined method `teams' for #<User:0x00007f3c8d087890>
+Did you mean?  team
+               team=):
+  
+app/controllers/users_controller.rb:8:in `index'
+Started GET "/users/" for 127.0.0.1 at 2020-05-20 15:33:11 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 3.6ms | Allocations: 16415)
+
+
+  
+NoMethodError (undefined method `tag' for #<User:0x00007f3c8cd0e510>
+Did you mean?  tags
+               tap):
+  
+app/controllers/users_controller.rb:8:in `index'
+Started GET "/users/" for 127.0.0.1 at 2020-05-20 15:33:23 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "tags_users" ON "tags"."id" = "tags_users"."tag_id" WHERE "tags_users"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "tags_users" ON "tags"."id" = "tags_users"."tag_id" WHERE "tags_users"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "tags_users" ON "tags"."id" = "tags_users"."tag_id" WHERE "tags_users"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "tags_users" ON "tags"."id" = "tags_users"."tag_id" WHERE "tags_users"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mCACHE Team Load (0.0ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 52ms (Views: 38.2ms | ActiveRecord: 10.6ms | Allocations: 35320)
+
+
