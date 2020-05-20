@@ -24,14 +24,11 @@ export const getUserByEmail = async (email) =>
   try
   {
     const userList = await api.get('/users')
-    const userId = userList.filter(user =>
-    {
+    const userId = userList.data.filter(user => {
       return user.email === email
-    })
-    console.log(userId)
-    return 1
-  } catch (error)
-  {
+    })[0].id
+    return userId
+  } catch(error) {
     console.error(error)
   }
 }
@@ -70,6 +67,15 @@ export const createNewPost = async (roomId, postData) =>
     console.log(postData)
   } catch (error)
   {
+    console.error(error)
+  }
+}
+
+export const getAllUsers = async () => {
+  try {
+    const users = await api.get('/users')
+    return users
+  } catch (error) {
     console.error(error)
   }
 }
