@@ -5,8 +5,6 @@ export default function RoomList(props)
 {
     const { rooms } = props
 
-    console.log(rooms)
-
     return (
         <>
             {rooms.map((room, index) => (

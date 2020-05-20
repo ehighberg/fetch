@@ -17,11 +17,9 @@ export default function Trev()
     {
         let allRoomsResponse = await getAllRooms()
         setRooms(allRoomsResponse)
-        console.log(allRoomsResponse)
 
         let singleRoomWithDetailsResponse = await getRoomWithDetail(1)
         setRoomDetail(singleRoomWithDetailsResponse)
-        console.log(singleRoomWithDetailsResponse)
     }
 
 
