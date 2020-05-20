@@ -80,28 +80,25 @@ export const getAllUsers = async () => {
   }
 }
 
-export const getUsersByFieldAndQuery = async (field, query) => {
+export const getUsersByFieldAndQuery = async (searchType, query) => {
   try {
     const users = await getAllUsers()
 
-    switch(field) {
-
+    switch(searchType) {
       case 'tag':
         return users.data.filter(user => {
           const userTags = user.tags.map(tag => tag.name)
           return userTags.includes(query)
         })
-        break
 
       case 'team':
         return users.data.filter(user => {
           return user.team.name.includes(query)
         })
-        break
 
       default:
         return users.data.filter(user => {
-          return user[field].includes(query)
+          return user[searchType].includes(query)
         })
     }
 

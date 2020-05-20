@@ -1,29 +1,34 @@
 import React, { useEffect, useState } from 'react'
 import { Formik, Form, Field } from 'formik'
+import { useHistory } from 'react-router-dom'
 
 import { getUsersByFieldAndQuery } from '../services/APIHelper'
 
 export default function SearchBar() {
   const [searchResults, setSearchResults] = useState([])
+  const history = useHistory()
 
-  const fetchSearchResults = async (field, query) => {
-    const searchResults = await getUsersByFieldAndQuery(field, query)
+  const fetchSearchResults = async (searchType, query) => {
+    const searchResults = await getUsersByFieldAndQuery(searchType, query)
     console.log(searchResults)
     setSearchResults(searchResults)
   }
 
-  const availableFields = {
-    name: 'name',
-    team: 'team',
-    tag: 'tag'
-  }
+  const availableSearchTypes = ['name', 'tag', 'team', 'bio', 'presence']
 
   useEffect(() => {
     fetchSearchResults('bio', 'tumblr')
   }, [])
 
   return (
-    <>
-    </>
+    <Formik
+      initialValues={{ searchType: 'team', query: '' }}
+      onSubmit={async () => {
+        await fetchSearchResults()
+        history.push()
+      }}
+    >
+
+    </Formik>
   )
 }
