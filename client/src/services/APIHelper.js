@@ -76,9 +76,8 @@ export const getAllUsers = async () =>
   try
   {
     const users = await api.get('/users')
-    return users
-  } catch (error)
-  {
+    return users.data
+  } catch (error) {
     console.error(error)
   }
 }
