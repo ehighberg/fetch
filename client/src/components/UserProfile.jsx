@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { getUserById } from '../services/APIHelper'
+import Avatar from './Avatar'
 
 export default function UserProfile(props) {
 
@@ -21,11 +22,9 @@ export default function UserProfile(props) {
     return (
         <div className='text-center w-screen'>
             Profile Details
-            <div>{user.name}</div>
-            <div>{user.title}</div>
-            <div className='m-auto w-64 h-64'>
-                <img className='w-full rounded-full' src={user.avatar}></img>
-            </div>
+            <Avatar
+                user={user}
+            />
             <div>{user.presence}</div>
             <div>{user.status_message}</div>
             <div>{user.phone}</div>
