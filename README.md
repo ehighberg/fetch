@@ -91,7 +91,7 @@ _Our MVP is ._
 ### MVP Server (Back End)
 
 #### ERD Model
-
+![ERD Model](./erd.png)
 
 
 #### Endpoints
