@@ -79,3 +79,12 @@ export const getAllUsers = async () => {
     console.error(error)
   }
 }
+
+export const getUserById = async (user_id) => {
+  try {
+    const user = await api.get(`/users/${user_id}`)
+    return user.data
+  } catch (error) {
+    console.error(error)
+  }
+}

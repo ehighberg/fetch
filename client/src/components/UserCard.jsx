@@ -9,6 +9,7 @@ export default function UserCard(props) {
 
     return (
         <div className='flex flex-row m-2 bg-gray-200'>
+            <div>{user.presence}</div>
             <img className='w-20 mr-16' src={user.avatar}></img>
             <div className='m-0 w-full'>
                 <div>{user.name}</div>

@@ -30,9 +30,8 @@ export default function UserList(props) {
                         )
                     }
                     return (
-                        <Link to={`/users/${user.id}`}>
+                        <Link key={index} to={`/users/${user.id}`}>
                             <UserCard
-                                key={index}
                                 user={user}
                             />
                         </Link>
