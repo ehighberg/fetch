@@ -16,11 +16,11 @@
     "tailwindcss": "^1.4.6"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "PORT=3001 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "css": "postcss ./src/css/tailwind.css -o ./src/css/style.css && react-scripts start"
+    "css": "postcss ./src/css/tailwind.css -o ./src/css/style.css && PORT=3001 react-scripts start"
   },
   "eslintConfig": {
     "extends": "react-app"
