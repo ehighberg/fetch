@@ -19,9 +19,13 @@ export default function UserProfile(props) {
     console.log(user)
 
     return (
-        <div>
-            User Profile
-            <img src={user.avatar}></img>
+        <div className='text-center w-screen'>
+            Profile Details
+            <div>{user.name}</div>
+            <div>{user.title}</div>
+            <div className='m-auto w-64 h-64'>
+                <img className='w-full rounded-full' src={user.avatar}></img>
+            </div>
             <div>{user.presence}</div>
             <div>{user.status_message}</div>
             <div>{user.phone}</div>
