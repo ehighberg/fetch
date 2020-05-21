@@ -19,7 +19,7 @@ export default function UserCard(props)
             </div>
             <div className="mr-4">
                 <div className={`p-1 rounded-full ${manager ? 'bg-purple-700' : 'bg-yellow-400'}`}>
-                    <img className='rounded-full' src={user.avatar}></img>
+                    <img className='rounded-full w-32' src={user.avatar}></img>
                 </div>
             </div>
             <div className='m-0 w-full'>
