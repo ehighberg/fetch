@@ -53,6 +53,7 @@ export default function UserList(props)
                     <Link key={-1} to={`/users/${manager.id}`}>
                         <UserCard
                             user={manager}
+                            manager={true}
                         />
                     </Link>
                 )}
