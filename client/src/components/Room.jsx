@@ -7,8 +7,8 @@ export default function Room(props)
     const { name, posts, id: roomId } = props.roomDetails
 
     return (
-        <div className="border-gray-500 rounded border">
-            <div className="text-center text-xl">{name ? name : "Room"}</div>
+        <div className="">
+            <div className="font-poppins text-2xl text-center text-purple-700 uppercase">{name ? name : "Room"}</div>
             <div className="text-xs">
                 {posts ? <PostList posts={posts} /> : "Loading..."}
             </div>
