@@ -9,6 +9,7 @@ import Bio from '../components/Bio'
 import Interests from '../components/Interests'
 import SocialActivity from '../components/SocialActivity'
 
+
 export default function UserProfilePage2(props) {
 
     console.log(props)
@@ -35,11 +36,12 @@ export default function UserProfilePage2(props) {
     return (
         <div {...handlers} className='text-center w-screen'>
             <div className='text-3xl text-purple-700 p-6 font-bold'>PROFILE DETAILS</div>
-            <div className='purple-gradient py-4'>
+            <div className='purple-gradient py-4 shadow-xl'>
                 <ProfileNav user={user} />
                 <Avatar user={user} />
             </div>
-                <Bio user={user} />
+            <Bio user={user} />
+            <Interests user={user} />
 
             <div>
                 <Interests user={user} />
