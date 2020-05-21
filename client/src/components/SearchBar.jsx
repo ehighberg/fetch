@@ -16,19 +16,15 @@ export default function SearchBar(props) {
       history.push(`/teams/${teamId}`)
     } else {
       props.setSearchResults(searchResults)
+      history.push('/results')
     }
   }
 
-  const availableSearchTypes = ['team', 'name', 'tag', 'presence', 'bio']
+  const availableSearchTypes = ['name', 'tag', 'team', 'presence', 'bio']
   const generateOptions = () => {
     return availableSearchTypes.map((searchType, index) => {
-      const selected = (searchType === 'team')
       return (
-        <option
-          key={index}
-          value={searchType}
-          selected={selected}
-        >
+        <option key={index} value={searchType}>
           {searchType}
         </option>
       )
