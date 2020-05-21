@@ -12,8 +12,6 @@ import SocialActivity from '../components/SocialActivity'
 
 export default function UserProfilePage2(props) {
 
-    console.log(props)
-
     const userId = props.match.params.id
 
     const [user, setUser] = useState([])

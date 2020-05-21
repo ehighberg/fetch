@@ -8,9 +8,11 @@ export default function Bio(props) {
         <div>
 
             <div className='font-bold text-purple-700 text-lg mt-10'>Bio</div>
-            <div className='border-b-2 mx-12 p-4'>
+            <div className='mx-12 p-4'>
                 {user.bio}
             </div>
+
+            <div id='border' className='w-1/2 m-auto h-px bg-gray-500'></div>
             
         </div>
     )

@@ -1,5 +1,4 @@
 import React from 'react'
-import Presence from './Presence'
 
 export default function Status(props) {
 
@@ -7,18 +6,15 @@ export default function Status(props) {
     
     return (
         <div>
-            <div className='flex flex-row justify-evenly my-6 mx-auto w-1/4'>
-                <div className='w-5 h-5'>
-                    <Presence presence={user.presence} />
-                </div>
-                <div>{user.presence}</div>
-            </div>
+            
+            <div className='font-bold text-purple-700 text-lg mt-10'>Status Updates</div>
 
-            <div className='font-bold text-purple-700 text-xl'>Status Updates</div>
-
-            <div className='border-b-2 mx-12 my-3 p-4'>
+            <div className='mx-12 p-2'>
                 {user.status_message}
             </div>
+
+            <div id='border' className='w-1/2 mx-auto my-4 h-px bg-gray-500'></div>
+
         </div>
     )
 }
