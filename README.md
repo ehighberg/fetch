@@ -24,9 +24,9 @@
 
 **PROJECT NAME** is a workplace communication and informational tool. It
 incorporates real-time chat with ActionCable connection to a Ruby on Rails
-server, as well as a directory service organizing employees by their team, expertise, etc.
+server, as well as a directory service organizing employees by their team,
+expertise, etc.
 
-<br>
 
 ## Team
 
@@ -36,18 +36,15 @@ server, as well as a directory service organizing employees by their team, exper
 - Trevor Smith-Holbourn - Software Developer
 - Valeria Gonzalez - User Experience Designer
 
+<br>
 
 ## MVP
 
 One core feature is an employee directory system which users can search by
-employee name, team, or self-defined tags (skills, hobbies, etc.).
+employee name, team, or self-defined tags (skills, hobbies, etc.). These
+searches can be used to start chats directly (with an entire team, for
+example), as well as look up contact information for specific people.
 
-<br>
-
-### MVP Goals
-
-
-<br>
 
 ### MVP Libraries and external APIs
 
