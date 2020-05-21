@@ -6,7 +6,7 @@ export default function Interests(props) {
         <div>
             <div className='text-purple-700 text-2xl'>Interests</div>
             <div className='flex'>
-              <div>Airplane</div>
+              <div>Plane</div>
               <div>Paw</div>
               <div>Ball</div>
               <div>Mail</div>
