@@ -62,21 +62,20 @@ export default function UserList(props)
                 {
                     if (Object.keys(users).length === 0)
                     {
-                        return (
-                            <div>
-                                Loading...
-                            </div>
-                        )
-                    }
                     return (
-                        <Link key={index} to={`/users/${user.id}`}>
-                            <UserCard
-                                user={user}
-                            />
-                        </Link>
+                        <div className='text-purple-700'>
+                            Loading...
+                        </div>
                     )
-                })}
-            </div>
+                }
+                return (
+                    <Link key={index} to={`/users/${user.id}`}>
+                        <UserCard
+                            user={user}
+                        />
+                    </Link>
+                )
+            })}
         </div>
     )
 }

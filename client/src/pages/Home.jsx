@@ -3,8 +3,9 @@ import { Formik, Form, Field } from 'formik'
 import { useHistory, Link } from 'react-router-dom'
 
 import { getUserByEmail } from '../services/APIHelper.js'
+import SearchBar from '../components/SearchBar'
 
-export default function Home()
+export default function Home(props)
 {
     const history = useHistory()
 
@@ -39,6 +40,9 @@ export default function Home()
 
             {localStorage.getItem('userId') && (
               <div>
+                <SearchBar
+                  setSearchResults={props.setSearchResults}
+                />
                 <h1>Company Directory</h1>
                 <Link to='/teams'>
                   <p>Teams</p>

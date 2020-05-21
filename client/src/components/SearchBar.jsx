@@ -46,7 +46,6 @@ export default function SearchBar(props) {
         <button type='submit'>
           Search
         </button>
-        <button onClick={() => props.setSearchActive(false)}>X</button>
       </Form>
     </Formik>
   )
