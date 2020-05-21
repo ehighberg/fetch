@@ -54,13 +54,16 @@ _Our MVP is ._
 
 |     Library      | Description                                |
 | :--------------: | :----------------------------------------- |
-| React            | _Front end framework._
-|   React Router   | _Make single page applications._ |
-|     Axios        | _Get data to/from front end._ |
-|      Formik      | _Simpler form handling in React._           |
-|    Faker         | _Generate seed data._          |
-| Ruby on Rails    | _Backend server._ |
+| React            | _Front end framework for reusable components._
+|   React Router   | _In-app routing to make single page application._ |
+|     Axios        | _Simpler interface for getting data to/from front end._ |
+|      Formik      | _Simpler form handling in React by reducing boilerplate._ |
+|    Faker         | _Generate seed data for fast development._          |
+| Ruby on Rails    | _Backend server with easy database and routing setup._ |
 | CORS             | _Allow Cross Origin Resource Sharing in development._ |
+| Tailwind CSS     | _Reduce boilerplate CSS for fast development._ |
+| ActionCable.js   | _Real-time updates interfacing with Rails backend._ |
+| React-Swipeable  | _Add swipe gestures for improved mobile experience._ |
 
 
 |  External API    | Description |
@@ -115,16 +118,6 @@ _Our MVP is ._
 ***
 
 ## Planning
-<br>
-
-### Timeframes
-
-
-| Task                | Priority | Estimated Time | Actual Time |
-| ------------------- | :------: | :------------: | :---------: |
-| TOTAL | T |  |  |
-
-
 <br>
 
 ***
