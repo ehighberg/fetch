@@ -2,10 +2,10 @@ import React from 'react'
 
 import SearchBar from './SearchBar'
 
-export default function Nav() {
+export default function Nav(props) {
   return (
     <nav>
-      <SearchBar />
+      <SearchBar setSearchResults={props.setSearchResults}/>
     </nav>
   )
 }

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Switch, Route } from 'react-router-dom'
 
 
@@ -18,12 +18,16 @@ import FourNaughtFour from './pages/FourNaughtFour'
 
 const App = () =>
 {
+  const [searchResults, setSearchResults] = useState([])
+
   return (
     <>
-      <Nav />
+      <Nav setSearchResults={setSearchResults}/>
       <Switch>
         <Route exact path="/" render={(props) => (<Home {...props} />)} />
-        <Route exact path="/results" render={(props) => (<SearchResults {...props} />)} />
+        <Route exact path="/results" render={(props) => (
+            <SearchResults {...props} searchResults={searchResults} setSearchResults={setSearchResults} />
+        )} />
         <Route exact path="/teams/" render={(props) => (<TeamList {...props} />)} />
         <Route exact path="/teams/:id" render={(props) => (<Team {...props} />)} />
         <Route exact path="/rooms/" render={(props) => (<RoomListPage {...props} />)} />
