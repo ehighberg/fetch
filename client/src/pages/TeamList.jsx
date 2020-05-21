@@ -19,14 +19,15 @@ export default function TeamList()
 
   return (
       <div>
+          <div className="font-poppins text-2xl text-center text-purple-700 uppercase py-6">Teams</div>
           <div id='team-list'>
             {teamList && (
               teamList.map((team) => {
                 const teamId = team.id
                 return (
-                  <Link to={`/teams/${teamId}`} key={teamId}>
+                  <Link to={`/teams/${teamId}`} key={teamId} className='flex flex-row w-3/5 text-2xl mx-auto justify-between border-b-2 my-4'>
                     <p>{team.name}</p>
-                    <p>ARROW ICON</p>
+                    <p>ICON</p>
                   </Link>
                 )
               })

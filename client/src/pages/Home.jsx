@@ -43,14 +43,14 @@ export default function Home(props)
                 <SearchBar
                   setSearchResults={props.setSearchResults}
                 />
-                <h1>Company Directory</h1>
-                <Link to='/teams'>
-                  <p>Teams</p>
-                  <p>ARROW ICON</p>
+                <div className='text-4xl text-purple-700'>Company Directory</div>
+                <Link to='/teams' className='flex flex-row w-3/5 text-3xl mx-auto justify-between border-b-2 my-4'>
+                  <div>Teams</div>
+                  <div>ICON</div>
                 </Link>
-                <Link to='/users'>
-                  <p>People</p>
-                  <p>ARROW ICON</p>
+                <Link to='/users' className='flex flex-row w-3/5 text-3xl mx-auto justify-between border-b-2 my-4'>
+                  <div>People</div>
+                  <div>ICON</div>
                 </Link>
               </div>
             )}
