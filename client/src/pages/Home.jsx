@@ -16,7 +16,7 @@ export default function Home()
 
             {!localStorage.getItem('userId') && (
               <Formik
-                initialValues={{ email: '', password: ''}}
+                initialValues={{ email: '', password: '' }}
                 onSubmit={ async (values, actions) => {
                   const userId = await getUserByEmail(values.email)
                   if (userId) {

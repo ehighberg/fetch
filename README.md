@@ -25,7 +25,7 @@
 
 ## Overview
 
-_**PROJECT NAME** is ._
+_**PROJECT NAME** is unknown._
 
 <br>
 
