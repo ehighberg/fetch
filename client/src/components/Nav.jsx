@@ -14,6 +14,7 @@ export default function Nav(props) {
       {!searchActive &&
         <>
           <button onClick={() => history.goBack()}>Back</button>
+          <button onClick={() => history.push('/')}>Home</button>
           <button onClick={() => setSearchActive(true)}>Search</button>
         </>
       }
