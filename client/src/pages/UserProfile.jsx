@@ -26,10 +26,10 @@ export default function UserProfile(props) {
         <div className='text-center w-screen'>
             <div className='bg-gray-200 pb-4'>
                 <div className='text-3xl bg-gray-500 p-6'>Profile Details</div>
-                    <ProfileNav />
-                    <Avatar user={user} />
-                    <Status user={user} />
-                </div>
+                <ProfileNav user={user} />
+                <Avatar user={user} />
+                <Status user={user} />
+            </div>
                 
             <Contact user={user} />
                 

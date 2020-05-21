@@ -20,7 +20,7 @@ export default function UserProfilePage3(props) {
 
     return (
         <div>
-            <ProfileNav />
+            <ProfileNav user={user} />
             <Avatar user={user} />
             UserProfilePage3
         </div>
