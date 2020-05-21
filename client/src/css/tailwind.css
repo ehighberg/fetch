@@ -4,5 +4,10 @@
 
 @tailwind  components;
 
+*{
+  @apply font-nunito font-normal;
+  transition: 0.1s;
+}
+
 /* purgecss end ignore */
 @tailwind utilities;

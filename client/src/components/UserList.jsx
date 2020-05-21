@@ -36,7 +36,7 @@ export default function UserList(props)
         console.log(props)
         console.log(userIds)
         const res = await getManyUsersById(userIds)
-        
+
         setUsers(res)
     }
 

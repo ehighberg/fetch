@@ -4,6 +4,11 @@ module.exports = {
   purge: [],
   theme: {
     extend: {
+      fontFamily: {
+        'poppins': ['Poppins', 'sans-serif'],
+        'roboto': ['Roboto', 'sans-serif'],
+        'nunito': ['Nunito', 'sans-serif'],
+      },
       colors: {
         purple: {
           ...colors.purple,
@@ -15,7 +20,7 @@ module.exports = {
         },
         gray: {
           ...colors.gray,
-          '100': '#f6bb50',
+          '100': '#fcfcfc',
         }
       }
     }
