@@ -1,10 +1,14 @@
 import React from 'react'
 
-export default function SearchResults()
+import UserCard from '../components/UserCard'
+
+export default function SearchResults(props)
 {
     return (
         <div>
-            SearchResults
+            {props.searchResults.map((user, index) => {
+              return <UserCard key={index} user={user} />
+            })}
         </div>
     )
 }

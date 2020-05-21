@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { getUserById } from '../services/APIHelper'
+import Avatar from './Avatar'
+import Presence from './Presence'
+import Status from './Status'
+import Contact from './Contact'
 
 export default function UserProfile(props) {
 
@@ -20,17 +24,31 @@ export default function UserProfile(props) {
 
     return (
         <div className='text-center w-screen'>
-            Profile Details
-            <div>{user.name}</div>
-            <div>{user.title}</div>
-            <div className='m-auto w-64 h-64'>
-                <img className='w-full rounded-full' src={user.avatar}></img>
+            <div className='bg-gray-200 pb-4'>
+                <div className='text-3xl bg-gray-500 p-6'>Profile Details</div>
+                    <Avatar user={user} />
+                    <Status user={user} />
+                </div>
+                
+            <Contact user={user} />
+
+            {/* <div className='text-xl flex flex-row justify-between p-6 w-11/12 m-auto'>
+                <div>Contact</div>
+                <div>Prefers {user.preferred_contact_method}</div>
             </div>
-            <div>{user.presence}</div>
-            <div>{user.status_message}</div>
-            <div>{user.phone}</div>
-            <div>{user.slack}</div>
-            <div>{user.email}</div>
+
+            <div className='border-black border-2 rounded-md mx-12 my-3 p-4'>
+                <div className='text-left'>
+                    <div>Phone: {user.phone}</div>
+                    <div>Slack: {user.slack}</div>
+                    <div>Email: {user.email}</div>
+                </div>
+            </div>
+
+            <div>Average response time: {user.average_response_time_minutes} minutes</div>
+
+            <div>Request a meeting</div> */}
+                
         </div>
     )
 }
