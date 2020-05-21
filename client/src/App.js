@@ -16,6 +16,10 @@ import UserProfilePage2 from './pages/UserProfilePage2'
 import UserProfilePage3 from './pages/UserProfilePage3'
 import FourNaughtFour from './pages/FourNaughtFour'
 
+import ActionCable from 'actioncable'
+import { wsUrl } from './services/APIHelper'
+let cable = ActionCable.createConsumer(wsUrl)
+
 const App = () =>
 {
   const [searchResults, setSearchResults] = useState([])
@@ -31,7 +35,7 @@ const App = () =>
         <Route exact path="/teams/" render={(props) => (<TeamList {...props} />)} />
         <Route exact path="/teams/:id" render={(props) => (<Team {...props} />)} />
         <Route exact path="/rooms/" render={(props) => (<RoomListPage {...props} />)} />
-        <Route exact path="/rooms/:id" render={(props) => (<RoomPage {...props} />)} />
+        <Route exact path="/rooms/:id" render={(props) => (<RoomPage {...props} cable={cable} />)} />
         <Route exact path="/users" render={(props) => (<UserList {...props} />)} />
         <Route exact path="/users/:id" render={(props) => (<UserProfile {...props} />)} />
         <Route exact path="/users/:id/page2" render={(props) => (<UserProfilePage2 {...props} />)} />
