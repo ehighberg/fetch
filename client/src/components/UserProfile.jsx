@@ -22,18 +22,23 @@ export default function UserProfile(props) {
 
     return (
         <div className='text-center w-screen'>
-            <div className='bg-gray-200 p-6'>
+            <div className='bg-gray-200 pt-10 pb-4'>
                 Profile Details
-                <Avatar
-                    user={user}
-                />
-                <div className='w-5 h-5 ml-32 mt-6'>
-                    <Presence
-                        presence={user.presence}
+                    <Avatar
+                        user={user}
                     />
+                    <div className='flex flex-row justify-evenly my-6 mx-auto w-1/4'>
+                        <div className='w-5 h-5'>
+                            <Presence
+                                presence={user.presence}
+                            />
+                        </div>
+                        <div className=''>{user.presence}</div>
+
+                    </div>
+                <div className='border-black border-2 rounded-md mx-12 my-3 p-4'>
+                    {user.status_message}
                 </div>
-                <div className='m-0 inline'>{user.presence}</div>
-                <div className='border-black border-2 rounded-md m-12 p-4'>{user.status_message}</div>
             </div>
             <div>{user.phone}</div>
             <div>{user.slack}</div>

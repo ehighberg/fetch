@@ -6,9 +6,9 @@ export default function Avatar(props) {
 
     return (
         <div>
-            <div>{user.name}</div>
+            <div className='m-4'>{user.name}</div>
             <div>{user.title}</div>
-            <div className='m-auto w-64 h-64'>
+            <div className='mx-auto my-10 w-64 h-64'>
                 <img className='w-full rounded-full' src={user.avatar}></img>
             </div>
         </div>
