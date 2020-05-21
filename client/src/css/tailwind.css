@@ -5,7 +5,7 @@
 @tailwind  components;
 
 *{
-  @apply font-nunito font-normal;
+  @apply font-roboto font-normal;
   transition: 0.1s;
 }
 
