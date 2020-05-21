@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import ProfileNav from '../components/ProfileNav'
 import { getUserById } from '../services/APIHelper'
 import Avatar from '../components/Avatar'
+import Pics from '../components/Pics'
 
 export default function UserProfilePage3(props) {
 
@@ -20,11 +21,13 @@ export default function UserProfilePage3(props) {
 
     return (
         <div className='text-center w-screen'>
-            <div className='bg-gray-100 pb-4'>
-                <div className='text-3xl text-purple-700 p-6'>Profile Details</div>
+            <div className='text-3xl text-purple-700 p-6'>Profile Details</div>
+            <div className='bg-gray-100 py-4'>
                 <ProfileNav user={user} />
                 <Avatar user={user} />
-                UserProfilePage3
+            </div>
+            <div>
+                <Pics user={user} />
             </div>
         </div>
     )
