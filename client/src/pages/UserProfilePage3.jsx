@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Redirect } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import { useSwipeable } from 'react-swipeable'
 
 import ProfileNav from '../components/ProfileNav'
@@ -22,8 +22,9 @@ export default function UserProfilePage3(props) {
         setUser(res)
     }
 
+    const history = useHistory()
     const handlers = useSwipeable({
-      onSwipedRight: () => <Redirect exact to={`/users/${userId}/page2`} />
+      onSwipedRight: () => history.push(`/users/${userId}/page2`)
     })
 
     return (
