@@ -7,6 +7,7 @@ import Avatar from '../components/Avatar'
 import { getUserById } from '../services/APIHelper'
 import Bio from '../components/Bio'
 import SocialActivity from '../components/SocialActivity'
+import Interests from '../components/Interests'
 
 export default function UserProfilePage2(props) {
 
@@ -38,7 +39,8 @@ export default function UserProfilePage2(props) {
                 <ProfileNav user={user} />
                 <Avatar user={user} />
             </div>
-                <Bio user={user} />
+            <Bio user={user} />
+            <Interests user={user} />
 
             <div>
                 <SocialActivity user={user} />

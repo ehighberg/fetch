@@ -6,8 +6,10 @@ export default function Interests(props) {
 
     return (
         <div>
-            <div className='text-purple-700 text-2xl'>Interests</div>
-            {/* PostMVP: Interests section goes here, will be imported in UserProfilePage2 */}
+            <div className='font-bold text-purple-700 text-lg mt-10'>Interests</div>
+            <div className='border-b-2 mx-12 p-4'>
+                interests...
+            </div>
         </div>
     )
 }
