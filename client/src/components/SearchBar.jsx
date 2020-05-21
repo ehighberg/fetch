@@ -20,7 +20,7 @@ export default function SearchBar(props) {
     }
   }
 
-  const availableSearchTypes = ['name', 'tag', 'team', 'presence', 'bio']
+  const availableSearchTypes = ['team', 'bio', 'name', 'presence', 'tag', 'title']
   const generateOptions = () => {
     return availableSearchTypes.map((searchType, index) => {
       return (
