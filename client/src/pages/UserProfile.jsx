@@ -25,11 +25,12 @@ export default function UserProfile(props) {
     return (
         <div className='text-center w-screen'>
             <div className='text-3xl text-purple-700 p-6'>Profile Details</div>
-            <div className='bg-gray-100 py-4'>
+            <div className='purple-gradient py-4'>
                 <ProfileNav user={user} />
                 <Avatar user={user} />
-                <Status user={user} />
             </div>
+                <Status user={user} />
+            
                 
             <Contact user={user} />
                 
