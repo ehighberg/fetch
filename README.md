@@ -148,6 +148,8 @@ example), as well as look up contact information for specific people.
 
 ### Data Flow
 
+![Search Flow Diagram](./docs/search_flow_diagram.png)
+
 ***
 
 
@@ -179,10 +181,17 @@ example), as well as look up contact information for specific people.
 
 ### Expected Issues
 
+- Making sockets work for real time chat rooms.
+- Displaying profile information effectively to users.
+- Time management on short deadline.
+- Dynamic generation and access to chat rooms.
 
 
 ### Encountered Issues
 
+- Seeding self-referencing tables. Fixed by aliasing one of the table references.
+- Development at the same time as design is very tough. Mitigated with about 3 meetings per day.
+- Original design called for single search bar to search all fields. Added drop down search bar to allow selection of search type.
 
 
 ***
