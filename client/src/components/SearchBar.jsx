@@ -11,6 +11,7 @@ export default function SearchBar(props) {
     const { searchType, query } = values
     const searchResults = await getUsersByFieldAndQuery(searchType, query)
     console.log(searchResults)
+    props.setSearchActive(false)
     if (searchType === 'team') {
       const teamId = searchResults[0].team.id
       history.push(`/teams/${teamId}`)
