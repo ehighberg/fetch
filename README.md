@@ -97,16 +97,22 @@ example), as well as look up contact information for specific people.
 
 #### Endpoints
 
-- GET `/user`
-	- Index route returning an array of all Users
-- POST `/user`
-	- Create route for a new user
-- GET `/user/:id`
-  - Show route for a user requested by ID
-- PUT `/user/:id/`
-  - Edit a user's profile info
-- DELETE `/user/:id`
-  - Delete a user's profile
+- GET `/users`
+	- Index route returning all users
+- GET `/users/:id`
+  - Show route returning a single user requested by ID
+
+- GET `/rooms`
+  - Index route returning a list of all chat rooms
+- GET `/roomwithdetails/:id`
+  - Show route for a single chat room with all its posts and user info
+
+- POST `/posts`
+  - Create route which adds a post to a room
+
+- GET `/teams`
+  - Index route returning all teams
+
 
 <br>
 
