@@ -21,10 +21,13 @@ export default function UserProfilePage2(props) {
     }
 
     return (
-        <div>
-            <ProfileNav user={user} />
-            <Avatar user={user} />
-            UserProfilePage2
+        <div className='text-center w-screen'>
+            <div className='bg-gray-200 pb-4'>
+                <div className='text-3xl bg-gray-500 p-6'>Profile Details</div>
+                <ProfileNav user={user} />
+                <Avatar user={user} />
+                UserProfilePage2
+            </div>
         </div>
     )
 }

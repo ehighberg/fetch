@@ -19,10 +19,13 @@ export default function UserProfilePage3(props) {
     }
 
     return (
-        <div>
-            <ProfileNav user={user} />
-            <Avatar user={user} />
-            UserProfilePage3
+        <div className='text-center w-screen'>
+            <div className='bg-gray-100 pb-4'>
+                <div className='text-3xl text-purple-700 p-6'>Profile Details</div>
+                <ProfileNav user={user} />
+                <Avatar user={user} />
+                UserProfilePage3
+            </div>
         </div>
     )
 }
