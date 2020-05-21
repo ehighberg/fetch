@@ -23,7 +23,7 @@ export default function UserCard(props)
                 </div>
             </div>
             <div className='m-0 w-full'>
-                <div className='text-purple-700 text-lg'>{user.name}</div>
+                <div className=' font-roboto font-medium text-purple-700 text-lg'>{user.name}</div>
                 <div>{user.title}</div>
                 <div>{user.pronouns}</div>
             </div>

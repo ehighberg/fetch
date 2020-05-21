@@ -26,7 +26,7 @@ export default function Team(props)
 
     return (
         <div>
-            <div>{teamDetail.name}</div>
+            <div className=" font-poppins text-2xl text-center text-purple-700">{teamDetail.name}</div>
             {userIds ? <UserList userIds={userIds} managerId={teamDetail.manager && teamDetail.manager.id} /> : ""}
         </div>
     )

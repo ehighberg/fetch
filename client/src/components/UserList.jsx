@@ -47,36 +47,33 @@ export default function UserList(props)
     }
 
     return (
-        <div>
-            <h1 className='text-xl text-purple-700'>User List</h1>
-            <div>
-                {manager && (
-                    <Link key={-1} to={`/users/${manager.id}`}>
+        <>
+            {manager && (
+                <Link key={-1} to={`/users/${manager.id}`}>
+                    <UserCard
+                        user={manager}
+                        manager={true}
+                    />
+                </Link>
+            )}
+            {users && users.map((user, index) =>
+            {
+                if (Object.keys(users).length === 0)
+                {
+                    return (
+                        <div className='text-purple-700'>
+                            Loading...
+                        </div>
+                    )
+                }
+                return (
+                    <Link key={index} to={`/users/${user.id}`}>
                         <UserCard
-                            user={manager}
-                            manager={true}
+                            user={user}
                         />
                     </Link>
-                )}
-                {users && users.map((user, index) =>
-                {
-                    if (Object.keys(users).length === 0)
-                    {
-                        return (
-                            <div className='text-purple-700'>
-                                Loading...
-                            </div>
-                        )
-                    }
-                    return (
-                        <Link key={index} to={`/users/${user.id}`}>
-                            <UserCard
-                                user={user}
-                            />
-                        </Link>
-                    )
-                })}
-            </div>
-        </div>
+                )
+            })}
+        </>
     )
 }
