@@ -6,10 +6,18 @@ export default function Interests(props) {
         <div>
             <div className='font-bold text-purple-700 text-lg mt-10'>Interests</div>
             <div className='flex border-b-2 mx-12 p-4'>
-              <div>Plane</div>
-              <div>Paw</div>
-              <div>Ball</div>
-              <div>Mail</div>
+              <div>
+                <img src={require('../assets/Icons/Travel.png')} alt='interest travel' />
+              </div>
+              <div>
+                <img src={require('../assets/Icons/Pets.png')} alt='interest animals' />
+              </div>
+              <div>
+                <img src={require('../assets/Icons/Soccer.png')} alt='interest sports' />
+              </div>
+              <div>
+                <img src={require('../assets/Icons/Email.png')} alt='interest mail' />
+              </div>
             </div>
         </div>
     )

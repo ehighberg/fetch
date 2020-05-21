@@ -41,7 +41,6 @@ export default function UserProfilePage2(props) {
                 <Avatar user={user} />
             </div>
             <Bio user={user} />
-            <Interests user={user} />
 
             <div>
                 <Interests user={user} />
