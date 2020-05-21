@@ -37,15 +37,25 @@ export default function SearchBar(props) {
       initialValues={{ searchType: 'team', query: '' }}
       onSubmit={gotoSearchResults}
     >
-      <Form>
+      <Form className='mt-24'>
         <label>Search By:</label>
         <Field as='select' name='searchType'>
           {generateOptions()}
         </Field>
-        <Field type='input' name='query' placeholder='Search for...'/>
-        <button type='submit'>
-          Search
-        </button>
+        <div className='flex flex-row justify-between bg-white border-2 border-purple-700 rounded-full w-3/4 p-4 mx-auto my-10'>
+            <Field 
+                type='input' 
+                name='query' 
+                placeholder='Alex; Engineering; Updates' 
+                className='' 
+            />
+            <button 
+                type='submit' 
+                className='cursor-pointer inline-block text-xl'
+            >
+                ICON
+            </button>
+        </div>
       </Form>
     </Formik>
   )
