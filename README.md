@@ -1,7 +1,6 @@
 # PROJECT NAME
 
 
-- [Full Stack Project](#Full-Stack-Project)
   - [Overview](#Overview)
   - [Team](#Team)
   - [MVP](#MVP)
@@ -11,12 +10,10 @@
       - [Wireframes](#Wireframes)
       - [Component Hierarchy](#Component-Hierarchy)
       - [Component Breakdown](#Component-Breakdown)
-      - [Component Estimates](#Component-Estimates)
     - [MVP Server (Back End)](#MVP-Server-Back-End)
       - [ERD Model](#ERD-Model)
     - [Data Flow](#Data-Flow)
   - [Post-MVP](#Post-MVP)
-  - [Project Change Log](#Project-Change-Log)
   - [Code Showcase](#Code-Showcase)
   - [Code Issues & Resolutions](#Code-Issues--Resolutions)
 
@@ -25,7 +22,9 @@
 
 ## Overview
 
-_**PROJECT NAME** is unknown._
+**PROJECT NAME** is a workplace communication and informational tool. It
+incorporates real-time chat with ActionCable connection to a Ruby on Rails
+server, as well as a directory service organizing employees by their team, expertise, etc.
 
 <br>
 
@@ -40,7 +39,8 @@ _**PROJECT NAME** is unknown._
 
 ## MVP
 
-_Our MVP is ._
+One core feature is an employee directory system which users can search by
+employee name, team, or self-defined tags (skills, hobbies, etc.).
 
 <br>
 
@@ -54,7 +54,7 @@ _Our MVP is ._
 
 |     Library      | Description                                |
 | :--------------: | :----------------------------------------- |
-| React            | _Front end framework for reusable components._
+| React            | _Front end framework for reusable components._ |
 |   React Router   | _In-app routing to make single page application._ |
 |     Axios        | _Simpler interface for getting data to/from front end._ |
 |      Formik      | _Simpler form handling in React by reducing boilerplate._ |
@@ -117,10 +117,6 @@ _Our MVP is ._
 
 ***
 
-## Planning
-<br>
-
-***
 
 ## Post-MVP
 
@@ -131,10 +127,6 @@ _Our MVP is ._
 <br>
 
 ***
-
-## Project Change Log
-
-
 
 ## Code Showcase
 
