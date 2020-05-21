@@ -41,21 +41,21 @@ export default function SearchBar(props)
       initialValues={{ searchType: 'team', query: '' }}
       onSubmit={gotoSearchResults}
     >
-      <Form className='mt-24'>
+      <Form>
         <label>Search By:</label>
         <Field as='select' name='searchType'>
           {generateOptions()}
         </Field>
-        <div className='flex flex-row justify-between bg-white border-2 border-yellow-400 rounded-full w-3/4 p-4 mx-auto my-10'>
+        <div className='flex flex-row justify-between bg-gray-100 border border-yellow-400 rounded-full p-6 mx-auto'>
           <Field
             type='input'
             name='query'
             placeholder='Alex; Engineering; Updates'
-            className=''
+            className='bg-gray-100 w-full'
           />
           <button
             type='submit'
-            className='cursor-pointer inline-block text-xl'
+            className='cursor-pointer inline-block text-xl bg-gray-100'
           >
             ICON
             </button>
