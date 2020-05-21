@@ -16,12 +16,13 @@ export default function Home()
 
             <Formik
               initialValues={{ email: '', password: ''}}
-              onSubmit={ async (values) => {
+              onSubmit={ async (values, actions) => {
                 const userId = await getUserByEmail(values.email)
                 if (userId) {
                   localStorage.setItem('userId', userId)
                   history.push(`/users/${userId}`)
                 } else {
+                  actions.resetForm()
                   history.push('/')
                 }
               }}
