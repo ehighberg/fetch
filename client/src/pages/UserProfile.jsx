@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from 'react'
+import { useHistory } from 'react-router-dom'
+import { useSwipeable } from 'react-swipeable'
+
 import { getUserById } from '../services/APIHelper'
 import Avatar from '../components/Avatar'
 import Status from '../components/Status'
@@ -22,18 +25,23 @@ export default function UserProfile(props) {
         setUser(res)
     }
 
+    const history = useHistory()
+    const handlers = useSwipeable({
+      onSwipedLeft: () => history.push(`/users/${userId}/page2`)
+    })
+
     return (
-        <div className='text-center w-screen'>
+
+        <div {...handlers} className='text-center w-screen'>
             <div className='text-3xl text-purple-700 p-6 font-bold'>PROFILE DETAILS</div>
             <div className='purple-gradient py-4'>
                 <ProfileNav user={user} />
                 <Avatar user={user} />
             </div>
-                <Status user={user} />
-            
-                
+
+            <Status user={user} />
             <Contact user={user} />
-                
+
         </div>
     )
 }
