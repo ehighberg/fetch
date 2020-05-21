@@ -4,8 +4,11 @@ export default function SocialActivity(props) {
     return (
         <div>
             <div className='font-bold text-purple-700 text-lg mt-10'>Recent Social Activity</div>
-            <div className='w-4/5 h-64 mx-auto my-4 rounded-lg bg-gray-300'>
-                content...
+
+            <div className='border-b-2 mx-12 p-4'>
+              <img src={require('../assets/Images/social1.png')} alt='social media post' />
+              <img src={require('../assets/Images/social2.png')} alt='social media post' />
+
             </div>
         </div>
     )

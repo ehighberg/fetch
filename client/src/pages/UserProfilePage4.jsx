@@ -4,10 +4,9 @@ import { useSwipeable } from 'react-swipeable'
 
 import ProfileNav from '../components/ProfileNav'
 import { getUserById } from '../services/APIHelper'
-import Avatar from '../components/Avatar'
-import Pics from '../components/Pics'
 
-export default function UserProfilePage3(props) {
+
+export default function UserProfilePage4(props) {
 
     const userId = props.match.params.id
 
@@ -24,19 +23,18 @@ export default function UserProfilePage3(props) {
 
     const history = useHistory()
     const handlers = useSwipeable({
-      onSwipedLeft: () => history.push(`/users/${userId}/page4`),
-      onSwipedRight: () => history.push(`/users/${userId}/page2`)
+      onSwipedRight: () => history.push(`/users/${userId}/page3`)
     })
 
     return (
         <div {...handlers} className='text-center w-screen'>
             <div className='text-3xl text-purple-700 p-6 font-bold'>PROFILE DETAILS</div>
-            <div className='purple-gradient py-4 shadow-xl'>
+            <div className='purple-gradient py-4'>
                 <ProfileNav user={user} />
-                <Avatar user={user} />
-            </div>
-            <div>
-                <Pics user={user} />
+                  <div className='mt-16'>
+                    <div className='text-2xl font-bold text-white m-4'>ESSENCE</div>
+                    <img src={require('../assets/Images/Gif 1.gif')} alt='tina dance' />
+                  </div>
             </div>
         </div>
     )
