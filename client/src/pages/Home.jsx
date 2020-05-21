@@ -1,24 +1,68 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { useHistory, Link } from 'react-router-dom'
 
-// import { getUserByEmail } from '../services/APIHelper.js'
+import { getUserById, getTeamWithDetail } from '../services/APIHelper.js'
 import SearchBar from '../components/SearchBar'
+import DataDogLogo from '../assets/Icons/Datadog_Logo.png'
+import Eplisis from '../assets/Icons/Datadog_Logo.png'
 
 export default function Home(props)
 {
   const history = useHistory()
+
+  const [user, setUser] = useState(null)
+  const [team, setTeam] = useState(null)
+
+  const userId = localStorage.getItem('userId')
+  if (!userId)
+  {
+    history.push("/login")
+  }
+  let teamId = 1
+
+
+  useEffect(() =>
+  {
+    // userId = localStorage.getItem('userId')
+    if (!userId)
+    {
+      history.push("/login")
+    }
+    else
+    {
+      getData()
+    }
+
+  }, [])
+
+  const getData = async () =>
+  {
+    getUser(userId)
+    getTeam(teamId)
+  }
+
+  const getUser = async (id) =>
+  {
+    let newUser = await getUserById(id)
+    console.log(newUser)
+  }
+
+  const getTeam = async (id) =>
+  {
+    let newteam = await getTeamWithDetail(id)
+    console.log(newteam)
+  }
+
+
 
   return (
     <div className="flex flex-col items-center text-center bg-gray-100">
       <div className=" font-poppins my-6 text-purple-700 text-2xl uppercase">
         Home
       </div>
-      <div className="bg-purple-700 w-40 h-40">
-        Placeholder
-      </div>
-      <div className=" font-poppins mt-2 text-purple-700 text-4xl uppercase">
-        Datadog
+      <div className="w-48">
+        <img src={DataDogLogo}></img>
       </div>
 
       {/* {!localStorage.getItem('userId') && (
