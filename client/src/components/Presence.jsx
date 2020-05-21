@@ -12,7 +12,7 @@ export default function Presence(props) {
     } else if (presence == 'offline') {
         color = 'bg-red-600'
     } else {
-        color = 'bg-yellow-500'
+        color = 'bg-yellow-400'
     }
 
     return (
