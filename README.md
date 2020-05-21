@@ -123,8 +123,18 @@ example), as well as look up contact information for specific people.
 
 ## Post-MVP
 
+- Highlighting team leader in team search
 - Send email from app
 - Share documents and / or media
+- More micro-interactions
+- Chat rooms are only visible to participants
+- Users can sticker good posts
+- FAQ links on user profiles
+- Interests section in user profiles
+- Add department summary page
+- Animated dropdown from team list, displaying members of that team
+- Tooltips for contact methods on user profiles
+- User profile "schedule a meeting" button redirecting to Calendly
 
 
 <br>
