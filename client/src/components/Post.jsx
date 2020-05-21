@@ -6,14 +6,19 @@ export default function Post(props)
     const { content, user } = props.post
 
     return (
-        <div className="flex border-gray-500 rounded border">
-            <div className="flex bg-gray-300 w-1/4">
-                <img className='rounded-full w-10' src={user.avatar}></img>
-                <Presence />
-                <div>{user.name}</div>
+        <div className="flex border-gray-200 rounded border border-b-2">
+            <div className="flex bg-gray-100 w-12">
+                <img className='rounded-full w-10 h-10' src={user.avatar}></img>
+                <div className='w-2 h-2 absolute'>
+                    <Presence className="" presence={user.presence} />
+                </div>
+
             </div>
-            <div className="flex bg-gray-200 w-3/4">
-                {content}
+            <div className="w-full">
+                <div>{user.name}</div>
+                <div className="flex bg-gray-100">
+                    {content}
+                </div>
             </div>
         </div>
     )

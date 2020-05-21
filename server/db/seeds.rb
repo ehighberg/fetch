@@ -82,7 +82,7 @@ anna = User.create(
 teamEng.manager_id = anna.id
 teamEng.save()
 
-room1 = Room.create(
+anna_to_jason_dm_room = Room.create(
     name: "Room #{anna.name}"
 )
 
@@ -131,7 +131,7 @@ julia = User.create(
     level: 8
 )
 
-room3 = Room.create(
+julia_to_sam_dm_room = Room.create(
     name: "Room #{julia.name}"
 )
 
@@ -183,9 +183,36 @@ room5 = Room.create(
 
 post1 = Post.create(
     content: Faker::Hipster.sentence,
-    room: room1,
+    room: anna_to_jason_dm_room,
     user: jason
 )
+
+10.times do
+    Post.create(
+        content: Faker::Hipster.sentence,
+        room: anna_to_jason_dm_room,
+        user: anna
+    )    
+    Post.create(
+        content: Faker::Hipster.sentence,
+        room: anna_to_jason_dm_room,
+        user: jason
+    ) 
+end
+
+20.times do
+    Post.create(
+        content: Faker::Hipster.sentence,
+        room: julia_to_sam_dm_room,
+        user: julia
+    )    
+    Post.create(
+        content: Faker::Hipster.sentence,
+        room: julia_to_sam_dm_room,
+        user: sam
+    ) 
+end
+
 
 10.times do
     userA = User.create(
