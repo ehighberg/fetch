@@ -52,7 +52,8 @@ userA = User.create(
     bio: Faker::Hipster.paragraph,
     pronouns: "they / them",
     preferred_contact_method: 'cell phone',
-    average_response_time_minutes: Faker::Number.between(from: 1, to: 60)
+    average_response_time_minutes: Faker::Number.between(from: 1, to: 60),
+    level: 3
 )
 
 teamA.manager_id = userA.id
@@ -75,7 +76,8 @@ userB = User.create(
     bio: Faker::Hipster.paragraph,
     pronouns: "she / her",
     preferred_contact_method: 'email',
-    average_response_time_minutes: Faker::Number.between(from: 1, to: 60)
+    average_response_time_minutes: Faker::Number.between(from: 1, to: 60),
+    level: 5
 )
 
 teamC.manager_id = userB.id
@@ -96,7 +98,8 @@ userC = User.create(
     bio: Faker::Hipster.paragraph,
     pronouns: "he / him",
     preferred_contact_method: 'email',
-    average_response_time_minutes: Faker::Number.between(from: 1, to: 60)
+    average_response_time_minutes: Faker::Number.between(from: 1, to: 60),
+    level: 1
 )
 
 userD = User.create(
@@ -114,7 +117,8 @@ userD = User.create(
     bio: Faker::Hipster.paragraph,
     pronouns: "they / them",
     preferred_contact_method: 'cell phone',
-    average_response_time_minutes: Faker::Number.between(from: 1, to: 60)
+    average_response_time_minutes: Faker::Number.between(from: 1, to: 60),
+    level: 1
 )
 
 roomPublic = Room.create(
