@@ -121,3 +121,25 @@ export const getUsersByFieldAndQuery = async (searchType, query) => {
     console.error(error)
   }
 }
+
+export const getTeams = async () => {
+  try {
+    const teams = await api.get('/teams')
+    return teams.data
+  } catch(error) {
+    console.error(error)
+  }
+}
+
+
+export const getManyUsersById = async (userIds) => {
+  try {
+    const users = await getAllUsers()
+    const usersInList = users.filter(user => {
+      return userIds.includes(user.id)
+    })
+    return usersInList
+  } catch(error) {
+    console.error(error)
+  }
+}

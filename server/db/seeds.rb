@@ -78,6 +78,9 @@ userB = User.create(
     average_response_time_minutes: Faker::Number.between(from: 1, to: 60)
 )
 
+teamC.manager_id = userB.id
+teamC.save()
+
 userC = User.create(
     name: "#{Faker::Name.first_name} #{Faker::Name.last_name}",
     email: Faker::Internet.email,

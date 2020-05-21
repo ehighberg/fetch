@@ -1,6 +1,6 @@
 import React from 'react'
 import { Formik, Form, Field } from 'formik'
-import { useHistory } from 'react-router-dom'
+import { useHistory, Link } from 'react-router-dom'
 
 import { getUserByEmail } from '../services/APIHelper.js'
 
@@ -24,7 +24,6 @@ export default function Home()
                     history.push('/')
                   } else {
                     actions.resetForm()
-                    history.push('/')
                   }
                 }}
               >
@@ -39,7 +38,17 @@ export default function Home()
             )}
 
             {localStorage.getItem('userId') && (
-              <h1>Company Directory</h1>
+              <div>
+                <h1>Company Directory</h1>
+                <Link to='/teams'>
+                  <p>Teams</p>
+                  <p>ARROW ICON</p>
+                </Link>
+                <Link to='/users'>
+                  <p>People</p>
+                  <p>ARROW ICON</p>
+                </Link>
+              </div>
             )}
 
             <button onClick={() => {
