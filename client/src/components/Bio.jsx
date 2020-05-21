@@ -6,10 +6,12 @@ export default function Bio(props) {
 
     return (
         <div>
-            <div className='text-purple-700 text-2xl'>Bio</div>
-            <div className='border-black border-2 rounded-md mx-12 my-3 p-4'>
+
+            <div className='font-bold text-purple-700 text-lg mt-10'>Bio</div>
+            <div className='border-b-2 mx-12 p-4'>
                 {user.bio}
             </div>
+            
         </div>
     )
 }
