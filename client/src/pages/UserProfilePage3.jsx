@@ -24,6 +24,7 @@ export default function UserProfilePage3(props) {
 
     const history = useHistory()
     const handlers = useSwipeable({
+      onSwipedLeft: () => history.push(`/users/${userId}/page4`),
       onSwipedRight: () => history.push(`/users/${userId}/page2`)
     })
 
