@@ -10,9 +10,9 @@ export default function Home(props)
     const history = useHistory()
 
     return (
-        <div className=" bg-blue-600">
+        <div className="bg-purple-700">
             <div className="text-5xl text-indigo-400 font-bold text-center">
-                App Name
+                Fetch
             </div>
 
             {!localStorage.getItem('userId') && (

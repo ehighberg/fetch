@@ -26,7 +26,6 @@ const App = () =>
 
   return (
     <>
-      <Nav setSearchResults={setSearchResults}/>
       <Switch>
         <Route exact path="/" render={(props) => (<Home {...props} />)} />
         <Route exact path="/results" render={(props) => (
@@ -45,6 +44,7 @@ const App = () =>
         {/* Catch all route below incase things go awry */}
         <Route path="/" render={(props) => (<FourNaughtFour {...props} />)} />
       </Switch>
+      <Nav setSearchResults={setSearchResults}/>
     </>
   )
 }
