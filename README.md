@@ -1,7 +1,6 @@
 # PROJECT NAME
 
 
-- [Full Stack Project](#Full-Stack-Project)
   - [Overview](#Overview)
   - [Team](#Team)
   - [MVP](#MVP)
@@ -11,12 +10,10 @@
       - [Wireframes](#Wireframes)
       - [Component Hierarchy](#Component-Hierarchy)
       - [Component Breakdown](#Component-Breakdown)
-      - [Component Estimates](#Component-Estimates)
     - [MVP Server (Back End)](#MVP-Server-Back-End)
       - [ERD Model](#ERD-Model)
     - [Data Flow](#Data-Flow)
   - [Post-MVP](#Post-MVP)
-  - [Project Change Log](#Project-Change-Log)
   - [Code Showcase](#Code-Showcase)
   - [Code Issues & Resolutions](#Code-Issues--Resolutions)
 
@@ -25,9 +22,11 @@
 
 ## Overview
 
-_**PROJECT NAME** is unknown._
+**PROJECT NAME** is a workplace communication and informational tool. It
+incorporates real-time chat with ActionCable connection to a Ruby on Rails
+server, as well as a directory service organizing employees by their team,
+expertise, etc.
 
-<br>
 
 ## Team
 
@@ -37,30 +36,31 @@ _**PROJECT NAME** is unknown._
 - Trevor Smith-Holbourn - Software Developer
 - Valeria Gonzalez - User Experience Designer
 
+<br>
 
 ## MVP
 
-_Our MVP is ._
+One core feature is an employee directory system which users can search by
+employee name, team, or self-defined tags (skills, hobbies, etc.). These
+searches can be used to start chats directly (with an entire team, for
+example), as well as look up contact information for specific people.
 
-<br>
-
-### MVP Goals
-
-
-<br>
 
 ### MVP Libraries and external APIs
 
 
 |     Library      | Description                                |
 | :--------------: | :----------------------------------------- |
-| React            | _Front end framework._
-|   React Router   | _Make single page applications._ |
-|     Axios        | _Get data to/from front end._ |
-|      Formik      | _Simpler form handling in React._           |
-|    Faker         | _Generate seed data._          |
-| Ruby on Rails    | _Backend server._ |
+| React            | _Front end framework for reusable components._ |
+|   React Router   | _In-app routing to make single page application._ |
+|     Axios        | _Simpler interface for getting data to/from front end._ |
+|      Formik      | _Simpler form handling in React by reducing boilerplate._ |
+|    Faker         | _Generate seed data for fast development._          |
+| Ruby on Rails    | _Backend server with easy database and routing setup._ |
 | CORS             | _Allow Cross Origin Resource Sharing in development._ |
+| Tailwind CSS     | _Reduce boilerplate CSS for fast development._ |
+| ActionCable.js   | _Real-time updates interfacing with Rails backend._ |
+| React-Swipeable  | _Add swipe gestures for improved mobile experience._ |
 
 
 |  External API    | Description |
@@ -81,9 +81,33 @@ _Our MVP is ._
 
 #### Component Breakdown
 
-|  Component   | State | Description                                                      |
-| :----------: | :---: | :--------------------------------------------------------------- |
-|    Header    |   N   | _The header will contain site navigation and logo._|
+| Page | Description                                                    |
+| :----------: | :----------------------------------------------------: |
+| FourNaughtFour | 404 error handling. |
+| Home | Login, search, and directory access. |
+| RoomListPage | List all chat rooms. |
+| RoomPage | Handles display and creation of posts in a chat room.|
+| SearchResults | Display results of search. |
+| Team | Display members of a team. |
+| TeamList | Display all teams and their team leaders. |
+| UserProfile | Display profile information for a single user. |
+
+| Component | Description                                               |
+| :----------: | :----------------------------------------------------: |
+| Avatar | Display picture, name, and title of user. |
+| Contact | Display contact info, including preferred method and average response time. |
+| Nav | Site navigation. |
+| Post | Display a single post in a room, including user name and picture. |
+| PostForm | Submit posts to rooms. |
+| Presence | Online / away / offline status of user. |
+| ProfileNav | Click and swipe navigation through user profile. |
+| Room | Displays posts in a chat room, with their author and time. |
+| RoomCard | Summary info for a room. |
+| RoomList | List all chat rooms. |
+| SearchBar | Query by search type and string input. |
+| Status | Incorporates presence and away message. |
+| UserCard | Summary information for a single user. |
+| UserList | Display a collection of UserCards. |
 
 
 
@@ -97,16 +121,28 @@ _Our MVP is ._
 
 #### Endpoints
 
-- GET `/user`
-	- Index route returning an array of all Users
-- POST `/user`
-	- Create route for a new user
-- GET `/user/:id`
-  - Show route for a user requested by ID
-- PUT `/user/:id/`
-  - Edit a user's profile info
-- DELETE `/user/:id`
-  - Delete a user's profile
+- GET `/users`
+	- Index route returning all users
+- GET `/users/:id`
+  - Show route returning a single user requested by ID
+
+<br>
+
+- GET `/rooms`
+  - Index route returning a list of all chat rooms
+- GET `/roomwithdetails/:id`
+  - Show route for a single chat room with all its posts and user info
+
+<br>
+
+- POST `/posts`
+  - Create route which adds a post to a room
+
+<br>
+
+- GET `/teams`
+  - Index route returning all teams
+
 
 <br>
 
@@ -114,34 +150,26 @@ _Our MVP is ._
 
 ***
 
-## Planning
-<br>
-
-### Timeframes
-
-
-| Task                | Priority | Estimated Time | Actual Time |
-| ------------------- | :------: | :------------: | :---------: |
-| TOTAL | T |  |  |
-
-
-<br>
-
-***
 
 ## Post-MVP
 
+- Highlighting team leader in team search
 - Send email from app
 - Share documents and / or media
+- More micro-interactions
+- Chat rooms are only visible to participants
+- Users can sticker good posts
+- FAQ links on user profiles
+- Interests section in user profiles
+- Add department summary page
+- Animated dropdown from team list, displaying members of that team
+- Tooltips for contact methods on user profiles
+- User profile "schedule a meeting" button redirecting to Calendly
 
 
 <br>
 
 ***
-
-## Project Change Log
-
-
 
 ## Code Showcase
 
