@@ -37,9 +37,11 @@ export const getUserByEmail = async (email) =>
     {
       return user.email === email
     })
-    if (matchingUsers[0]) {
+    if (matchingUsers[0])
+    {
       return matchingUsers[0].id
-    } else {
+    } else
+    {
       return null
     }
   } catch (error)
@@ -117,18 +119,21 @@ export const getUsersByFieldAndQuery = async (searchType, query) =>
     switch (searchType)
     {
       case 'tag':
-        return users.filter(user => {
+        return users.filter(user =>
+        {
           const userTags = user.tags.map(tag => tag.name)
           return userTags.includes(query)
         })
 
       case 'team':
-        return users.filter(user => {
+        return users.filter(user =>
+        {
           return user.team.name.includes(query)
         })
 
       default:
-        return users.filter(user => {
+        return users.filter(user =>
+        {
           return user[searchType].includes(query)
         })
     }
@@ -139,24 +144,42 @@ export const getUsersByFieldAndQuery = async (searchType, query) =>
   }
 }
 
-export const getTeams = async () => {
-  try {
+export const getTeams = async () =>
+{
+  try
+  {
     const teams = await api.get('/teams')
     return teams.data
-  } catch(error) {
+  } catch (error)
+  {
     console.error(error)
   }
 }
 
+export const getTeamWithDetail = async (id) =>
+{
+  try
+  {
+    const team = await api.get(`/teamwithdetails/${id}`)
+    return team.data
+  } catch (error)
+  {
+    console.error(error)
+  }
+}
 
-export const getManyUsersById = async (userIds) => {
-  try {
+export const getManyUsersById = async (userIds) =>
+{
+  try
+  {
     const users = await getAllUsers()
-    const usersInList = users.filter(user => {
+    const usersInList = users.filter(user =>
+    {
       return userIds.includes(user.id)
     })
     return usersInList
-  } catch(error) {
+  } catch (error)
+  {
     console.error(error)
   }
 }
