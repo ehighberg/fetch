@@ -31,6 +31,9 @@ export default function UserProfilePage4(props) {
             <div className='text-3xl text-purple-700 p-6 font-bold'>PROFILE DETAILS</div>
             <div className='purple-gradient py-4'>
                 <ProfileNav user={user} />
+                  <div className='mt-16'>
+                    <div className='text-2xl font-bold text-white m-4'>ESSENCE</div>
+                  </div>
             </div>
         </div>
     )
