@@ -24,11 +24,15 @@ export const getUserByEmail = async (email) =>
   try
   {
     const userList = await api.get('/users')
-    const userId = userList.data.filter(user =>
+    const matchingUsers = userList.data.filter(user =>
     {
       return user.email === email
-    })[0].id
-    return userId
+    })
+    if (matchingUsers[0]) {
+      return matchingUsers[0].id
+    } else {
+      return null
+    }
   } catch (error)
   {
     console.error(error)

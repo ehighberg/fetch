@@ -14,27 +14,33 @@ export default function Home()
                 App Name
             </div>
 
-            <Formik
-              initialValues={{ email: '', password: ''}}
-              onSubmit={ async (values, actions) => {
-                const userId = await getUserByEmail(values.email)
-                if (userId) {
-                  localStorage.setItem('userId', userId)
-                  history.push(`/users/${userId}`)
-                } else {
-                  actions.resetForm()
-                  history.push('/')
-                }
-              }}
-            >
-              <Form id='login-container' className="">
-                <label>Email</label>
-                <Field type='email' name='email' placeholder="email@domain.com"/>
-                <label>Password</label>
-                <Field type='password' name='password' placeholder="password"/>
-                <button type='submit'>Login</button>
-              </Form>
-            </Formik>
+            {!localStorage.getItem('userId') && (
+              <Formik
+                initialValues={{ email: '', password: ''}}
+                onSubmit={ async (values, actions) => {
+                  const userId = await getUserByEmail(values.email)
+                  if (userId) {
+                    localStorage.setItem('userId', userId)
+                    history.push('/')
+                  } else {
+                    actions.resetForm()
+                    history.push('/')
+                  }
+                }}
+              >
+                <Form id='login-container' className="">
+                  <label>Email</label>
+                  <Field type='email' name='email' placeholder="email@domain.com"/>
+                  <label>Password</label>
+                  <Field type='password' name='password' placeholder="password"/>
+                  <button type='submit'>Login</button>
+                </Form>
+              </Formik>
+            )}
+
+            {localStorage.getItem('userId') && (
+              <h1>Company Directory</h1>
+            )}
 
             <button onClick={() => {
                 localStorage.removeItem('userId')
