@@ -4,5 +4,19 @@
 
 @tailwind  components;
 
+*{
+  @apply font-roboto font-normal;
+  transition: 0.1s;
+}
+
+.purple-gradient {
+  background: rgb(99,44,166);
+  background: linear-gradient(321deg, rgba(99,44,166,1) 0%, rgba(243,238,248,1) 100%, rgba(255,255,255,1) 100%);
+}
+
+.my-box-shadow {
+  box-shadow: 4px 4px 24px rgba(0, 0, 0, .4);
+}
+
 /* purgecss end ignore */
 @tailwind utilities;

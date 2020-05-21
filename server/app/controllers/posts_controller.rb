@@ -25,6 +25,12 @@ class PostsController < ApplicationController
 
     if @post.save
       render json: @post, status: :created, location: @post
+      @room = Room.find(params[:room_id])
+      @posts = @room.posts
+      
+      # ActionCable.server.broadcast("Room_#{params[:room_id]}", @posts)
+      # Unsure how to include models that relate to post (like users)
+      ActionCable.server.broadcast("Room_#{params[:room_id]}", 1)
     else
       render json: @post.errors, status: :unprocessable_entity
     end

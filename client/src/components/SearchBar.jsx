@@ -4,26 +4,30 @@ import { useHistory } from 'react-router-dom'
 
 import { getUsersByFieldAndQuery } from '../services/APIHelper'
 
-export default function SearchBar(props) {
+export default function SearchBar(props)
+{
   const history = useHistory()
 
-  const gotoSearchResults = async (values) => {
+  const gotoSearchResults = async (values) =>
+  {
     const { searchType, query } = values
     const searchResults = await getUsersByFieldAndQuery(searchType, query)
-    console.log(searchResults)
-    props.setSearchActive(false)
-    if (searchType === 'team') {
+    if (searchType === 'team')
+    {
       const teamId = searchResults[0].team.id
       history.push(`/teams/${teamId}`)
-    } else {
+    } else
+    {
       props.setSearchResults(searchResults)
       history.push('/results')
     }
   }
 
-  const availableSearchTypes = ['team', 'bio', 'name', 'presence', 'tag', 'title']
-  const generateOptions = () => {
-    return availableSearchTypes.map((searchType, index) => {
+  const availableSearchTypes = ['Team', 'Bio', 'Name', 'Presence', 'Tag', 'Title']
+  const generateOptions = () =>
+  {
+    return availableSearchTypes.map((searchType, index) =>
+    {
       return (
         <option key={index} value={searchType}>
           {searchType}
@@ -42,11 +46,20 @@ export default function SearchBar(props) {
         <Field as='select' name='searchType'>
           {generateOptions()}
         </Field>
-        <Field type='input' name='query' placeholder='Search for...'/>
-        <button type='submit'>
-          Search
-        </button>
-        <button onClick={() => props.setSearchActive(false)}>X</button>
+        <div className='flex flex-row justify-between bg-gray-100 border border-yellow-400 rounded-full p-6 mx-auto'>
+          <Field
+            type='input'
+            name='query'
+            placeholder='Alex; Engineering; Updates'
+            className='bg-gray-100 w-full'
+          />
+          <button
+            type='submit'
+            className='cursor-pointer inline-block text-xl bg-gray-100'
+          >
+            ICON
+            </button>
+        </div>
       </Form>
     </Formik>
   )

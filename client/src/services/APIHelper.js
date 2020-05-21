@@ -1,17 +1,26 @@
 import axios from 'axios'
 
 let apiUrl
+export let wsUrl
+
 const apiUrls = {
   production: 'https://mysterious-anchorage-39512.herokuapp.com/',
   development: 'http://localhost:3000/'
 }
 
+const wsUrls = {
+  production: 'wss://mysterious-anchorage-39512.herokuapp.com/cable',
+  development: 'ws://localhost:3000/cable'
+}
+
 if (window.location.hostname === 'localhost')
 {
   apiUrl = apiUrls.development
+  wsUrl = wsUrls.development
 } else
 {
   apiUrl = apiUrls.production
+  wsUrl = wsUrls.production
 }
 
 const api = axios.create({
@@ -28,9 +37,11 @@ export const getUserByEmail = async (email) =>
     {
       return user.email === email
     })
-    if (matchingUsers[0]) {
+    if (matchingUsers[0])
+    {
       return matchingUsers[0].id
-    } else {
+    } else
+    {
       return null
     }
   } catch (error)
@@ -81,43 +92,94 @@ export const getAllUsers = async () =>
   {
     const users = await api.get('/users')
     return users.data
-  } catch (error) {
+  } catch (error)
+  {
     console.error(error)
   }
 }
 
-export const getUserById = async (user_id) => {
-    try {
-        const user = await api.get(`/users/${user_id}`)
-        return user.data
-    } catch (error) {
-        console.error(error)
-    }
+export const getUserById = async (user_id) =>
+{
+  try
+  {
+    const user = await api.get(`/users/${user_id}`)
+    return user.data
+  } catch (error)
+  {
+    console.error(error)
+  }
 }
 
-export const getUsersByFieldAndQuery = async (searchType, query) => {
-  try {
+export const getUsersByFieldAndQuery = async (searchType, query) =>
+{
+  try
+  {
     const users = await getAllUsers()
 
-    switch(searchType) {
+    switch (searchType)
+    {
       case 'tag':
-        return users.filter(user => {
+        return users.filter(user =>
+        {
           const userTags = user.tags.map(tag => tag.name)
           return userTags.includes(query)
         })
 
       case 'team':
-        return users.filter(user => {
+        return users.filter(user =>
+        {
           return user.team.name.includes(query)
         })
 
       default:
-        return users.filter(user => {
+        return users.filter(user =>
+        {
           return user[searchType].includes(query)
         })
     }
 
-  } catch(error) {
+  } catch (error)
+  {
+    console.error(error)
+  }
+}
+
+export const getTeams = async () =>
+{
+  try
+  {
+    const teams = await api.get('/teams')
+    return teams.data
+  } catch (error)
+  {
+    console.error(error)
+  }
+}
+
+export const getTeamWithDetail = async (id) =>
+{
+  try
+  {
+    const team = await api.get(`/teamwithdetails/${id}`)
+    return team.data
+  } catch (error)
+  {
+    console.error(error)
+  }
+}
+
+export const getManyUsersById = async (userIds) =>
+{
+  try
+  {
+    const users = await getAllUsers()
+    const usersInList = users.filter(user =>
+    {
+      return userIds.includes(user.id)
+    })
+    return usersInList
+  } catch (error)
+  {
     console.error(error)
   }
 }
