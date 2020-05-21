@@ -81,9 +81,33 @@ example), as well as look up contact information for specific people.
 
 #### Component Breakdown
 
-|  Component   | State | Description                                                      |
-| :----------: | :---: | :--------------------------------------------------------------- |
-|    Header    |   N   | _The header will contain site navigation and logo._|
+| Page | Description                                                    |
+| :----------: | :----------------------------------------------------: |
+| FourNaughtFour | 404 error handling. |
+| Home | Login, search, and directory access. |
+| RoomListPage | List all chat rooms. |
+| RoomPage | Handles display and creation of posts in a chat room.|
+| SearchResults | Display results of search. |
+| Team | Display members of a team. |
+| TeamList | Display all teams and their team leaders. |
+| UserProfile | Display profile information for a single user. |
+
+| Component | Description                                               |
+| :----------: | :----------------------------------------------------: |
+| Avatar | Display picture, name, and title of user. |
+| Contact | Display contact info, including preferred method and average response time. |
+| Nav | Site navigation. |
+| Post | Display a single post in a room, including user name and picture. |
+| PostForm | Submit posts to rooms. |
+| Presence | Online / away / offline status of user. |
+| ProfileNav | Click and swipe navigation through user profile. |
+| Room | Displays posts in a chat room, with their author and time. |
+| RoomCard | Summary info for a room. |
+| RoomList | List all chat rooms. |
+| SearchBar | Query by search type and string input. |
+| Status | Incorporates presence and away message. |
+| UserCard | Summary information for a single user. |
+| UserList | Display a collection of UserCards. |
 
 
 
@@ -102,13 +126,19 @@ example), as well as look up contact information for specific people.
 - GET `/users/:id`
   - Show route returning a single user requested by ID
 
+<br>
+
 - GET `/rooms`
   - Index route returning a list of all chat rooms
 - GET `/roomwithdetails/:id`
   - Show route for a single chat room with all its posts and user info
 
+<br>
+
 - POST `/posts`
   - Create route which adds a post to a room
+
+<br>
 
 - GET `/teams`
   - Index route returning all teams
