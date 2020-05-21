@@ -7,7 +7,7 @@ export default function Status(props) {
     return (
         <div>
             
-            <div className='font-bold text-purple-700 text-xl'>Status Updates</div>
+            <div className='font-bold text-purple-700 text-lg mt-10'>Status Updates</div>
 
             <div className='mx-12 p-2'>
                 {user.status_message}
