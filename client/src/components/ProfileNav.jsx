@@ -15,6 +15,8 @@ export default function ProfileNav(props) {
             </NavLink>
             <NavLink activeClassName="bg-purple-100" className={`${dotStyle}`} exact to={`/users/${props.user.id}/page3`}>
             </NavLink>
+            <NavLink activeClassName="bg-purple-100" className={`${dotStyle}`} exact to={`/users/${props.user.id}/page4`}>
+            </NavLink>
         </div>
     )
 }
