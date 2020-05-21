@@ -8,6 +8,8 @@
     "@testing-library/user-event": "^7.1.2",
     "autoprefixer": "^9.8.0",
     "axios": "^0.19.2",
+    "babel-loader": "^8.1.0",
+    "formik": "^2.1.4",
     "postcss-cli": "^7.1.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -16,11 +18,11 @@
     "tailwindcss": "^1.4.6"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "PORT=3001 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "css": "postcss ./src/css/tailwind.css -o ./src/css/style.css && react-scripts start"
+    "css": "postcss ./src/css/tailwind.css -o ./src/css/style.css && PORT=3001 react-scripts start"
   },
   "eslintConfig": {
     "extends": "react-app"
