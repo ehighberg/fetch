@@ -21,6 +21,7 @@ module.exports = {
         gray: {
           ...colors.gray,
           '100': '#fcfcfc',
+          '101': 'rgb(250,250,250)',
         }
       }
     }

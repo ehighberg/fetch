@@ -16,6 +16,7 @@ import UserProfilePage2 from './pages/UserProfilePage2'
 import UserProfilePage3 from './pages/UserProfilePage3'
 import UserProfilePage4 from './pages/UserProfilePage4'
 import FourNaughtFour from './pages/FourNaughtFour'
+import Login from './pages/Login'
 
 import ActionCable from 'actioncable'
 import { wsUrl } from './services/APIHelper'
@@ -29,8 +30,9 @@ const App = () =>
     <div className='mb-32'>
       <Switch>
         <Route exact path="/" render={(props) => (<Home {...props} />)} />
+        <Route exact path="/login" render={(props) => (<Login {...props} />)} />
         <Route exact path="/results" render={(props) => (
-            <SearchResults {...props} searchResults={searchResults} setSearchResults={setSearchResults} />
+          <SearchResults {...props} searchResults={searchResults} setSearchResults={setSearchResults} />
         )} />
         <Route exact path="/teams/" render={(props) => (<TeamList {...props} />)} />
         <Route exact path="/teams/:id" render={(props) => (<Team {...props} />)} />
@@ -46,7 +48,7 @@ const App = () =>
         {/* Catch all route below incase things go awry */}
         <Route path="/" render={(props) => (<FourNaughtFour {...props} />)} />
       </Switch>
-      <Nav setSearchResults={setSearchResults}/>
+      <Nav setSearchResults={setSearchResults} />
     </div>
   )
 }
