@@ -30,7 +30,9 @@ export default function Contact(props) {
 
             <div className='border-b-2 mx-12 my-3 p-4'>
                 <div className='font-bold text-purple-700 text-lg mb-6'>Request a meeting</div>
-                <div>Calendly Link?</div>
+                <div>
+                  <img src={require('../assets/Icons/Calendar.png')} alt='schedule meeting' />
+                </div>
             </div>
 
             <div className='border-b-2 mx-12 my-3 p-4'>

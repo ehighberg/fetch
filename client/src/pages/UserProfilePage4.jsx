@@ -33,6 +33,7 @@ export default function UserProfilePage4(props) {
                 <ProfileNav user={user} />
                   <div className='mt-16'>
                     <div className='text-2xl font-bold text-white m-4'>ESSENCE</div>
+                    <img src={require('../assets/Images/Gif 1.gif')} alt='tina dance' />
                   </div>
             </div>
         </div>
