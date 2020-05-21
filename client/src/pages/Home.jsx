@@ -18,8 +18,12 @@ export default function Home()
               initialValues={{ email: '', password: ''}}
               onSubmit={ async (values) => {
                 const userId = await getUserByEmail(values.email)
-                localStorage.setItem('userId', userId)
-                history.push('/tara')
+                if (userId) {
+                  localStorage.setItem('userId', userId)
+                  history.push(`/users/${userId}`)
+                } else {
+                  history.push('/')
+                }
               }}
             >
               <Form id='login-container' className="">
@@ -33,7 +37,7 @@ export default function Home()
 
             <button onClick={() => {
                 localStorage.removeItem('userId')
-                history.push('/trev')
+                history.push('/')
               }}>Logout</button>
         </div>
     )
