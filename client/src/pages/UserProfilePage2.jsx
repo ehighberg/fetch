@@ -6,8 +6,9 @@ import ProfileNav from '../components/ProfileNav'
 import Avatar from '../components/Avatar'
 import { getUserById } from '../services/APIHelper'
 import Bio from '../components/Bio'
-import SocialActivity from '../components/SocialActivity'
 import Interests from '../components/Interests'
+import SocialActivity from '../components/SocialActivity'
+
 
 export default function UserProfilePage2(props) {
 
@@ -43,6 +44,7 @@ export default function UserProfilePage2(props) {
             <Interests user={user} />
 
             <div>
+                <Interests user={user} />
                 <SocialActivity user={user} />
             </div>
         </div>
