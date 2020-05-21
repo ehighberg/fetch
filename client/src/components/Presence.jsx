@@ -16,6 +16,6 @@ export default function Presence(props) {
     }
 
     return (
-        <div className={`rounded-full ${color} w-5 h-3 m-2`}></div>
+        <div className={`rounded-full ${color} w-full h-full`}></div>
     )
 }
