@@ -10,9 +10,9 @@ export default function Home(props)
     const history = useHistory()
 
     return (
-        <div className=" bg-blue-600">
-            <div className="text-5xl text-indigo-400 font-bold text-center">
-                App Name
+        <div className="text-center bg-gray-100">
+            <div className="bg-purple-700 text-5xl text-yellow-400 font-bold text-center">
+                Fetch
             </div>
 
             {!localStorage.getItem('userId') && (
@@ -28,12 +28,12 @@ export default function Home(props)
                   }
                 }}
               >
-                <Form id='login-container' className="">
-                  <label>Email</label>
-                  <Field type='email' name='email' placeholder="email@domain.com"/>
-                  <label>Password</label>
-                  <Field type='password' name='password' placeholder="password"/>
-                  <button type='submit'>Login</button>
+                <Form id='login-container' className="flex flex-col mt-32">
+                  {/* <label>Email</label> */}
+                  <Field type='email' name='email' placeholder="email@domain.com" className='bg-white border-2 border-purple-700 rounded-full w-3/4 p-4 mx-auto' />
+                  {/* <label>Password</label> */}
+                  <Field type='password' name='password' placeholder="password" className='bg-white border-2 border-purple-700 rounded-full w-3/4 p-4 mx-auto mt-8' />
+                  <button type='submit' className='bg-purple-700 text-white border-2 border-purple-700 rounded-full w-1/4 p-2 mx-auto mt-8'>Login</button>
                 </Form>
               </Formik>
             )}
@@ -58,7 +58,7 @@ export default function Home(props)
             <button onClick={() => {
                 localStorage.removeItem('userId')
                 history.push('/')
-              }}>Logout</button>
+              }} className='bg-purple-700 text-white border-2 border-purple-700 rounded-full w-1/4 p-2 mx-auto mt-8'>Logout</button>
         </div>
     )
 }
