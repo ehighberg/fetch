@@ -10,8 +10,6 @@ export default function SearchBar(props) {
   const gotoSearchResults = async (values) => {
     const { searchType, query } = values
     const searchResults = await getUsersByFieldAndQuery(searchType, query)
-    console.log(searchResults)
-    props.setSearchActive(false)
     if (searchType === 'team') {
       const teamId = searchResults[0].team.id
       history.push(`/teams/${teamId}`)
@@ -21,7 +19,7 @@ export default function SearchBar(props) {
     }
   }
 
-  const availableSearchTypes = ['team', 'bio', 'name', 'presence', 'tag', 'title']
+  const availableSearchTypes = ['Team', 'Bio', 'Name', 'Presence', 'Tag', 'Title']
   const generateOptions = () => {
     return availableSearchTypes.map((searchType, index) => {
       return (
@@ -43,14 +41,14 @@ export default function SearchBar(props) {
           {generateOptions()}
         </Field>
         <div className='flex flex-row justify-between bg-white border-2 border-purple-700 rounded-full w-3/4 p-4 mx-auto my-10'>
-            <Field 
-                type='input' 
-                name='query' 
-                placeholder='Alex; Engineering; Updates' 
-                className='' 
+            <Field
+                type='input'
+                name='query'
+                placeholder='Alex; Engineering; Updates'
+                className=''
             />
-            <button 
-                type='submit' 
+            <button
+                type='submit'
                 className='cursor-pointer inline-block text-xl'
             >
                 ICON
