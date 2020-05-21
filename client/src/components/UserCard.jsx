@@ -8,12 +8,14 @@ export default function UserCard(props) {
     let presence = user.presence    
 
     return (
-        <div className='flex flex-row m-2 bg-gray-200'>
-            <Presence
-                presence={presence}
-            />
-            <div className='w-64'>
-                <img className='w-2\/3 rounded-full m-4' src={user.avatar}></img>
+        <div className='flex flex-row m-2 py-4 bg-gray-200'>
+            <div className='w-5 h-3 m-2'>
+                <Presence
+                    presence={presence}
+                />
+            </div>
+            <div className='w-32'>
+                <img className='w-2\/3 rounded-full mt-4' src={user.avatar}></img>
             </div>
             <div className='m-0 w-full'>
                 <div>{user.name}</div>
