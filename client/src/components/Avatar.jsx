@@ -1,11 +1,10 @@
 import React from 'react'
 import Presence from './Presence'
 
-export default function Avatar(props)
-{
+export default function Avatar(props) {
 
     let user = props.user
-    console.log(props)
+
 
     return (
         <div className='mt-16'>
@@ -16,7 +15,7 @@ export default function Avatar(props)
                 <div className='w-8 h-8 absolute'>
                     <Presence presence={user.presence} />
                 </div>
-                <img className='w-full rounded-full my-box-shadow' src={user.avatar}></img>
+                <img className='w-full rounded-full my-box-shadow' src={user.avatar} alt='avatar'></img>
             </div>
         </div>
     )

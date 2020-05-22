@@ -5,7 +5,6 @@ export default function AvatarSmall(props)
 {
     let user = props.user
     let manager = props.manager
-    let width = props.width
 
     return (
         <>
@@ -15,7 +14,7 @@ export default function AvatarSmall(props)
                 </div>
                 <div className={`p-1 rounded-full ${manager ? 'bg-purple-700' : 'bg-yellow-400'}`}>
                     <img className='w-20 h-20 object-cover object-top rounded-full'
-                        src={user.avatar}></img>
+                        src={user.avatar} alt='avatar'></img>
                 </div>
             </div>
         </>

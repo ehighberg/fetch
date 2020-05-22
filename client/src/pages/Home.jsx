@@ -11,7 +11,6 @@ export default function Home(props)
 {
   const history = useHistory()
 
-  const [user, setUser] = useState(null)
   const [team, setTeam] = useState(null)
   const [recentChatsUsers, setRecentChatsUsers] = useState([])
 
@@ -20,12 +19,14 @@ export default function Home(props)
   {
     history.push("/login")
   }
-  let teamId = 1
 
 
   useEffect(() =>
   {
-    getData()
+    if (userId)
+    {
+      getData()
+    }
   }, [])
 
   const getData = async () =>
@@ -34,7 +35,6 @@ export default function Home(props)
     let newTeam = await getTeam(newUser.team_id)
     // Hardcodec recent chats (same for all users)
     let newChats = await getManyUsersById([1, 4, 2, 5, 3, 10, 11, 3, 17])
-    setUser(newUser)
     setTeam(newTeam)
     setRecentChatsUsers(newChats)
   }
@@ -59,7 +59,7 @@ export default function Home(props)
         Home
       </div>
       <div className="w-48">
-        <img src={DataDogLogo}></img>
+        <img src={DataDogLogo} alt='logo'></img>
       </div>
 
       {localStorage.getItem('userId') && (
