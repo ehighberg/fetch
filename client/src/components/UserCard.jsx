@@ -24,9 +24,9 @@ export default function UserCard(props)
                 </div>
             </div>
             <div className='m-0 w-full'>
-                <div className=' font-roboto font-medium text-purple-700 text-lg'>{user.name}</div>
-                <div className='capitalize'>{user.title}</div>
-                <div>{user.pronouns}</div>
+                <div className='font-roboto font-medium text-purple-700 text-lg'>{user.name}</div>
+                <div className='capitalize font-roboto font-light'>{user.title}</div>
+                <div className='font-roboto font-light'>{user.pronouns}</div>
             </div>
 
             <DotLink />
