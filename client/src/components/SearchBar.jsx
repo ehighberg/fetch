@@ -46,7 +46,7 @@ export default function SearchBar(props)
         <Field as='select' name='searchType'>
           {generateOptions()}
         </Field>
-        <div className='flex flex-row justify-between bg-gray-100 border border-yellow-400 rounded-full p-6 mx-auto'>
+        {/* <div className='flex flex-row justify-between bg-gray-100 border border-yellow-400 rounded-full p-6 mx-auto'>
           <Field
             type='input'
             name='query'
@@ -58,7 +58,17 @@ export default function SearchBar(props)
             className='cursor-pointer inline-block text-xl bg-gray-100'
           >
             ICON
-            </button>
+          </button>
+        </div> */}
+              
+        <div id='container'>
+            <Field
+                type='input'
+                name='query'
+                placeholder='Alex, HR, Bio'
+                className=''
+            />
+            <div id='search'></div>
         </div>
       </Form>
     </Formik>
