@@ -68,7 +68,7 @@ export default function Home(props)
           />
           <div className='text-2xl font-poppins mt-6 text-purple-700'>Company Directory</div>
           <div className='mt-4'>
-            <Link to='/teams' className='flex flex-row w-4/5 text-2xl font-roboto text-purple-700 mx-auto justify-between border-b-2 py-6'>
+            <Link to='/teams' className='flex flex-row w-4/5 text-2xl font-roboto text-purple-700 mx-auto mt-32 justify-between border-b-2 py-6'>
               <div className="font-bold">Departments</div>
               <DotLink />
             </Link>

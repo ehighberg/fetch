@@ -46,20 +46,6 @@ export default function SearchBar(props)
         <Field as='select' name='searchType'>
           {generateOptions()}
         </Field>
-        {/* <div className='flex flex-row justify-between bg-gray-100 border border-yellow-400 rounded-full p-6 mx-auto'>
-          <Field
-            type='input'
-            name='query'
-            placeholder='Alex; Engineering; Updates'
-            className='bg-gray-100 w-full'
-          />
-          <button
-            type='submit'
-            className='cursor-pointer inline-block text-xl bg-gray-100'
-          >
-            ICON
-          </button>
-        </div> */}
               
         <div id='container'>
             <Field
