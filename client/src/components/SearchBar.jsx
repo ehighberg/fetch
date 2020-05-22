@@ -52,7 +52,6 @@ export default function SearchBar(props)
                 type='input'
                 name='query'
                 placeholder='Alex, HR, Bio'
-                className=''
             />
             <div id='search'></div>
         </div>

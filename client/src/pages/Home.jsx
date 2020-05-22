@@ -63,12 +63,13 @@ export default function Home(props)
 
       {localStorage.getItem('userId') && (
         <div className="w-full px-8">
+          <div className='text-2xl font-poppins my-6 text-purple-700'>Company Directory</div>
           <SearchBar
             setSearchResults={props.setSearchResults}
           />
-          <div className='text-2xl font-poppins mt-6 text-purple-700'>Company Directory</div>
+          
           <div className='mt-4'>
-            <Link to='/teams' className='flex flex-row w-4/5 text-2xl font-roboto text-purple-700 mx-auto mt-32 justify-between border-b-2 py-6'>
+            <Link to='/teams' className='flex flex-row w-4/5 text-2xl font-roboto text-purple-700 mx-auto mt-24 justify-between border-b-2 py-6'>
               <div className="font-bold">Departments</div>
               <DotLink />
             </Link>
