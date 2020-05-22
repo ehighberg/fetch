@@ -2,15 +2,18 @@ import React from 'react'
 import { useHistory, Link } from 'react-router-dom'
 import { Formik, Form, Field } from 'formik'
 import { getUserByEmail } from '../services/APIHelper.js'
+import DataDogLogo from '../assets/Icons/DD_white.png'
 
 export default function Login(props)
 {
     const history = useHistory()
 
     return (
-        <div className="bg-purple-700 h-screen flex flex-col">
+        <div className="bg-purple-700 h-screen flex flex-col items-center">
 
-            <div className=" font-poppins text-white uppercase text-center my-32">Data Dog Logo</div>
+            <div className="font-poppins text-white uppercase text-center mt-32 mb-8">
+                <img className="w-40" src={DataDogLogo}></img>
+            </div>
             <div className=" font-poppins text-white uppercase text-center">Log in</div>
 
 
@@ -30,15 +33,11 @@ export default function Login(props)
                     }
                 }}
             >
-                <Form id='login-container' className="flex flex-col items-center border-2 border-white mx-10 rounded-lg mt-10">
-                    {/* <label>Email</label> */}
+                <Form id='login-container' className="flex flex-col w-4/5 items-center border-2 border-white rounded-lg mt-8">
                     <Field type='email' name='email' placeholder="email@domain.com"
-                        // className='bg-white border-2 border-purple-700 rounded-full w-3/4 p-4 mx-auto'
                         className=' bg-purple-700 w-3/4 mt-20 border-b'
                     />
-                    {/* <label>Password</label> */}
                     <Field type='password' name='password' placeholder="password"
-                        // className='bg-white border-2 border-purple-700 rounded-full w-3/4 p-4 mx-auto mt-8'
                         className=' bg-purple-700 w-3/4 mt-20 border-b'
                     />
                     <button type='submit'
