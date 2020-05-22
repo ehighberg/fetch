@@ -1,5 +1,4 @@
 import React from 'react'
-import 'react-interactions/dist/main.css'
 import Tap from 'react-interactions'
 
 export default function Interests(props) {
