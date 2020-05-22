@@ -85,18 +85,26 @@ example), as well as look up contact information for specific people.
 | :----------: | :----------------------------------------------------: |
 | FourNaughtFour | 404 error handling. |
 | Home | Login, search, and directory access. |
+| Login | User login, and landing page if not logged in. |
 | RoomListPage | List all chat rooms. |
 | RoomPage | Handles display and creation of posts in a chat room.|
 | SearchResults | Display results of search. |
 | Team | Display members of a team. |
 | TeamList | Display all teams and their team leaders. |
-| UserProfile | Display profile information for a single user. |
+| UserProfile | Display status updats and contact info for a single user. |
+| UserProfilePage2 | Display bio, interests, and social activity for a single user. |
+| UserProfilePage3 | Display pictures for a single user. |
+| UserProfilePage4 | Display Essence for a single user. |
 
 | Component | Description                                               |
 | :----------: | :----------------------------------------------------: |
 | Avatar | Display picture, name, and title of user. |
+| Bio | Display user bio information. |
 | Contact | Display contact info, including preferred method and average response time. |
+| DotLink | Display the three dots used in links. |
+| Interests | Display user interests. |
 | Nav | Site navigation. |
+| Pics | Display user's pictures. |
 | Post | Display a single post in a room, including user name and picture. |
 | PostForm | Submit posts to rooms. |
 | Presence | Online / away / offline status of user. |
