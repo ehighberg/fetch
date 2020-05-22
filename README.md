@@ -31,9 +31,9 @@ expertise, etc.
 ## Team
 
 - David Coughlin - User Experience Designer
-- Errol Highberg - Software Developer
-- Tara Solbrig - Software Developer
-- Trevor Smith-Holbourn - Software Developer
+- Errol Highberg - Software Developer (Application Logic & Documentation)
+- Tara Solbrig - Software Developer (Frontend Developer & Animations/Micro-interactions)
+- Trevor Smith-Holbourn - Software Developer (Realtime Chat & Server)
 - Valeria Gonzalez - User Experience Designer
 
 <br>
