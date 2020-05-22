@@ -35,7 +35,7 @@ export default function Home(props)
     let newUser = await getUser(userId)
     let newTeam = await getTeam(newUser.team_id)
     // Hardcodec recent chats (same for all users)
-    let newChats = await getManyUsersById([1, 4, 5, 3, 10, 11, 3, 17])
+    let newChats = await getManyUsersById([2, 3])
     setTeam(newTeam)
     setRecentChatsUsers(newChats)
   }
@@ -49,6 +49,8 @@ export default function Home(props)
   const getTeam = async (id) =>
   {
     let newTeam = await getTeamWithDetail(id)
+    let filterCurrenUserFromTeam = newTeam.users.filter((user) => (parseInt(user.id) !== parseInt(userId)))
+    newTeam.users = [newTeam.manager, ...filterCurrenUserFromTeam]
     return newTeam
   }
 
