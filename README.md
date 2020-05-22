@@ -95,6 +95,7 @@ example), as well as look up contact information for specific people.
 | Component | Description                                               |
 | :----------: | :----------------------------------------------------: |
 | Avatar | Display picture, name, and title of user. |
+| AvatarSmall | Smaller picture, name, and title of user. |
 | Bio | Display user bio information. |
 | Contact | Display contact info, including preferred method and average response time. |
 | DotLink | Display the three dots used in links. |
