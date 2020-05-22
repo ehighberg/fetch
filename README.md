@@ -1,4 +1,4 @@
-# PROJECT NAME
+# Fetch
 
 
   - [Overview](#Overview)
@@ -22,7 +22,7 @@
 
 ## Overview
 
-**PROJECT NAME** is a workplace communication and informational tool. It
+**Fetch** is a workplace communication and informational tool. It
 incorporates real-time chat with ActionCable connection to a Ruby on Rails
 server, as well as a directory service organizing employees by their team,
 expertise, etc.
@@ -87,7 +87,7 @@ example), as well as look up contact information for specific people.
 | SearchResults | Display results of search. |
 | Team | Display members of a team. |
 | TeamList | Display all teams and their team leaders. |
-| UserProfile | Display status updats and contact info for a single user. |
+| UserProfile | Display status updates and contact info for a single user. |
 | UserProfilePage2 | Display bio, interests, and social activity for a single user. |
 | UserProfilePage3 | Display pictures for a single user. |
 | UserProfilePage4 | Display Essence for a single user. |
