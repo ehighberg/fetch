@@ -55,22 +55,20 @@ export default function Home(props)
   }
 
   return (
-    <div className="flex flex-col items-center text-center bg-gray-100">
-      <div className=" font-poppins my-6 text-purple-700 text-2xl uppercase">
-        Home
-      </div>
+    <div className="flex flex-col items-center text-center bg-gray-100 pt-20">
       <div className="w-48 pb-6">
         <img className="w-48 ml-4" src={DataDogLogo} alt='logo'></img>
       </div>
 
       {localStorage.getItem('userId') && (
         <div className="w-full px-8">
+          <div className='text-2xl font-poppins my-6 text-purple-700'>Company Directory</div>
           <SearchBar
             setSearchResults={props.setSearchResults}
           />
-          <div className='text-2xl font-poppins mt-6 text-purple-700'>Company Directory</div>
+          
           <div className='mt-4'>
-            <Link to='/teams' className='flex flex-row w-4/5 text-2xl font-roboto text-purple-700 mx-auto justify-between border-b-2 py-6'>
+            <Link to='/teams' className='flex flex-row w-4/5 text-2xl font-roboto text-purple-700 mx-auto mt-24 justify-between border-b-2 py-6'>
               <div className="font-bold">Departments</div>
               <DotLink />
             </Link>
