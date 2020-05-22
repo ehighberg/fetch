@@ -1,4 +1,4 @@
-import React, { Profiler } from 'react'
+import React from 'react'
 import PostList from './PostList'
 import PostForm from './PostForm'
 
