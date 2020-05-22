@@ -82,9 +82,7 @@ anna = User.create(
 teamEng.manager_id = anna.id
 teamEng.save()
 
-anna_to_jason_dm_room = Room.create(
-    name: "#{anna.name}"
-)
+
 
 jason = User.create(
     name: "Jason Greenfield",
@@ -105,9 +103,7 @@ jason = User.create(
     level: 9
 )
 
-room2 = Room.create(
-    name: "#{jason.name}"
-)
+
 
 
 julia = User.create(
@@ -129,9 +125,7 @@ julia = User.create(
     level: 8
 )
 
-julia_to_sam_dm_room = Room.create(
-    name: "#{julia.name}"
-)
+
 
 sam = User.create(
     name: "Sam Hernandez",
@@ -152,9 +146,7 @@ sam = User.create(
     level: 5
 )
 
-room4 = Room.create(
-    name: "#{sam.name}"
-)
+
 
 conner = User.create(
     name: "Conner Leffert",
@@ -175,41 +167,91 @@ conner = User.create(
     level: 4
 )
 
-room5 = Room.create(
+
+
+
+
+anna_room = Room.create(
+    name: "#{anna.name}"
+)
+
+jason_room = Room.create(
+    name: "#{jason.name}"
+)
+
+julia_room = Room.create(
+    name: "#{julia.name}"
+)
+
+sam_room = Room.create(
+    name: "#{sam.name}"
+)
+
+conner_room = Room.create(
     name: "#{conner.name}"
 )
 
-post1 = Post.create(
-    content: Faker::Hipster.sentence,
-    room: anna_to_jason_dm_room,
+################## Sam and Anna
+Post.create(
+    content: "Hey Anna",
+    room: anna_room,
+    user: sam
+)
+
+Post.create(
+    content: "Hey Sam, whats up?",
+    room: anna_room,
+    user: anna
+)
+
+
+################## Sam and Jason
+
+Post.create(
+    content: "Hey Sam, welcome to the company",
+    room: jason_room,
     user: jason
 )
 
-10.times do
-    Post.create(
-        content: Faker::Hipster.sentence,
-        room: anna_to_jason_dm_room,
-        user: anna
-    )
-    Post.create(
-        content: Faker::Hipster.sentence,
-        room: anna_to_jason_dm_room,
-        user: jason
-    )
-end
+Post.create(
+    content: "Thanks Jason!, Was great to talk with you yesterday!",
+    room: jason_room,
+    user: sam
+)
 
-20.times do
-    Post.create(
-        content: Faker::Hipster.sentence,
-        room: julia_to_sam_dm_room,
-        user: julia
-    )
-    Post.create(
-        content: Faker::Hipster.sentence,
-        room: julia_to_sam_dm_room,
-        user: sam
-    )
-end
+################## Sam and Julia
+
+Post.create(
+    content: "Hi Julia",
+    room: julia_room,
+    user: sam
+)
+
+Post.create(
+    content: "did you have the email from the client yet?",
+    room: julia_room,
+    user: sam
+)
+
+Post.create(
+    content: "Hey, let me check real quick",
+    room: julia_room,
+    user: julia
+)
+
+Post.create(
+    content: "Hmmm, not seeing it yet. I will let you know",
+    room: julia_room,
+    user: julia
+)
+
+################## Sam and Julia
+
+Post.create(
+    content: "Hey Sam",
+    room: conner_room,
+    user: conner
+)
 
 
 10.times do
@@ -437,30 +479,41 @@ teamMGMT.save()
 #     user: userC
 # )
 
-tag1 = Tag.create(
-    name:"Engineering Team"
+tagEng = Tag.create(
+    name:"Engineering"
 )
 
-# tag2 = Tag.create(
-#     name:"UX"
-# )
+tagRuby = Tag.create(
+    name:"Ruby"
+)
 
-# tag3 = Tag.create(
-#     name:"Frontend"
-# )
+tagSaaS = Tag.create(
+    name:"SaaS"
+)
 
-# tag4 = Tag.create(
-#     name:"Fullstack"
-# )
+tagReact = Tag.create(
+    name:"React"
+)
 
-# tag5 = Tag.create(
-#     name:"FrenchSpeaker"
-# )
+tagAgile = Tag.create(
+    name:"React"
+)
 
-tag1.users.push(anna)
-# tag2.users.push(userB)
-# tag3.users.push(userC)
-# tag4.users.push(userD)
-# tag5.users.push(userA)
-# tag1.users.push(userB)
-# tag2.users.push(userC)
+tagEng.users.push(anna)
+tagEng.users.push(jason)
+tagEng.users.push(julia)
+tagEng.users.push(sam)
+tagEng.users.push(conner)
+
+tagSaaS.users.push(anna)
+tagSaaS.users.push(jason)
+
+tagRuby.users.push(anna)
+tagRuby.users.push(jason)
+tagRuby.users.push(julia)
+tagRuby.users.push(sam)
+tagRuby.users.push(conner)
+
+tagReact.users.push(anna)
+tagReact.users.push(conner)
+tagReact.users.push(julia)

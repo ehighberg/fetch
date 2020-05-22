@@ -13,7 +13,7 @@ export default function UserProfile(props)
 
     const userId = props.match.params.id
 
-    const [user, setUser] = useState([])
+    const [user, setUser] = useState(null)
 
     useEffect(() =>
     {
@@ -34,15 +34,13 @@ export default function UserProfile(props)
     return (
 
         <div {...handlers} className='text-center w-screen'>
-            <div className='text-3xl text-purple-700 p-6 font-bold'>PROFILE DETAILS</div>
+            <div className='text-3xl font-poppins text-purple-700 p-6 font-bold'>PROFILE DETAILS</div>
             <div className='purple-gradient py-4 shadow-xl'>
                 <ProfileNav user={user} />
                 <Avatar {...props} user={user} />
             </div>
-
             <Status user={user} />
             <Contact user={user} />
-
         </div>
     )
 }
