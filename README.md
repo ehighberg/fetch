@@ -78,6 +78,15 @@ example), as well as look up contact information for specific people.
 
 #### Wireframes
 
+![Login](./docs/Login.png)
+![Home](./docs/Home.png)
+![Search](./docs/Search.png)
+![Team](./docs/Team.png)
+![Contact](./docs/Contact.png)
+![Bio](./docs/Bio.png)
+![Pics](./docs/Pics.png)
+![Essence](./docs/Essence.png)
+
 
 #### Component Hierarchy
 ![Component Hierarchy](./docs/component_diagram.png)
@@ -187,10 +196,6 @@ example), as well as look up contact information for specific people.
 <br>
 
 ***
-
-## Code Showcase
-
-## TODO
 
 
 
