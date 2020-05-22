@@ -12,7 +12,7 @@ export default function Login(props)
         <div className="bg-purple-700 h-screen flex flex-col items-center">
 
             <div className="font-poppins text-white uppercase text-center mt-32 mb-8">
-                <img className="w-40" src={DataDogLogo}></img>
+                <img className="w-40" src={DataDogLogo} alt=''></img>
             </div>
             <div className=" font-poppins text-white uppercase text-center">Log in</div>
 
