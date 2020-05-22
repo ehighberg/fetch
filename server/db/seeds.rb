@@ -479,30 +479,41 @@ teamMGMT.save()
 #     user: userC
 # )
 
-tag1 = Tag.create(
-    name:"Engineering Team"
+tagEng = Tag.create(
+    name:"Engineering"
 )
 
-# tag2 = Tag.create(
-#     name:"UX"
-# )
+tagRuby = Tag.create(
+    name:"Ruby"
+)
 
-# tag3 = Tag.create(
-#     name:"Frontend"
-# )
+tagSaaS = Tag.create(
+    name:"SaaS"
+)
 
-# tag4 = Tag.create(
-#     name:"Fullstack"
-# )
+tagReact = Tag.create(
+    name:"React"
+)
 
-# tag5 = Tag.create(
-#     name:"FrenchSpeaker"
-# )
+tagAgile = Tag.create(
+    name:"React"
+)
 
-tag1.users.push(anna)
-# tag2.users.push(userB)
-# tag3.users.push(userC)
-# tag4.users.push(userD)
-# tag5.users.push(userA)
-# tag1.users.push(userB)
-# tag2.users.push(userC)
+tagEng.users.push(anna)
+tagEng.users.push(jason)
+tagEng.users.push(julia)
+tagEng.users.push(sam)
+tagEng.users.push(conner)
+
+tagSaaS.users.push(anna)
+tagSaaS.users.push(jason)
+
+tagRuby.users.push(anna)
+tagRuby.users.push(jason)
+tagRuby.users.push(julia)
+tagRuby.users.push(sam)
+tagRuby.users.push(conner)
+
+tagReact.users.push(anna)
+tagReact.users.push(conner)
+tagReact.users.push(julia)
