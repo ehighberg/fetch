@@ -15,7 +15,6 @@ export default function Login(props)
             <div className="font-poppins text-white uppercase text-center mt-24 mb-8">
                 <img className="w-48 ml-6" src={DataDogLogo}></img>
             </div>
-            <div className=" font-poppins text-white uppercase text-center">Log in</div>
 
             <Formik
                 initialValues={{ email: '', password: '' }}
@@ -33,17 +32,25 @@ export default function Login(props)
                 }}
             >
                 <Form id='login-container' className="flex flex-col w-4/5 items-center border-2 border-white rounded-lg mt-8">
-                    <Field type='email' name='email' placeholder="email@domain.com"
-                        className=' bg-purple-700 w-3/4 mt-20 border-b text-white'
+                    <div className="pt-10 font-poppins text-white uppercase text-center text-xl">Log in</div>
+                    <div className="pt-16 pb-4 font-poppins text-white text-left w-3/4 text-2xl">Email</div>
+                    <Field
+                        type='email'
+                        name='email'
+                        placeholder="email@domain.com"
+                        className='focus:outline-none bg-white w-3/4 border-transparent rounded-full p-2'
 
                     />
-                    <Field type='password' name='password' placeholder="password"
-
-                        className=' bg-purple-700 w-3/4 mt-20 border-b text-white'
+                    <div className="py-4 font-poppins text-white text-left w-3/4 text-2xl">Password</div>
+                    <Field
+                        type='password'
+                        name='password'
+                        placeholder="password"
+                        className='focus:outline-none bg-white w-3/4 text-left border-transparent rounded-full p-2'
                     />
                     <button
                         type='submit'
-                        className='focus:outline-none bg-white w-3/4 text-purple-700 border-2 border-purple-700 rounded-lg py-8 mx-auto my-8'
+                        className='focus:outline-none bg-white w-3/5 text-xl text-purple-700 border-2 border-purple-700 rounded-full py-3 mx-auto mt-16 mb-10'
                     >
                         <Tap scale waves fade />
                         Login
