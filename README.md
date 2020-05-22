@@ -61,11 +61,7 @@ example), as well as look up contact information for specific people.
 | Tailwind CSS     | _Reduce boilerplate CSS for fast development._ |
 | ActionCable.js   | _Real-time updates interfacing with Rails backend._ |
 | React-Swipeable  | _Add swipe gestures for improved mobile experience._ |
-
-
-|  External API    | Description |
-| --- | --- |
-| [GeoJS](https://geojs.io) | _Local time and geolocation._ |
+| React-Interactions | _Component library for designing micro-interactions._ |
 
 
 <br>
