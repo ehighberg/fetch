@@ -68,7 +68,7 @@ anna = User.create(
     status_message: "Stay safe everyone",
     slack: "@annawu",
     phone: Faker::PhoneNumber.phone_number,
-    avatar: './assets/fullprofile/anna.png',
+    avatar: 'https://i.imgur.com/DDyFOUw.png',
     last_location: "#{Faker::Address.latitude} #{Faker::Address.longitude}",
     title: "Lead Systems Engineer",
     team: teamMGMT,
@@ -86,8 +86,6 @@ anna_to_jason_dm_room = Room.create(
     name: "Room #{anna.name}"
 )
 
-
-
 jason = User.create(
     name: "Jason Greenfield",
     email: "jason@company.com",
@@ -96,7 +94,7 @@ jason = User.create(
     status_message: "Out of office, back on May 27th",
     slack: "@jasong",
     phone: Faker::PhoneNumber.phone_number,
-    avatar: './assets/fullprofile/jason.png',
+    avatar: 'https://i.imgur.com/9P6oRuB.png',
     last_location: "#{Faker::Address.latitude} #{Faker::Address.longitude}",
     title: "Engineer Team Manager",
     team: teamEng,
@@ -120,7 +118,7 @@ julia = User.create(
     status_message: "Here",
     slack: "@juliabrooks",
     phone: Faker::PhoneNumber.phone_number,
-    avatar: './assets/fullprofile/julia.png',
+    avatar: 'https://i.imgur.com/rAqU6h9.png',
     last_location: "#{Faker::Address.latitude} #{Faker::Address.longitude}",
     title: "Engineer Team Manager",
     team: teamEng,
@@ -143,7 +141,7 @@ sam = User.create(
     status_message: "Working on west coast hours",
     slack: "@samh",
     phone: Faker::PhoneNumber.phone_number,
-    avatar: './assets/fullprofile/sam.png',
+    avatar: 'https://i.imgur.com/C3D6KXJ.png',
     last_location: "#{Faker::Address.latitude} #{Faker::Address.longitude}",
     title: "Software Engineer",
     team: teamEng,
@@ -166,7 +164,7 @@ conner = User.create(
     status_message: "Limited availability this week",
     slack: "@connerleffert",
     phone: Faker::PhoneNumber.phone_number,
-    avatar: './assets/fullprofile/conner.png',
+    avatar: 'https://i.imgur.com/KMgsZ9I.png',
     last_location: "#{Faker::Address.latitude} #{Faker::Address.longitude}",
     title: "Software Engineer",
     team: teamEng,
@@ -403,7 +401,7 @@ teamRes.save()
         pronouns: "They / Them",
         preferred_contact_method: 'cell phone',
         average_response_time_minutes: Faker::Number.between(from: 1, to: 60),
-        level: 3
+        level: 15
         )
 
 teamMGMT.manager_id = ceo.id

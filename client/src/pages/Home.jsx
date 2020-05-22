@@ -27,7 +27,6 @@ export default function Home(props)
     {
       getData()
     }
-
   }, [])
 
   const getData = async () =>

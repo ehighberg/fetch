@@ -26,6 +26,7 @@ const App = () =>
 {
   const [searchResults, setSearchResults] = useState([])
 
+
   return (
     <div className='mb-32'>
       <Switch>
@@ -48,7 +49,12 @@ const App = () =>
         {/* Catch all route below incase things go awry */}
         <Route path="/" render={(props) => (<FourNaughtFour {...props} />)} />
       </Switch>
-      <Nav setSearchResults={setSearchResults} />
+
+      {/* Don't show the nav bar on the login page */}
+      <Switch>
+        <Route exact path="/login" />
+        <Route path="/" render={(props) => (<Nav {...props} setSearchResults={setSearchResults} />)} />
+      </Switch>
     </div>
   )
 }

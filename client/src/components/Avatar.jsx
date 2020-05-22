@@ -5,6 +5,7 @@ export default function Avatar(props) {
 
     let user = props.user
 
+
     return (
         <div className='mt-16'>
             <div className='text-2xl font-bold text-white m-4'>{user.name}</div>
