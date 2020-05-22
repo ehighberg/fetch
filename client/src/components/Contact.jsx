@@ -54,9 +54,23 @@ export default function Contact(props) {
 
             <div className='mx-12 my-3 p-4'>
                 <div className='font-bold text-purple-700 text-lg mb-4'>Looking for something simple?</div>
-                <div className='w-32 rounded-full text-white p-2 bg-yellow-400'>
-                    Tags
+                <div className='grid grid-cols-2'>
+                  <div className='w-32 rounded-full text-white p-2 bg-yellow-400 mb-4'>
+                    Saphire
                     <Tap scale waves light />
+                  </div>
+                  <div className='w-32 rounded-full text-white p-2 bg-yellow-400 mb-4'>
+                    Ruby
+                    <Tap scale waves light />
+                  </div>
+                  <div className='w-32 rounded-full text-white p-2 bg-yellow-400'>
+                    SaaS Products
+                    <Tap scale waves light />
+                  </div>
+                  <div className='w-32 rounded-full text-white p-2 bg-yellow-400'>
+                    Timeline
+                    <Tap scale waves light />
+                  </div>
                 </div>
             </div>
 
