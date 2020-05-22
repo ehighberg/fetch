@@ -13,6 +13,7 @@ export default function UserCard(props)
 
     return (
         <div className='flex flex-row mx-2 py-4 bg-gray-100 border-b-2'>
+            
             <div className='w-5 h-3 m-2'>
                 <Presence
                     presence={presence}
