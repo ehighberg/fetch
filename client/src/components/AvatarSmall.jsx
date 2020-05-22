@@ -13,7 +13,7 @@ export default function AvatarSmall(props)
                     <Presence presence={user.presence} />
                 </div>
                 <div className={`w-20 h-20 rounded-full border overflow-hidden ${manager ? 'border-purple-700' : 'border-yellow-400'}`}>
-                    <img className='w-20 object-cover object-top  rounded-full' src={user.avatar}></img>
+                    <img className='w-20 object-cover object-top  rounded-full' src={user.avatar} alt='avatar'></img>
                 </div>
             </div>
         </>

@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import { Switch, Route } from 'react-router-dom'
 
-
 import './css/style.css'
+import 'react-interactions/dist/main.css'
+
 import Nav from './components/Nav'
 import Home from './pages/Home'
 import SearchResults from './pages/SearchResults'

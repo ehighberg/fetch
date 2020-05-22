@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom'
 import { Formik, Form, Field } from 'formik'
 import { getUserByEmail } from '../services/APIHelper.js'
 import DataDogLogo from '../assets/Icons/DD_white.png'
+import Tap from 'react-interactions'
 
 export default function Login(props)
 {
@@ -41,8 +42,13 @@ export default function Login(props)
 
                         className=' bg-purple-700 w-3/4 mt-20 border-b text-white'
                     />
-                    <button type='submit'
-                        className='bg-white w-3/4 text-purple-700 border-2 border-purple-700 rounded-lg py-8 mx-auto my-8'>Login</button>
+                    <button
+                        type='submit'
+                        className='focus:outline-none bg-white w-3/4 text-purple-700 border-2 border-purple-700 rounded-lg py-8 mx-auto my-8'
+                    >
+                        <Tap scale waves fade />
+                        Login
+                    </button>
                 </Form>
             </Formik>
         </div >
