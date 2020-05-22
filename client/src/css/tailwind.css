@@ -19,9 +19,14 @@
 }
 
 .dots {
-    width: 4px;
-    height: 4px;
+    width: 6px;
+    height: 6px;
     border-radius: 100%;
+    margin: 1.5px;
+}
+
+.middle {
+    align-items: center;
 }
 
 /* purgecss end ignore */
