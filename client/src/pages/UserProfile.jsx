@@ -8,26 +8,27 @@ import Status from '../components/Status'
 import Contact from '../components/Contact'
 import ProfileNav from '../components/ProfileNav'
 
-export default function UserProfile(props) {
-
-    console.log(props)
+export default function UserProfile(props)
+{
 
     const userId = props.match.params.id
 
     const [user, setUser] = useState([])
 
-    useEffect(() => {
+    useEffect(() =>
+    {
         fetchUser()
     }, [])
 
-    const fetchUser = async () => {
+    const fetchUser = async () =>
+    {
         const res = await getUserById(userId)
         setUser(res)
     }
 
     const history = useHistory()
     const handlers = useSwipeable({
-      onSwipedLeft: () => history.push(`/users/${userId}/page2`)
+        onSwipedLeft: () => history.push(`/users/${userId}/page2`)
     })
 
     return (
@@ -36,7 +37,7 @@ export default function UserProfile(props) {
             <div className='text-3xl text-purple-700 p-6 font-bold'>PROFILE DETAILS</div>
             <div className='purple-gradient py-4 shadow-xl'>
                 <ProfileNav user={user} />
-                <Avatar user={user} />
+                <Avatar {...props} user={user} />
             </div>
 
             <Status user={user} />

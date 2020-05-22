@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { getRoomWithDetail } from '../services/APIHelper'
+import { getRoomWithDetail, getUserById } from '../services/APIHelper'
 import Room from '../components/Room'
 
 let sub
@@ -9,7 +9,10 @@ export default function RoomPage(props)
     let { cable } = props
     let { id } = props.match.params
 
+
     const [roomDetail, setRoomDetail] = useState([])
+    const [user, setUser] = useState(null)
+
 
     useEffect(() =>
     {
@@ -17,11 +20,13 @@ export default function RoomPage(props)
     }, [])
 
 
-
     const handleRecievePost = async () =>
     {
         let singleRoomWithDetailsResponse = await getRoomWithDetail(id)
+        // Room id and user id are aligned
+        let newUser = await getUserById(id)
         setRoomDetail(singleRoomWithDetailsResponse)
+        setUser(newUser)
     }
 
     const getInitialRoomPosts = async () =>
@@ -29,14 +34,14 @@ export default function RoomPage(props)
         sub = cable.subscriptions.create({ channel: 'RoomChannel', room: id },
             { received: handleRecievePost })
 
-        let singleRoomWithDetailsResponse = await getRoomWithDetail(id)
-        setRoomDetail(singleRoomWithDetailsResponse)
+        handleRecievePost()
+
     }
 
     return (
         <>
             <div>
-                <Room roomDetails={roomDetail} />
+                <Room roomDetails={roomDetail} user={user} />
             </div>
 
         </>

@@ -5,11 +5,14 @@ export default function PostList(props)
 {
     const { posts } = props
 
+
     return (
-        <>
-            {posts.map((post, index) => (
-                <Post key={index} post={post} />
-            ))}
-        </>
+        <div>
+            <div className="px-6">
+                {posts.map((post, index) => (
+                    <Post key={index} post={post} />
+                ))}
+            </div>
+        </div>
     )
 }

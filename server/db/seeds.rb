@@ -68,7 +68,7 @@ anna = User.create(
     status_message: "Stay safe everyone",
     slack: "@annawu",
     phone: Faker::PhoneNumber.phone_number,
-    avatar: 'https://randomuser.me/api/portraits/women/1.jpg',
+    avatar: 'https://i.imgur.com/DDyFOUw.png',
     last_location: "#{Faker::Address.latitude} #{Faker::Address.longitude}",
     title: "Lead Systems Engineer",
     team: teamMGMT,
@@ -83,10 +83,8 @@ teamEng.manager_id = anna.id
 teamEng.save()
 
 anna_to_jason_dm_room = Room.create(
-    name: "Room #{anna.name}"
+    name: "#{anna.name}"
 )
-
-
 
 jason = User.create(
     name: "Jason Greenfield",
@@ -96,7 +94,7 @@ jason = User.create(
     status_message: "Out of office, back on May 27th",
     slack: "@jasong",
     phone: Faker::PhoneNumber.phone_number,
-    avatar: 'https://randomuser.me/api/portraits/men/1.jpg',
+    avatar: 'https://i.imgur.com/9P6oRuB.png',
     last_location: "#{Faker::Address.latitude} #{Faker::Address.longitude}",
     title: "Engineer Team Manager",
     team: teamEng,
@@ -108,7 +106,7 @@ jason = User.create(
 )
 
 room2 = Room.create(
-    name: "Room #{jason.name}"
+    name: "#{jason.name}"
 )
 
 
@@ -120,7 +118,7 @@ julia = User.create(
     status_message: "Here",
     slack: "@juliabrooks",
     phone: Faker::PhoneNumber.phone_number,
-    avatar: "https://randomuser.me/api/portraits/women/2.jpg",
+    avatar: 'https://i.imgur.com/rAqU6h9.png',
     last_location: "#{Faker::Address.latitude} #{Faker::Address.longitude}",
     title: "Engineer Team Manager",
     team: teamEng,
@@ -132,7 +130,7 @@ julia = User.create(
 )
 
 julia_to_sam_dm_room = Room.create(
-    name: "Room #{julia.name}"
+    name: "#{julia.name}"
 )
 
 sam = User.create(
@@ -143,7 +141,7 @@ sam = User.create(
     status_message: "Working on west coast hours",
     slack: "@samh",
     phone: Faker::PhoneNumber.phone_number,
-    avatar: "https://randomuser.me/api/portraits/men/3.jpg",
+    avatar: 'https://i.imgur.com/C3D6KXJ.png',
     last_location: "#{Faker::Address.latitude} #{Faker::Address.longitude}",
     title: "Software Engineer",
     team: teamEng,
@@ -155,7 +153,7 @@ sam = User.create(
 )
 
 room4 = Room.create(
-    name: "Room #{sam.name}"
+    name: "#{sam.name}"
 )
 
 conner = User.create(
@@ -166,7 +164,7 @@ conner = User.create(
     status_message: "Limited availability this week",
     slack: "@connerleffert",
     phone: Faker::PhoneNumber.phone_number,
-    avatar: "https://randomuser.me/api/portraits/men/4.jpg",
+    avatar: 'https://i.imgur.com/KMgsZ9I.png',
     last_location: "#{Faker::Address.latitude} #{Faker::Address.longitude}",
     title: "Software Engineer",
     team: teamEng,
@@ -178,7 +176,7 @@ conner = User.create(
 )
 
 room5 = Room.create(
-    name: "Room #{conner.name}"
+    name: "#{conner.name}"
 )
 
 post1 = Post.create(
@@ -192,12 +190,12 @@ post1 = Post.create(
         content: Faker::Hipster.sentence,
         room: anna_to_jason_dm_room,
         user: anna
-    )    
+    )
     Post.create(
         content: Faker::Hipster.sentence,
         room: anna_to_jason_dm_room,
         user: jason
-    ) 
+    )
 end
 
 20.times do
@@ -205,12 +203,12 @@ end
         content: Faker::Hipster.sentence,
         room: julia_to_sam_dm_room,
         user: julia
-    )    
+    )
     Post.create(
         content: Faker::Hipster.sentence,
         room: julia_to_sam_dm_room,
         user: sam
-    ) 
+    )
 end
 
 
@@ -228,7 +226,7 @@ end
         title: Faker::Company.profession,
         team: teamAdmin,
         bio: Faker::Hipster.paragraph,
-        pronouns: "they / them",
+        pronouns: "They / Them",
         preferred_contact_method: 'cell phone',
         average_response_time_minutes: Faker::Number.between(from: 1, to: 60),
         level: 3
@@ -248,7 +246,7 @@ end
         title: Faker::Company.profession,
         team: teamMGMT,
         bio: Faker::Hipster.paragraph,
-        pronouns: "they / them",
+        pronouns: "They / Them",
         preferred_contact_method: 'cell phone',
         average_response_time_minutes: Faker::Number.between(from: 1, to: 60),
         level: 3
@@ -271,7 +269,7 @@ teamAdmin.save()
         title: Faker::Company.profession,
         team: teamHR,
         bio: Faker::Hipster.paragraph,
-        pronouns: "they / them",
+        pronouns: "They / Them",
         preferred_contact_method: 'cell phone',
         average_response_time_minutes: Faker::Number.between(from: 1, to: 60),
         level: 3
@@ -291,7 +289,7 @@ end
         title: Faker::Company.profession,
         team: teamMGMT,
         bio: Faker::Hipster.paragraph,
-        pronouns: "they / them",
+        pronouns: "They / Them",
         preferred_contact_method: 'cell phone',
         average_response_time_minutes: Faker::Number.between(from: 1, to: 60),
         level: 3
@@ -314,7 +312,7 @@ teamHR.save()
         title: Faker::Company.profession,
         team: teamProd,
         bio: Faker::Hipster.paragraph,
-        pronouns: "they / them",
+        pronouns: "They / Them",
         preferred_contact_method: 'cell phone',
         average_response_time_minutes: Faker::Number.between(from: 1, to: 60),
         level: 3
@@ -334,7 +332,7 @@ end
         title: Faker::Company.profession,
         team: teamMGMT,
         bio: Faker::Hipster.paragraph,
-        pronouns: "they / them",
+        pronouns: "They / Them",
         preferred_contact_method: 'cell phone',
         average_response_time_minutes: Faker::Number.between(from: 1, to: 60),
         level: 3
@@ -357,7 +355,7 @@ teamProd.save()
         title: Faker::Company.profession,
         team: teamRes,
         bio: Faker::Hipster.paragraph,
-        pronouns: "they / them",
+        pronouns: "They / Them",
         preferred_contact_method: 'cell phone',
         average_response_time_minutes: Faker::Number.between(from: 1, to: 60),
         level: 3
@@ -377,7 +375,7 @@ end
         title: Faker::Company.profession,
         team: teamMGMT,
         bio: Faker::Hipster.paragraph,
-        pronouns: "they / them",
+        pronouns: "They / Them",
         preferred_contact_method: 'cell phone',
         average_response_time_minutes: Faker::Number.between(from: 1, to: 60),
         level: 3
@@ -400,10 +398,10 @@ teamRes.save()
         title: Faker::Company.profession,
         team: teamMGMT,
         bio: Faker::Hipster.paragraph,
-        pronouns: "they / them",
+        pronouns: "They / Them",
         preferred_contact_method: 'cell phone',
         average_response_time_minutes: Faker::Number.between(from: 1, to: 60),
-        level: 3
+        level: 15
         )
 
 teamMGMT.manager_id = ceo.id

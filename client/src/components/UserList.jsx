@@ -33,10 +33,7 @@ export default function UserList(props)
 
     const fetchManyUsersById = async (userIds) =>
     {
-        console.log(props)
-        console.log(userIds)
         const res = await getManyUsersById(userIds)
-
         setUsers(res)
     }
 
@@ -48,7 +45,6 @@ export default function UserList(props)
 
     return (
         <>
-            <div className="font-poppins text-2xl text-center text-purple-700 uppercase py-6">People</div>
             {manager && (
                 <Link key={-1} to={`/users/${manager.id}`}>
                     <UserCard

@@ -1,51 +1,65 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { useHistory, Link } from 'react-router-dom'
+import Tap from 'react-interactions'
 
-// import { getUserByEmail } from '../services/APIHelper.js'
+import { getUserById, getTeamWithDetail, getManyUsersById } from '../services/APIHelper.js'
 import SearchBar from '../components/SearchBar'
+import DataDogLogo from '../assets/Icons/Datadog_Logo.png'
+import AvatarSmall from '../components/AvatarSmall'
+import DotLink from '../components/DotLink'
 
 export default function Home(props)
 {
   const history = useHistory()
+
+  const [team, setTeam] = useState(null)
+  const [recentChatsUsers, setRecentChatsUsers] = useState([])
+
+  const userId = localStorage.getItem('userId')
+  if (!userId)
+  {
+    history.push("/login")
+  }
+
+  useEffect(() =>
+  {
+    if (userId)
+    {
+      getData()
+    }
+  }, [])
+
+  const getData = async () =>
+  {
+    let newUser = await getUser(userId)
+    let newTeam = await getTeam(newUser.team_id)
+    // Hardcodec recent chats (same for all users)
+    let newChats = await getManyUsersById([1, 4, 5, 3, 10, 11, 3, 17])
+    setTeam(newTeam)
+    setRecentChatsUsers(newChats)
+  }
+
+  const getUser = async (id) =>
+  {
+    let newUser = await getUserById(id)
+    return newUser
+  }
+
+  const getTeam = async (id) =>
+  {
+    let newTeam = await getTeamWithDetail(id)
+    return newTeam
+  }
 
   return (
     <div className="flex flex-col items-center text-center bg-gray-100">
       <div className=" font-poppins my-6 text-purple-700 text-2xl uppercase">
         Home
       </div>
-      <div className="bg-purple-700 w-40 h-40">
-        Placeholder
+      <div className="w-48 pb-6">
+        <img className="w-48 ml-4" src={DataDogLogo} alt='logo'></img>
       </div>
-      <div className=" font-poppins mt-2 text-purple-700 text-4xl uppercase">
-        Datadog
-      </div>
-
-      {/* {!localStorage.getItem('userId') && (
-        <Formik
-          initialValues={{ email: '', password: '' }}
-          onSubmit={async (values, actions) =>
-          {
-            const userId = await getUserByEmail(values.email)
-            if (userId)
-            {
-              localStorage.setItem('userId', userId)
-              history.push('/')
-            } else
-            {
-              actions.resetForm()
-            }
-          }}
-        >
-          <Form id='login-container' className="flex flex-col mt-32">
-            <label>Email</label>
-            <Field type='email' name='email' placeholder="email@domain.com" className='bg-white border-2 border-purple-700 rounded-full w-3/4 p-4 mx-auto' />
-            <label>Password</label>
-            <Field type='password' name='password' placeholder="password" className='bg-white border-2 border-purple-700 rounded-full w-3/4 p-4 mx-auto mt-8' />
-            <button type='submit' className='bg-purple-700 text-white border-2 border-purple-700 rounded-full w-1/4 p-2 mx-auto mt-8'>Login</button>
-          </Form>
-        </Formik>
-      )} */}
 
       {localStorage.getItem('userId') && (
         <div className="w-full px-8">
@@ -56,37 +70,39 @@ export default function Home(props)
           <div className='mt-4'>
             <Link to='/teams' className='flex flex-row w-4/5 text-2xl font-roboto text-purple-700 mx-auto justify-between border-b-2 py-6'>
               <div className="font-bold">Departments</div>
-              <div>ICON</div>
+              <DotLink />
             </Link>
             <Link to='/teams' className='flex flex-row w-4/5 text-2xl font-roboto text-purple-700 mx-auto justify-between border-b-2 py-6'>
               <div className="font-bold">Teams</div>
-              <div>ICON</div>
+              <DotLink />
             </Link>
             <Link to='/users' className='flex flex-row w-4/5 text-2xl font-roboto text-purple-700 mx-auto justify-between border-b-2 py-6'>
               <div className="font-bold">People</div>
-              <div>ICON</div>
+              <DotLink />
             </Link>
           </div>
           <div className='text-2xl font-poppins my-8 text-purple-700'>Recent Chats</div>
-          <div className=" overflow-x-scroll">
+          <div className=" overflow-x-scroll h-32">
             <div className="inline-flex">
-              <div className="m-2 rounded-full w-20 h-20 bg-purple-700"></div>
-              <div className="m-2 rounded-full w-20 h-20 bg-purple-700"></div>
-              <div className="m-2 rounded-full w-20 h-20 bg-purple-700"></div>
-              <div className="m-2 rounded-full w-20 h-20 bg-purple-700"></div>
-              <div className="m-2 rounded-full w-20 h-20 bg-purple-700"></div>
-              <div className="m-2 rounded-full w-20 h-20 bg-purple-700"></div>
+              {recentChatsUsers.map((user, index) => (
+                <div key={index} className="m-2 rounded-full w-20">
+                  <Link to={`/rooms/${user.id}`}>
+                    <AvatarSmall className="object-cover object-top" user={user} />
+                  </Link>
+                </div>
+              ))}
             </div>
           </div>
           <div className='text-2xl font-poppins my-8 text-purple-700'>Your Team</div>
-          <div className=" overflow-x-scroll">
+          <div className=" overflow-x-scroll h-32">
             <div className="inline-flex">
-              <div className="m-2 rounded-full w-20 h-20 bg-purple-700"></div>
-              <div className="m-2 rounded-full w-20 h-20 bg-purple-700"></div>
-              <div className="m-2 rounded-full w-20 h-20 bg-purple-700"></div>
-              <div className="m-2 rounded-full w-20 h-20 bg-purple-700"></div>
-              <div className="m-2 rounded-full w-20 h-20 bg-purple-700"></div>
-              <div className="m-2 rounded-full w-20 h-20 bg-purple-700"></div>
+              {team && team.users.map((user, index) => (
+                <div key={index} className="m-2 rounded-full w-20 h-20">
+                  <Link to={`/users/${user.id}`}>
+                    <AvatarSmall className="w-20 h-20" user={user} />
+                  </Link>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -97,10 +113,11 @@ export default function Home(props)
         localStorage.removeItem('userId')
         history.push('/')
       }}
-        className='bg-purple-700 text-white border-2 border-purple-700 rounded-full w-1/4 p-2 mx-auto mt-8'
+        className='focus:outline-none bg-purple-700 text-white border-2 border-purple-700 rounded-full w-1/4 p-2 mx-auto mt-8'
       >
         Logout
-        </button>
+        <Tap scale waves fade />
+      </button>
     </div>
   )
 }

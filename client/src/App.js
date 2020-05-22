@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import { Switch, Route } from 'react-router-dom'
 
-
 import './css/style.css'
+import 'react-interactions/dist/main.css'
+
 import Nav from './components/Nav'
 import Home from './pages/Home'
 import SearchResults from './pages/SearchResults'
@@ -27,13 +28,14 @@ const App = () =>
 {
   const [searchResults, setSearchResults] = useState([])
 
+
   return (
     <div className='mb-32'>
       <Switch>
-        <Route exact path="/" render={(props) => (<Home {...props} />)} />
+        <Route exact path="/" render={(props) => (<Home {...props} setSearchResults={setSearchResults} />)} />
         <Route exact path="/login" render={(props) => (<Login {...props} />)} />
         <Route exact path="/results" render={(props) => (
-          <SearchResults {...props} searchResults={searchResults} setSearchResults={setSearchResults} />
+          <SearchResults {...props} searchResults={searchResults}/>
         )} />
         <Route exact path="/teams/" render={(props) => (<TeamList {...props} />)} />
         <Route exact path="/teams/:id" render={(props) => (<Team {...props} />)} />
@@ -49,7 +51,13 @@ const App = () =>
         {/* Catch all route below incase things go awry */}
         <Route path="/" render={(props) => (<FourNaughtFour {...props} />)} />
       </Switch>
-      <Nav setSearchResults={setSearchResults} />
+
+      {/* Don't show the nav bar on the login page */}
+      <Switch>
+        <Route exact path="/login" />
+        <Route exact path="/rooms/:id" />
+        <Route path="/" render={(props) => (<Nav {...props} setSearchResults={setSearchResults} />)} />
+      </Switch>
     </div>
   )
 }
