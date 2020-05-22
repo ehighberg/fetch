@@ -1,9 +1,8 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 
-export default function ProfileNav(props) {
-
-    console.log(props.user)
+export default function ProfileNav(props)
+{
 
     let dotStyle = 'bg-transparent border rounded-full hover:bg-white w-4 h-4'
 

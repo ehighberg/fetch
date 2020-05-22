@@ -11,8 +11,6 @@ import ProfileNav from '../components/ProfileNav'
 export default function UserProfile(props)
 {
 
-    console.log(props)
-
     const userId = props.match.params.id
 
     const [user, setUser] = useState([])
