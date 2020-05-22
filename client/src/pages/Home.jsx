@@ -87,7 +87,7 @@ export default function Home(props)
           <div className=" overflow-x-scroll h-32">
             <div className="inline-flex">
               {recentChatsUsers.map((user, index) => (
-                <div key={index} className="m-2 rounded-full w-20">
+                <div key={index} className="my-2 mx-3 rounded-full w-20 h-20">
                   <Link to={`/rooms/${user.id}`}>
                     <AvatarSmall className="object-cover object-top" user={user} />
                   </Link>
@@ -99,7 +99,7 @@ export default function Home(props)
           <div className=" overflow-x-scroll h-32">
             <div className="inline-flex">
               {team && team.users.map((user, index) => (
-                <div key={index} className="m-2 rounded-full w-20 h-20">
+                <div key={index} className="my-2 mx-3 rounded-full w-20 h-20">
                   <Link to={`/users/${user.id}`}>
                     <AvatarSmall className="w-20 h-20" user={user} />
                   </Link>
