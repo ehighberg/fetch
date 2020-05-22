@@ -18,5 +18,11 @@
   box-shadow: 4px 4px 24px rgba(0, 0, 0, .4);
 }
 
+.dots {
+    width: 4px;
+    height: 4px;
+    border-radius: 100%;
+}
+
 /* purgecss end ignore */
 @tailwind utilities;

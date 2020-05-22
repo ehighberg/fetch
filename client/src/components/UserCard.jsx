@@ -1,5 +1,6 @@
 import React from 'react'
 import Presence from './Presence'
+import DotLink from './DotLink'
 
 export default function UserCard(props)
 {
@@ -28,11 +29,7 @@ export default function UserCard(props)
                 <div>{user.pronouns}</div>
             </div>
 
-            <div className='flex flex-row justify-evenly m-6'>
-                <div className='h-2 w-2 border border-purple-700 rounded-full m-1 bg-gray-400'></div>
-                <div className='h-2 w-2 border border-purple-700 rounded-full m-1 bg-gray-400'></div>
-                <div className='h-2 w-2 border border-purple-700 rounded-full m-1 bg-gray-400'></div>
-            </div>
+            <DotLink />
         </div>
     )
 }
