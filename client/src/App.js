@@ -54,6 +54,7 @@ const App = () =>
       {/* Don't show the nav bar on the login page */}
       <Switch>
         <Route exact path="/login" />
+        <Route exact path="/rooms/:id" />
         <Route path="/" render={(props) => (<Nav {...props} setSearchResults={setSearchResults} />)} />
       </Switch>
     </div>

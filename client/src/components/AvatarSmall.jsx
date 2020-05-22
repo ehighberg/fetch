@@ -9,7 +9,7 @@ export default function AvatarSmall(props)
     return (
         <>
             <div className='mx-auto'>
-                <div className='w-2 h-2'>
+                <div className='w-2 h-2 -mr-3 -mb-3'>
                     <Presence presence={user.presence} />
                 </div>
                 <div className={`w-20 h-20 rounded-full border overflow-hidden ${manager ? 'border-purple-700' : 'border-yellow-400'}`}>
