@@ -1,4 +1,6 @@
 import React from 'react'
+import 'react-interactions/dist/main.css'
+import Tap from 'react-interactions'
 
 export default function Interests(props) {
 
@@ -9,15 +11,19 @@ export default function Interests(props) {
             <div className='flex flex-row justify-evenly w-11/12 mx-auto mt-4 mb-6'>
                 <div className='w-20'>
                     <img src={require('../assets/Icons/Travel.png')} alt='interest travel' />
+                    <Tap scale waves light />
                 </div>
                 <div className='w-20'>
                     <img src={require('../assets/Icons/Pets.png')} alt='interest animals' />
+                    <Tap scale waves light />
                 </div>
                 <div className='w-20'>
                     <img src={require('../assets/Icons/Soccer.png')} alt='interest sports' />
+                    <Tap scale waves light />
                 </div>
                 <div className='w-20'>
                     <img className='w-full' src={require('../assets/Icons/Email.png')} alt='interest mail' />
+                    <Tap scale waves light />
                 </div>
             </div>
 
