@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import 'react-interactions/dist/main.css'
 import Tap from 'react-interactions'
 
 export default function Contact(props) {

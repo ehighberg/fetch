@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
 import { useHistory, Link } from 'react-router-dom'
+import Tap from 'react-interactions'
 
 import { getUserById, getTeamWithDetail, getManyUsersById } from '../services/APIHelper.js'
 import SearchBar from '../components/SearchBar'
@@ -115,10 +116,11 @@ export default function Home(props)
         localStorage.removeItem('userId')
         history.push('/')
       }}
-        className='bg-purple-700 text-white border-2 border-purple-700 rounded-full w-1/4 p-2 mx-auto mt-8'
+        className='focus:outline-none bg-purple-700 text-white border-2 border-purple-700 rounded-full w-1/4 p-2 mx-auto mt-8'
       >
         Logout
-        </button>
+        <Tap scale waves fade />
+      </button>
     </div>
   )
 }
