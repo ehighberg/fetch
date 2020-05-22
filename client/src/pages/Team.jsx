@@ -18,10 +18,9 @@ export default function Team(props)
     {
         let teamWithDetailsResponse = await getTeamWithDetail(id)
         setTeamDetail(teamWithDetailsResponse)
-        console.log(teamWithDetailsResponse)
+
         let x = teamWithDetailsResponse.users.map((user) => (user.id))
         setUserIds(x)
-        console.log(teamDetail.manager && teamDetail.manager.id)
     }
 
     return (

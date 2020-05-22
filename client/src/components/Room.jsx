@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import PostList from './PostList'
 import PostForm from './PostForm'
 import AvatarSmall from '../components/AvatarSmall'

@@ -25,7 +25,6 @@ export default function Login(props)
                     if (userId)
                     {
                         localStorage.setItem('userId', userId)
-                        console.log(userId)
                         history.push('/')
                     } else
                     {

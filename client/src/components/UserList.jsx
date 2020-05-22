@@ -33,10 +33,7 @@ export default function UserList(props)
 
     const fetchManyUsersById = async (userIds) =>
     {
-        console.log(props)
-        console.log(userIds)
         const res = await getManyUsersById(userIds)
-
         setUsers(res)
     }
 
