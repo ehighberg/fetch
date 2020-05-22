@@ -3,9 +3,7 @@ import Presence from './Presence'
 
 export default function Avatar(props)
 {
-
     let user = props.user
-
 
     return (
         <div className='mt-16'>
