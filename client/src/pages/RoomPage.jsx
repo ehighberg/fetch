@@ -25,7 +25,6 @@ export default function RoomPage(props)
         let singleRoomWithDetailsResponse = await getRoomWithDetail(id)
         // Room id and user id are aligned
         let newUser = await getUserById(id)
-        console.log(newUser)
         setRoomDetail(singleRoomWithDetailsResponse)
         setUser(newUser)
     }

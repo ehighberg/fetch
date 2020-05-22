@@ -33,7 +33,7 @@ export default function PostForm(props)
                 >
                     <Form className="flex justify-end w-full text-gray-800">
                         <Field className="w-9/12 p-2 rounded-lg mr-2" name="content" placeholder="Say something kind..." />
-                        <button className="w-1/10 p-2 text-center bg-blue-200 rounded" type='submit'>Send</button>
+                        <button className="w-1/10 p-2 text-center bg-yellow-400 rounded" type='submit'>Send</button>
                     </Form>
                 </Formik>
             </nav>

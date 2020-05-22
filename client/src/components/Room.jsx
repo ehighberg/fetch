@@ -13,10 +13,10 @@ export default function Room(props)
         <div className="">
             <div className="flex items-center justify-center h-24">
                 <div>{user ? <AvatarSmall user={user} /> : ""}</div>
-                <div className="font-poppins text-2xl text-center text-purple-700 uppercase">{name ? name : "Room"}</div>
+                <div className="font-poppins pl-4 text-2xl text-center text-purple-700 uppercase">{name ? name : "Room"}</div>
             </div>
             <div className="text-xs">
-                {posts ? <PostList posts={posts}/> : "Loading..."}
+                {posts ? <PostList posts={posts} /> : "Loading..."}
             </div>
             <div>
                 <PostForm roomId={id} />
