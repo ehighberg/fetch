@@ -34,12 +34,12 @@ export default function Login(props)
                     {/* <label>Email</label> */}
                     <Field type='email' name='email' placeholder="email@domain.com"
                         // className='bg-white border-2 border-purple-700 rounded-full w-3/4 p-4 mx-auto'
-                        className=' bg-purple-700 w-3/4 mt-20 border-b'
+                        className=' bg-purple-700 w-3/4 mt-20 border-b text-white'
                     />
                     {/* <label>Password</label> */}
                     <Field type='password' name='password' placeholder="password"
                         // className='bg-white border-2 border-purple-700 rounded-full w-3/4 p-4 mx-auto mt-8'
-                        className=' bg-purple-700 w-3/4 mt-20 border-b'
+                        className=' bg-purple-700 w-3/4 mt-20 border-b text-white'
                     />
                     <button type='submit'
                         className='bg-white w-3/4 text-purple-700 border-2 border-purple-700 rounded-lg py-8 mx-auto my-8'>Login</button>
