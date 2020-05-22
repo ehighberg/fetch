@@ -29,7 +29,10 @@ export default function SearchBar(props)
     return availableSearchTypes.map((searchType, index) =>
     {
       return (
-        <option key={index} value={searchType}>
+          <option
+              key={index}
+              value={searchType}
+          >
           {searchType}
         </option>
       )
@@ -42,8 +45,11 @@ export default function SearchBar(props)
       onSubmit={gotoSearchResults}
     >
       <Form>
-        <label>Search By:</label>
-        <Field as='select' name='searchType'>
+        <Field 
+            as='select' 
+            name='searchType'
+            className='focus:outline-none bg-transparent text-gray-700'
+        >
           {generateOptions()}
         </Field>
               
@@ -52,6 +58,7 @@ export default function SearchBar(props)
                 type='input'
                 name='query'
                 placeholder='Alex, HR, Bio'
+                className='text-gray-700'
             />
             <div id='search'></div>
         </div>

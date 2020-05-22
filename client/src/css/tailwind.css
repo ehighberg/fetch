@@ -103,8 +103,6 @@
     transition: all 1s;
     opacity: 0;
     z-index: 5;
-    font-weight: bolder;
-    letter-spacing: 0.1em;
 }
 
 #container input:focus {
