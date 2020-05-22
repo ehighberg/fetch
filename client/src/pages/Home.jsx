@@ -6,6 +6,7 @@ import { getUserById, getTeamWithDetail, getManyUsersById } from '../services/AP
 import SearchBar from '../components/SearchBar'
 import DataDogLogo from '../assets/Icons/Datadog_Logo.png'
 import AvatarSmall from '../components/AvatarSmall'
+import DotLink from '../components/DotLink'
 
 export default function Home(props)
 {
@@ -71,33 +72,37 @@ export default function Home(props)
           <div className='mt-4'>
             <Link to='/teams' className='flex flex-row w-4/5 text-2xl font-roboto text-purple-700 mx-auto justify-between border-b-2 py-6'>
               <div className="font-bold">Departments</div>
-              <div>ICON</div>
+              <DotLink />
             </Link>
             <Link to='/teams' className='flex flex-row w-4/5 text-2xl font-roboto text-purple-700 mx-auto justify-between border-b-2 py-6'>
               <div className="font-bold">Teams</div>
-              <div>ICON</div>
+              <DotLink />
             </Link>
             <Link to='/users' className='flex flex-row w-4/5 text-2xl font-roboto text-purple-700 mx-auto justify-between border-b-2 py-6'>
               <div className="font-bold">People</div>
-              <div>ICON</div>
+              <DotLink />
             </Link>
           </div>
           <div className='text-2xl font-poppins my-8 text-purple-700'>Recent Chats</div>
-          <div className=" overflow-x-scroll">
+          <div className=" overflow-x-scroll h-32">
             <div className="inline-flex">
               {recentChatsUsers.map((user, index) => (
                 <div key={index} className="m-2 rounded-full w-20">
-                  <AvatarSmall className="object-cover object-top" user={user} />
+                  <Link to={`/rooms/${user.id}`}>
+                    <AvatarSmall className="object-cover object-top" user={user} />
+                  </Link>
                 </div>
               ))}
             </div>
           </div>
           <div className='text-2xl font-poppins my-8 text-purple-700'>Your Team</div>
-          <div className=" overflow-x-scroll">
+          <div className=" overflow-x-scroll h-32">
             <div className="inline-flex">
               {team && team.users.map((user, index) => (
                 <div key={index} className="m-2 rounded-full w-20 h-20">
-                  <AvatarSmall className="w-20 h-20" user={user} />
+                  <Link to={`/users/${user.id}`}>
+                    <AvatarSmall className="w-20 h-20" user={user} />
+                  </Link>
                 </div>
               ))}
             </div>
