@@ -35,7 +35,7 @@ export default function Home(props)
     let newUser = await getUser(userId)
     let newTeam = await getTeam(newUser.team_id)
     // Hardcodec recent chats (same for all users)
-    let newChats = await getManyUsersById([1, 4, 2, 5, 3, 10, 11, 3, 17])
+    let newChats = await getManyUsersById([1, 4, 5, 3, 10, 11, 3, 17])
     setTeam(newTeam)
     setRecentChatsUsers(newChats)
   }
