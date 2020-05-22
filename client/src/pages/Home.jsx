@@ -21,7 +21,6 @@ export default function Home(props)
     history.push("/login")
   }
 
-
   useEffect(() =>
   {
     if (userId)
@@ -52,15 +51,13 @@ export default function Home(props)
     return newTeam
   }
 
-
-
   return (
     <div className="flex flex-col items-center text-center bg-gray-100">
       <div className=" font-poppins my-6 text-purple-700 text-2xl uppercase">
         Home
       </div>
-      <div className="w-48">
-        <img src={DataDogLogo} alt='logo'></img>
+      <div className="w-48 pb-6">
+        <img className="w-48 ml-4" src={DataDogLogo} alt='logo'></img>
       </div>
 
       {localStorage.getItem('userId') && (
