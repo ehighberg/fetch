@@ -25,16 +25,7 @@ export default function Home(props)
 
   useEffect(() =>
   {
-    // userId = localStorage.getItem('userId')
-    if (!userId)
-    {
-      history.push("/login")
-    }
-    else
-    {
-      getData()
-    }
-
+    getData()
   }, [])
 
   const getData = async () =>
