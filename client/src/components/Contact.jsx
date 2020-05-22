@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import 'react-interactions/dist/main.css'
 import Tap from 'react-interactions'
 
@@ -12,10 +13,10 @@ export default function Contact(props) {
 
             <div className='my-4'>Contact message...</div>
             <div className='font-bold text-purple-700 text-lg mb-6'>Prefers {user.preferred_contact_method}</div>
-            <div>
+            <Link to={`/rooms/${user.id}`}>
                 <img className='mx-auto mb-4' src={require('../assets/Icons/Chat.png')} alt='contact chat' />
                 <Tap scale waves light />
-            </div>
+            </Link>
 
             <div className='font-bold text-purple-700 text-lg mb-6'>Average response time: {user.average_response_time_minutes} minutes</div>
 
@@ -24,10 +25,10 @@ export default function Contact(props) {
                     <img src={require('../assets/Icons/Phone.png')} alt={`Phone: ${user.phone}`} />
                     <Tap scale waves light />
                 </div>
-                <div>
+                <Link to={`/rooms/${user.id}`}>
                     <img src={require('../assets/Icons/Chat.png')} alt={`Chat: (room)`} />
                     <Tap scale waves light />
-                </div>
+                </Link>
                 <div>
                     <img src={require('../assets/Icons/Video.png')} alt={`Slack: ${user.slack}`} />
                     <Tap scale waves light />
@@ -35,7 +36,7 @@ export default function Contact(props) {
                 <div>
                     <img src={require('../assets/Icons/Email.png')} alt={`Email: ${user.email}`} />
                     <Tap scale waves light />
-                </div>                
+                </div>
             </div>
 
             <div id='border' className='w-1/2 mx-auto h-px bg-gray-500'></div>
@@ -53,9 +54,23 @@ export default function Contact(props) {
 
             <div className='mx-12 my-3 p-4'>
                 <div className='font-bold text-purple-700 text-lg mb-4'>Looking for something simple?</div>
-                <div className='w-32 rounded-full text-white p-2 bg-yellow-400'>
-                    Tags
-                    <Tap scale waves light /> 
+                <div className='grid grid-cols-2'>
+                  <div className='w-32 rounded-full text-white p-2 bg-yellow-400 mb-4'>
+                    Saphire
+                    <Tap scale waves light />
+                  </div>
+                  <div className='w-32 rounded-full text-white p-2 bg-yellow-400 mb-4'>
+                    Ruby
+                    <Tap scale waves light />
+                  </div>
+                  <div className='w-32 rounded-full text-white p-2 bg-yellow-400'>
+                    SaaS Products
+                    <Tap scale waves light />
+                  </div>
+                  <div className='w-32 rounded-full text-white p-2 bg-yellow-400'>
+                    Timeline
+                    <Tap scale waves light />
+                  </div>
                 </div>
             </div>
 

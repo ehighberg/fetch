@@ -83,7 +83,7 @@ teamEng.manager_id = anna.id
 teamEng.save()
 
 anna_to_jason_dm_room = Room.create(
-    name: "Room #{anna.name}"
+    name: "#{anna.name}"
 )
 
 jason = User.create(
@@ -106,7 +106,7 @@ jason = User.create(
 )
 
 room2 = Room.create(
-    name: "Room #{jason.name}"
+    name: "#{jason.name}"
 )
 
 
@@ -130,7 +130,7 @@ julia = User.create(
 )
 
 julia_to_sam_dm_room = Room.create(
-    name: "Room #{julia.name}"
+    name: "#{julia.name}"
 )
 
 sam = User.create(
@@ -153,7 +153,7 @@ sam = User.create(
 )
 
 room4 = Room.create(
-    name: "Room #{sam.name}"
+    name: "#{sam.name}"
 )
 
 conner = User.create(
@@ -176,7 +176,7 @@ conner = User.create(
 )
 
 room5 = Room.create(
-    name: "Room #{conner.name}"
+    name: "#{conner.name}"
 )
 
 post1 = Post.create(
