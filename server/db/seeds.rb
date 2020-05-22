@@ -190,12 +190,12 @@ post1 = Post.create(
         content: Faker::Hipster.sentence,
         room: anna_to_jason_dm_room,
         user: anna
-    )    
+    )
     Post.create(
         content: Faker::Hipster.sentence,
         room: anna_to_jason_dm_room,
         user: jason
-    ) 
+    )
 end
 
 20.times do
@@ -203,12 +203,12 @@ end
         content: Faker::Hipster.sentence,
         room: julia_to_sam_dm_room,
         user: julia
-    )    
+    )
     Post.create(
         content: Faker::Hipster.sentence,
         room: julia_to_sam_dm_room,
         user: sam
-    ) 
+    )
 end
 
 
@@ -226,7 +226,7 @@ end
         title: Faker::Company.profession,
         team: teamAdmin,
         bio: Faker::Hipster.paragraph,
-        pronouns: "they / them",
+        pronouns: "They / Them",
         preferred_contact_method: 'cell phone',
         average_response_time_minutes: Faker::Number.between(from: 1, to: 60),
         level: 3
@@ -246,7 +246,7 @@ end
         title: Faker::Company.profession,
         team: teamMGMT,
         bio: Faker::Hipster.paragraph,
-        pronouns: "they / them",
+        pronouns: "They / Them",
         preferred_contact_method: 'cell phone',
         average_response_time_minutes: Faker::Number.between(from: 1, to: 60),
         level: 3
@@ -269,7 +269,7 @@ teamAdmin.save()
         title: Faker::Company.profession,
         team: teamHR,
         bio: Faker::Hipster.paragraph,
-        pronouns: "they / them",
+        pronouns: "They / Them",
         preferred_contact_method: 'cell phone',
         average_response_time_minutes: Faker::Number.between(from: 1, to: 60),
         level: 3
@@ -289,7 +289,7 @@ end
         title: Faker::Company.profession,
         team: teamMGMT,
         bio: Faker::Hipster.paragraph,
-        pronouns: "they / them",
+        pronouns: "They / Them",
         preferred_contact_method: 'cell phone',
         average_response_time_minutes: Faker::Number.between(from: 1, to: 60),
         level: 3
@@ -312,7 +312,7 @@ teamHR.save()
         title: Faker::Company.profession,
         team: teamProd,
         bio: Faker::Hipster.paragraph,
-        pronouns: "they / them",
+        pronouns: "They / Them",
         preferred_contact_method: 'cell phone',
         average_response_time_minutes: Faker::Number.between(from: 1, to: 60),
         level: 3
@@ -332,7 +332,7 @@ end
         title: Faker::Company.profession,
         team: teamMGMT,
         bio: Faker::Hipster.paragraph,
-        pronouns: "they / them",
+        pronouns: "They / Them",
         preferred_contact_method: 'cell phone',
         average_response_time_minutes: Faker::Number.between(from: 1, to: 60),
         level: 3
@@ -355,7 +355,7 @@ teamProd.save()
         title: Faker::Company.profession,
         team: teamRes,
         bio: Faker::Hipster.paragraph,
-        pronouns: "they / them",
+        pronouns: "They / Them",
         preferred_contact_method: 'cell phone',
         average_response_time_minutes: Faker::Number.between(from: 1, to: 60),
         level: 3
@@ -375,7 +375,7 @@ end
         title: Faker::Company.profession,
         team: teamMGMT,
         bio: Faker::Hipster.paragraph,
-        pronouns: "they / them",
+        pronouns: "They / Them",
         preferred_contact_method: 'cell phone',
         average_response_time_minutes: Faker::Number.between(from: 1, to: 60),
         level: 3
@@ -398,7 +398,7 @@ teamRes.save()
         title: Faker::Company.profession,
         team: teamMGMT,
         bio: Faker::Hipster.paragraph,
-        pronouns: "they / them",
+        pronouns: "They / Them",
         preferred_contact_method: 'cell phone',
         average_response_time_minutes: Faker::Number.between(from: 1, to: 60),
         level: 15

@@ -5,7 +5,6 @@ export default function AvatarSmall(props)
 {
     let user = props.user
     let manager = props.manager
-    let width = props.width
 
     return (
         <>

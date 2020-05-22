@@ -19,16 +19,13 @@ export default function UserCard(props)
                 />
             </div>
             <div className="mr-4">
-                {/* <div className={`p-1 rounded-full ${manager ? 'bg-purple-700' : 'bg-yellow-400'}`}>
-                    <img className='rounded-full w-32' src={user.avatar}></img>
-                </div> */}
                 <div className={`w-20 h-20 rounded-full border overflow-hidden ${manager ? 'border-purple-700' : 'border-yellow-400'}`}>
                     <img className='w-20 object-cover object-top  rounded-full' src={user.avatar}></img>
                 </div>
             </div>
             <div className='m-0 w-full'>
                 <div className=' font-roboto font-medium text-purple-700 text-lg'>{user.name}</div>
-                <div>{user.title}</div>
+                <div className='capitalize'>{user.title}</div>
                 <div>{user.pronouns}</div>
             </div>
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { useHistory, Link } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import { Formik, Form, Field } from 'formik'
 import { getUserByEmail } from '../services/APIHelper.js'
 import DataDogLogo from '../assets/Icons/DD_white.png'
@@ -35,10 +35,12 @@ export default function Login(props)
             >
                 <Form id='login-container' className="flex flex-col w-4/5 items-center border-2 border-white rounded-lg mt-8">
                     <Field type='email' name='email' placeholder="email@domain.com"
-                        className=' bg-purple-700 w-3/4 mt-20 border-b'
+                        className=' bg-purple-700 w-3/4 mt-20 border-b text-white'
+
                     />
                     <Field type='password' name='password' placeholder="password"
-                        className=' bg-purple-700 w-3/4 mt-20 border-b'
+
+                        className=' bg-purple-700 w-3/4 mt-20 border-b text-white'
                     />
                     <button type='submit'
                         className='bg-white w-3/4 text-purple-700 border-2 border-purple-700 rounded-lg py-8 mx-auto my-8'>Login</button>
