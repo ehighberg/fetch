@@ -29,10 +29,10 @@ const App = () =>
   return (
     <div className='mb-32'>
       <Switch>
-        <Route exact path="/" render={(props) => (<Home {...props} />)} />
+        <Route exact path="/" render={(props) => (<Home {...props} setSearchResults={setSearchResults} />)} />
         <Route exact path="/login" render={(props) => (<Login {...props} />)} />
         <Route exact path="/results" render={(props) => (
-          <SearchResults {...props} searchResults={searchResults} setSearchResults={setSearchResults} />
+          <SearchResults {...props} searchResults={searchResults}/>
         )} />
         <Route exact path="/teams/" render={(props) => (<TeamList {...props} />)} />
         <Route exact path="/teams/:id" render={(props) => (<Team {...props} />)} />

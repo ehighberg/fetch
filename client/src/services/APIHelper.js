@@ -112,6 +112,8 @@ export const getUserById = async (user_id) =>
 
 export const getUsersByFieldAndQuery = async (searchType, query) =>
 {
+  query = query.toLowerCase()
+  searchType = searchType.toLowerCase()
   try
   {
     const users = await getAllUsers()
@@ -121,20 +123,20 @@ export const getUsersByFieldAndQuery = async (searchType, query) =>
       case 'tag':
         return users.filter(user =>
         {
-          const userTags = user.tags.map(tag => tag.name)
+          const userTags = user.tags.map(tag => tag.name.toLowerCase())
           return userTags.includes(query)
         })
 
       case 'team':
         return users.filter(user =>
         {
-          return user.team.name.includes(query)
+          return user.team.name.toLowerCase().includes(query)
         })
 
       default:
         return users.filter(user =>
         {
-          return user[searchType].includes(query)
+          return user[searchType].toLowerCase().includes(query)
         })
     }
 
