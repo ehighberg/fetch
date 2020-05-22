@@ -90,7 +90,10 @@ example), as well as look up contact information for specific people.
 | SearchResults | Display results of search. |
 | Team | Display members of a team. |
 | TeamList | Display all teams and their team leaders. |
-| UserProfile | Display profile information for a single user. |
+| UserProfile | Display status updats and contact info for a single user. |
+| UserProfilePage2 | Display bio, interests, and social activity for a single user. |
+| UserProfilePage3 | Display pictures for a single user. |
+| UserProfilePage4 | Display Essence for a single user. |
 
 | Component | Description                                               |
 | :----------: | :----------------------------------------------------: |
