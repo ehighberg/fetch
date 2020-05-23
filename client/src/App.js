@@ -27,15 +27,12 @@ let cable = ActionCable.createConsumer(wsUrl)
 const App = (props) =>
 {
   const [searchResults, setSearchResults] = useState([])
-  console.log(props.location.pathname)
-  let locationLogin = props.location.pathname === '/login'
-  console.log(locationLogin)
-
+  let locationLoginTrue = props.location.pathname === '/login'
 
   return (
     <div className="iphone-size bg-white min-h-screen">
       {/* Don't add padding bottom 32 if you are on the login route */}
-      <div className={locationLogin ? '' : 'pb-32'}>
+      <div className={locationLoginTrue ? '' : 'pb-32'}>
         <Switch>
           <Route exact path="/" render={(props) => (<Home {...props} setSearchResults={setSearchResults} />)} />
           <Route exact path="/login" render={(props) => (<Login {...props} />)} />
