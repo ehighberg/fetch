@@ -1,14 +1,19 @@
 import React from 'react'
 
+
 import UserCard from '../components/UserCard'
+import { Link } from 'react-router-dom'
 
 export default function SearchResults(props)
 {
     return (
-        <div>
-            {props.searchResults.map((user, index) => {
-              return <UserCard key={index} user={user} />
-            })}
+        <div className="">
+            {props.searchResults.map((user, index) =>
+                (
+                    <Link key={index} to={`/users/${user.id}`}>
+                        <UserCard key={index} user={user} />
+                    </Link>
+                ))}
         </div>
     )
 }
