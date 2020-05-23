@@ -33,8 +33,8 @@ const App = (props) =>
 
 
   return (
-    <div className="iphone-size bg-white">
-      {/* Don't add margin bottom 32 if you are on the login route */}
+    <div className="iphone-size bg-white min-h-screen">
+      {/* Don't add padding bottom 32 if you are on the login route */}
       <div className={locationLogin ? '' : 'pb-32'}>
         <Switch>
           <Route exact path="/" render={(props) => (<Home {...props} setSearchResults={setSearchResults} />)} />
