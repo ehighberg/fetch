@@ -9,6 +9,10 @@
   transition: 0.1s;
 }
 
+body{
+    @apply bg-gray-800;
+}
+
 .purple-gradient {
   background: rgb(99,44,166);
   background: linear-gradient(321deg, rgba(99,44,166,1) 0%, rgba(243,238,248,1) 100%, rgba(255,255,255,1) 100%);
@@ -132,6 +136,16 @@
     background: white;
     border-radius: 0%;
     transform: rotate(-45deg);
+}
+
+.iphone-size {
+  z-index: 2;
+  width: 414px;
+  margin: auto;
+  background-color: var(--white);
+  /* box-shadow: 0 0 10px black; */
+  @apply my-box-shadow;
+  opacity: 1;
 }
 
 /* purgecss end ignore */
