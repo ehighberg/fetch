@@ -642,8 +642,8 @@ body{
 
 #container {
   position: absolute;
-  margin: auto;
-  top: 0;
+  margin: 0 auto auto;
+  top: 418px;
   left: 0;
   right: 0;
   bottom: 0;
