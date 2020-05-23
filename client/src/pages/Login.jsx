@@ -10,7 +10,7 @@ export default function Login(props)
     const history = useHistory()
 
     return (
-        <div className="bg-purple-700 h-screen flex flex-col items-center">
+        <div className="bg-purple-700 pb-12 flex flex-col items-center">
 
             <div className="font-poppins text-white uppercase text-center mt-24 mb-8">
                 <img className="w-48 ml-6" src={DataDogLogo}></img>

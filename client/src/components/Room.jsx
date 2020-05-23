@@ -10,12 +10,12 @@ export default function Room(props)
     const { user } = props
 
     return (
-        <div className="">
-            <div className="flex items-center justify-center h-24">
+        <div className=" min-h-screen">
+            <div className="flex items-center justify-center h-24 fixed iphone-size bg-white">
                 <div>{user ? <AvatarSmall user={user} /> : ""}</div>
                 <div className="font-poppins pl-4 text-2xl text-center text-purple-700 uppercase">{name ? name : "Room"}</div>
             </div>
-            <div className="text-xs">
+            <div className="text-xs pt-24">
                 {posts ? <PostList posts={posts} /> : "Loading..."}
             </div>
             <div>

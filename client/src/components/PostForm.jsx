@@ -11,7 +11,7 @@ export default function PostForm(props)
 
     return (
         <>
-            <nav className='bg-purple-700 text-white flex flex-row justify-between p-3 fixed bottom-0 w-screen my-box-shadow'>
+            <nav className='iphone-size bg-purple-700 text-white flex flex-row justify-between p-3 fixed bottom-0 my-box-shadow'>
                 <button onClick={() => history.goBack()}>
                     <img src={require('../assets/Icons/Vector-2.png')} alt='back button' />
                 </button>

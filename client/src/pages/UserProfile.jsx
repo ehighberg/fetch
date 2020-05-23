@@ -33,7 +33,7 @@ export default function UserProfile(props)
 
     return (
 
-        <div {...handlers} className='text-center w-screen'>
+        <div {...handlers} className='text-center w-full'>
             <div className='text-3xl font-poppins text-purple-700 p-6 font-bold'>PROFILE DETAILS</div>
             <div className='purple-gradient py-4 shadow-xl'>
                 <ProfileNav user={user} />
