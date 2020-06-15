@@ -13,11 +13,11 @@ export default function Login(props)
         <div className="bg-purple-700 pb-12 flex flex-col items-center">
 
             <div className="font-poppins text-white uppercase text-center mt-24 mb-8">
-                <img className="w-48 ml-6" src={DataDogLogo}></img>
+                <img className="w-48 ml-6" src={DataDogLogo} alt='logo'></img>
             </div>
 
             <Formik
-                initialValues={{ email: '', password: '' }}
+                initialValues={{ email: 'sam@company.com', password: 'password' }}
                 onSubmit={async (values, actions) =>
                 {
                     const userId = await getUserByEmail(values.email)
