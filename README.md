@@ -5,17 +5,14 @@
   - [Team](#Team)
   - [Problem Statement](#Problem-Statement)
   - [MVP](#MVP)
-    - [MVP Goals](#MVP-Goals)
-    - [MVP Libraries](#MVP-Libraries)
     - [MVP Client (Front End)](#MVP-Client-Front-End)
       - [Wireframes](#Wireframes)
       - [Component Hierarchy](#Component-Hierarchy)
       - [Component Breakdown](#Component-Breakdown)
     - [MVP Server (Back End)](#MVP-Server-Back-End)
       - [ERD Model](#ERD-Model)
-    - [Data Flow](#Data-Flow)
+      - [Data Flow](#Data-Flow)
   - [Post-MVP](#Post-MVP)
-  - [Code Showcase](#Code-Showcase)
   - [Code Issues & Resolutions](#Code-Issues--Resolutions)
 
 
